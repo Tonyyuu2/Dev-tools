@@ -1,4 +1,4 @@
-import WriteHelperTool from "./writingTool/WriteHelperTool";
+import WriteHelperTool from "../readmeHelper/WriteHelperTool";
 import styles from "./Break.module.css"
 
 const Break = () => {
