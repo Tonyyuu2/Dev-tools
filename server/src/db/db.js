@@ -8,3 +8,5 @@ const config = {
   port: process.env.PORT
   }
 const pool = new Pool(config);
+
+module.exports = pool;
