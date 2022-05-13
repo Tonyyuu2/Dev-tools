@@ -1,0 +1,81 @@
+.header{
+  height: 100px;
+  width: 100%;
+  background-color : #E9EEF6;
+  padding-top: 5px;
+}
+
+.cardContainer{
+  height: 300px;
+  width: 300px;
+  box-shadow: 0px 3px 50px #A5A5A5;
+}
+
+.cardWrapper{
+  width: 270px; 
+  height: 120px; 
+  box-shadow: 0px 3px 50px #A5A5A5;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  background-color: aqua;
+}
+
+.cardTop{
+  width: 100%;
+  height: 2%;
+}
+
+.taskHolder{
+  width: 100%;
+  height: 98%;
+  padding: 10px 10px;
+  display : flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.cardHeader{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 80px;
+  height: 30px;
+  padding: 1px 1px !important;
+  text-align: center;
+}
+
+.taskContainer{
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding : 40px 100px;
+}
+
+.cardTitle{
+  color: rgb(62, 59, 59);
+  font-size: 20px;
+  font-style: normal;
+  text-align: center;
+}
+
+.col {
+  width: 500px;
+  margin-left: auto;
+  background-color: antiquewhite;
+  margin: 0 1em 0 1em;
+
+}
+
+.colContainer {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  margin-top: 2em;
+}
