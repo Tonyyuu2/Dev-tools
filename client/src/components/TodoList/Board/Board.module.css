@@ -1,0 +1,8 @@
+.card {
+  margin: 1em;
+  margin-top: 2em;
+}
+
+.modal-backdrop {
+  z-index: -1;
+}
