@@ -1,4 +1,5 @@
-import
+import { Card } from "react-bootstrap"
+
 
 const Board = () => {
   let taskTitleArray = [
