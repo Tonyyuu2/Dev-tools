@@ -1,10 +1,10 @@
+import Kanban from "../kanbanBoard/Kanban";
 import "./Home.scss"
-import TodoList from "../todoList/TodoList"
 
 
 const Home = () => {
   return(
-    <div><TodoList/></div>
+    <div><Kanban></Kanban></div>
   )
 }
 

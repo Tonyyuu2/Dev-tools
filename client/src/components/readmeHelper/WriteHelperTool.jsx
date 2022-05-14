@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Form, Card, Button } from "react-bootstrap"
 import Loader from "./Loader"
 const { Configuration, OpenAIApi } = require("openai");
+require('dotenv').config();
 
 export default function WriteHelperTool() {
 
@@ -18,7 +19,7 @@ export default function WriteHelperTool() {
     
     // Put the key in ENV in the future
     const configuration = new Configuration({
-      apiKey: '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',
+      apiKey: process.env.OPEN_AI_KEY,
     });
 
    const openai = new OpenAIApi(configuration);

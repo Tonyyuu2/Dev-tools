@@ -4,6 +4,7 @@ const Timer = () => {
   return(
     <>
     <div id="timer">Timer Page</div>
+
     </>
   )
 }
