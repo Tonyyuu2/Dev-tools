@@ -1,17 +1,14 @@
-import Kanban from "../kanbanBoard/Kanban";
-import TodoList from "../TodoList/TodoList";
-import "./Home.scss"
-
-
-
+import Login from "../spotify/Login";
+import "./Home.scss";
 
 const Home = () => {
-  return(
-    // <div><Kanban></Kanban></div>
-  //  <Board></Board>
-    <TodoList />
-  )
-}
+  return (
+    <>
+      <div className="homeLogin">
+        <Login></Login>
+      </div>
+    </>
+  );
+};
 
 export default Home;
-

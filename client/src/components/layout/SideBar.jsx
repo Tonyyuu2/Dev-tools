@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import './SideBar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faClock, faHome, faMedkit, faMugHot, faUser } from '@fortawesome/free-solid-svg-icons';
+import {  faClock, faHome, faLock, faMedkit, faMugHot, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
   const SideBar = ({switch_menu, showMenu}) => {
@@ -36,6 +36,14 @@ import {  faClock, faHome, faMedkit, faMugHot, faUser } from '@fortawesome/free-
                 to="/break"
               >
                 <FontAwesomeIcon icon={faMugHot} color="#9fd1bb" />
+              </NavLink>
+              <NavLink
+                exact="true"
+                activeclassname="active"
+                className="spotify-link"
+                to="/spotify"
+              >
+                <FontAwesomeIcon icon={faLock} color="#9fd1bb" />
               </NavLink>
             </nav>
           </div>

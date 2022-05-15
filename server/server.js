@@ -3,6 +3,7 @@ const journalEntruyRoute = require("./src/routes/journalEntryRoute");
 const todoListRoute = require("./src/routes/todoListRoute");
 require('dotenv').config();
 
+
 const express = require("express");
 const app = express();
 const cors = require("cors");

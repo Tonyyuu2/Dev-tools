@@ -5,7 +5,6 @@ import Timer from "./components/layout/Timer";
 import Wecare from "./components/layout/WeCare";
 import Break from './components/layout/Break';
 
-
 function App() {
   return (
     <> 
