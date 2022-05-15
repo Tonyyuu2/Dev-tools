@@ -1,0 +1,43 @@
+.heading {
+  margin-bottom: 0.6em;
+}
+
+.subheading {
+  margin-bottom: 1em;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+  max-width: 50vw;
+  overflow:scroll;
+}
+
+.formInput {
+  margin-bottom: 1em;
+}
+
+.btnReset {
+  margin-top: -2em;
+  margin-right: 0.5em;
+  height: 90%;
+}
+
+.btnGenerate {
+  margin-top: -2em;
+  height: 90%;
+
+}
+.cardContainer {
+  max-width: 50vw;
+  min-height: 20vh;
+  z-index: -1;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content:center;
+  flex-direction: row-reverse;
+
+}

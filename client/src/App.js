@@ -1,33 +1,22 @@
-import './App.css';
-import Backcare from './components/backcare/Backcare';
-import Journal from './components/journal/Journal';
-import Form from './components/journal/Form';
-<<<<<<< HEAD
-import Pomodoro from './components/pomodoro/Pomodoro';
-import TodoList from './components/to-do-list/TodoList';
-
-
-
-=======
-import Pomodoro from './components/pomodoro/Pomodoro'
-import WeatherComponent from './components/weather/WeatherComponent'
->>>>>>> 101c08b56306f72d66df9d5a9ce6929c0fdcfc53
-
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/layout/Layout';
+import Home from "./components/layout/Home";
+import Timer from "./components/layout/Timer";
+import Wecare from "./components/layout/WeCare";
+import Break from './components/layout/Break';
 
 function App() {
   return (
-<<<<<<< HEAD
-    <>
+    <> 
+      <Routes>
+        <Route path="/" element={<Layout />} >
+          <Route index element={<Home />} />
+          <Route path='timer' element={<Timer />} />
+          <Route path='wecare' element={<Wecare />} />
+          <Route path='break' element={<Break />} />
+        </Route>
+      </Routes>
     </>
-=======
-    <div className="App">
-      {/* <Backcare /> */}
-        {/* <Journal />  */}
-      {/* <Pomodoro /> */}
-      {/* <Form /> */}
-      <WeatherComponent/>
-    </div>
->>>>>>> 101c08b56306f72d66df9d5a9ce6929c0fdcfc53
   );
 };
 
