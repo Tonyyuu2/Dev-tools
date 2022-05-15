@@ -1,10 +1,10 @@
-.slider{
+.slider {
   height: 40px;
   border: 3px solid red;
   border-radius: 20px;
 }
 
-.thumb{
+.thumb {
   background-color: hotpink;
   cursor: pointer;
   width: 40px;
@@ -16,13 +16,11 @@
   border: 3px solid green;
 }
 
-.slider.red .thumb{
+.slider.red .thumb {
   background-color: burlywood;
-
 }
 
-
-body {
+.main {
   background-color: #30384b;
   color: #eee;
 }
@@ -52,7 +50,7 @@ button.with-text {
   line-height: 36px;
 }
 
-button.with-text svg{
+button.with-text svg {
   width: 36px;
   float: left;
   margin-right: 5px;
