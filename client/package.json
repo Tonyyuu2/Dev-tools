@@ -25,7 +25,8 @@
     "react-scripts": "5.0.1",
     "react-slider": "^2.0.0",
     "react-webcam": "^7.0.1",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "styled-components": "^5.3.5"
   },
   "scripts": {
     "start": "react-scripts start",
