@@ -31,7 +31,7 @@ export default function Player({token}) {
       <div className= {styles.spotifyPlayer}>
         <SpotifyPlayer
             token={token}
-            // showSaveIcon
+            showSaveIcon
             autoPlay
             play={isPlaying}
             uris={trackUri}
