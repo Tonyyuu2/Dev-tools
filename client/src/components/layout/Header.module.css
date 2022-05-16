@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #f3f2f7;
+  justify-content: space-between;
+  box-shadow: 0px 1px 10px #999;
+}
+
+.logo {
+  width: 250px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.link__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link__list li {
+  margin-right: 20px;
+  font-weight: 600;
+}
+
+.link__list li a {
+  color: #9772fb;
+}

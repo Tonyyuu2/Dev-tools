@@ -1,0 +1,32 @@
+.main_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.row_1 {
+  display: flex;
+  height: 50vh;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.row_2 {
+  display: flex;
+  height: 50vh;
+  justify-content: space-between;
+}
+
+.journal {
+  width: 500px;
+  overflow-y: hidden;
+}
+
+.timer {
+  height: 250px;
+}
+
+.weather {
+}

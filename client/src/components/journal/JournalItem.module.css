@@ -1,8 +1,9 @@
 .main {
   border-radius: 16px;
-  width: 40%;
   padding: 10px;
-  height: 500px;
+  /* height: 45vh; */
+  margin: 0 auto;
+  width: 20rem;
   overflow: auto;
   box-shadow: rgb(145 158 171 / 20%) 0px 3px 1px -2px,
     rgb(145 158 171 / 14%) 0px 2px 2px 0px, rgb(145 158 171 / 12%) 0px 1px 5px;
@@ -29,12 +30,15 @@
 }
 
 .container {
+  display: flex;
+  align-items: center;
   border: 1px solid rgb(229, 233, 255);
   border-radius: 16px;
-  padding: 10px;
+  padding: 5px;
   background-color: #fef6ff;
   margin: 5px auto;
   color: #4d5156;
+  gap: 5px;
 }
 
 .title {
@@ -51,8 +55,8 @@
 }
 
 .tag {
-  font-size: 14px;
-  padding: 5px 10px;
+  font-size: 12px;
+  padding: 3px 8px;
   border-radius: 16px;
   margin-bottom: 5px;
   margin-right: 7px;
@@ -92,4 +96,39 @@
 .main::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: linear-gradient(to bottom, #fc5c7d, #6a82fb);
+}
+
+.entry_header {
+  font-size: 14px;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  padding: 2px 5px;
+  border: 1px solid #ececec;
+  background-color: #cd8686;
+  color: white;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.date__month {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.date__year {
+  font-size: 0.75rem;
+}
+
+.date__day {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 12px;
 }

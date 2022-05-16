@@ -72,40 +72,38 @@ function Timer() {
   return (
     <div >
       <CircularProgressbarWithChildren
-        value={percentage}
-        styles={buildStyles({
+        value={ percentage }
+        styles={ buildStyles({
           textColor: "#fff",
           pathColor: mode === 'work' ? hotpink : green,
           tailColor: "rgb(0,0,255,0.2)"
-        })}>
-          <div className="progresstext">
-          {mode === 'work' ? `Time to work!` : `Get some fresh air!`}
-          </div>
-          
-          <div className="progresstime">
-          {mode === 'work' ? `${minutes}:${seconds}` : `${minutes}:${seconds}`}
-          </div>
+        }) }>
+        <div className="progresstext">
+          { mode === 'work' ? `Time to work!` : `Get some fresh air!` }
+        </div>
+
+        <div className="progresstime">
+          { mode === 'work' ? `${minutes}:${seconds}` : `${minutes}:${seconds}` }
+        </div>
       </CircularProgressbarWithChildren>
 
-      <div style={{ marginTop: "20px" }}>
-        {isPaused ? (
+      <div>
+        { isPaused ? (
           <Playbutton
-            onClick={() => {
+            onClick={ () => {
               setIsPaused(false);
               isPausedRef.current = false;
-            }}
+            } }
           />
         ) : (
           <Pausebutton
-            onClick={() => {
+            onClick={ () => {
               setIsPaused(true);
               isPausedRef.current = true;
-            }}
+            } }
           />
-        )}
-      </div>
-      <div style={{ marginTop: "20px" }}>
-        <Settingsbutton onClick={() => settingsInfo.setShowSettings(true)} />
+        ) }
+        <Settingsbutton onClick={ () => settingsInfo.setShowSettings(true) } />
       </div>
     </div>
   );

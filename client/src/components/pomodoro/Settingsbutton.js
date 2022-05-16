@@ -2,7 +2,7 @@ import React from "react";
 
 function Settingsbutton(props) {
   return (
-    <button {...props} className={'with-text'}>
+    <button { ...props } className={ 'with-text' }>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-5 w-5"
@@ -15,7 +15,6 @@ function Settingsbutton(props) {
           clipRule="evenodd"
         />
       </svg>
-      Settings
     </button>
   );
 }

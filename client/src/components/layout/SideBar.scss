@@ -4,7 +4,6 @@
   transition: all 1s ease;
   animation-duration: 1.2s;
   animation-name: slideiOut;
-
 }
 
 .menu_active {
@@ -43,14 +42,13 @@
 }
 
 .nav-bar {
-  background: #F3F2F7;
+  background: #f3f2f7;
   min-width: 150px;
   width: 18%;
   height: 100%;
   top: 0;
   position: fixed;
   min-height: 100vh;
-  
 
   .logo {
     display: block;
@@ -68,7 +66,7 @@
 
     a {
       font-size: 32px;
-      color: #BEAEFB;
+      color: #beaefb;
       display: block;
       line-height: 51px;
       height: 51px;
@@ -81,8 +79,8 @@
       }
 
       &:hover {
-        color: #BEAEFB;
-        
+        color: #beaefb;
+
         svg {
           opacity: 0;
         }
@@ -125,7 +123,7 @@
     }
     a.active {
       svg {
-        color: #BEAEFB;
+        color: #beaefb;
       }
     }
   }

@@ -5,27 +5,21 @@ import Header from './Header';
 import { useState } from 'react';
 
 const Layout = () => {
-
   const [showMenu, setShowMenu] = useState(false);
 
   function switch_menu() {
     setShowMenu(!showMenu);
-}
+  }
 
   return (
-  <>
-  <div className='App'>
-    <SideBar switch_menu={switch_menu} showMenu={showMenu}/>
-  </div>
-    <Header switch_menu={switch_menu} />
-    <Outlet className="outlet"/>
-  </>
-
-  )
-}
+    <>
+      <div className='App'>
+        <SideBar switch_menu={switch_menu} showMenu={showMenu} />
+      </div>
+      <Header switch_menu={switch_menu} />
+      <Outlet className='outlet' />
+    </>
+  );
+};
 
 export default Layout;
-
-// {isOpen && <SideBar onClose = {()=>{
-//   setisOpen(!isOpen);
-// }} />}

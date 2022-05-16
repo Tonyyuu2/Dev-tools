@@ -15,14 +15,20 @@ const JournalItem = (props) => {
   return (
     <article>
       <div className={ classes.container }>
-        <div className={ classes.title }>
-          <h3>{ props.title }</h3>
-          <p>{ props.date }</p>
+        <div className={ classes.date }>
+          <div className={ classes.date__month }>{ props.date.toLocaleString('en-US', { month: 'long' }) }</div>
+          <div className={ classes.date__year }>{ props.date.toLocaleString('en-US', { day: '2-digit' }) }</div>
+          <div className={ classes.date__day }>{ props.date.getFullYear() }</div>
         </div>
-        <div className={ classes.tags }>
-          { tagList }
+        <div>
+          <div className={ classes.title }>
+            <h3 className={ classes.entry_header }>{ props.title }</h3>
+          </div>
+          <div className={ classes.tags }>
+            { tagList }
+          </div>
+          <p className={ classes.description }>{ props.description }</p>
         </div>
-        <p>{ props.description }</p>
       </div>
     </article>
   );
