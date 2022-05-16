@@ -13,6 +13,10 @@ body {
   height: 100%;
 }
 
+button {
+  all: unset;
+}
+
 h1,
 h2,
 h3,

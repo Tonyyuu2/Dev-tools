@@ -2,25 +2,24 @@ import styled from "styled-components";
 
 const InfoContainer = styled.div`
   display: flex;
-  margin: 5px 10px;
-  flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
-`;
-const InfoIcon = styled.img`
-  width: 36px;
-  height: 36px;
 `;
 const InfoLabel = styled.span`
   display: flex;
   flex-direction: column;
-  font-size: 14px;
-  margin: 15px;
+  font-size: 13px;
+  padding-left: 7px;
   & span {
-    font-size: 12px;
+    font-size: 11px;
     text-transform: capitalize;
   }
 `;
+
+const InfoIcon = styled.img`
+  width: 36px;
+  height: 36px;
+`;
+
 export const WeatherInfoIcons = {
   sunset: "/icons/temp.svg",
   sunrise: "/icons/temp.svg",
@@ -34,10 +33,10 @@ const WeatherInfoComponent = (props) => {
 
   return (
     <InfoContainer>
-      <InfoIcon src={ WeatherInfoIcons[name] } />
+      <InfoIcon src={WeatherInfoIcons[name]}/>
       <InfoLabel>
-        { value }
-        <span>{ name }</span>
+        {value}
+        <span>{name}</span>
       </InfoLabel>
     </InfoContainer>
   );

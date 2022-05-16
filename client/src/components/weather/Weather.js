@@ -8,52 +8,38 @@ const WeatherCondition = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  justify-content: space-between;
-  padding-top: 5px;
 `;
 const Condition = styled.span`
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  margin: 25px;
-  font-size: 14px;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   & span {
-    font-size: 28px;
+    font-weight: bold;
+    font-size: 25px;
   }
 `;
 const WeatherIcon = styled.img`
-  width: 100px;
-  height: 100px;
-  margin: 1px auto;
+  width: 80px;
 `;
 const Location = styled.span`
-  font-size: 20px;
-  font-weight: bold;
-`;
-const WeatherInfo = styled.span`
   font-size: 14px;
-  font-weight: bold;
-  margin: 5px 25px 10px;
-  text-align: center;
-  width: 90%;
 `;
+
 const WeatherInfoBlock = styled.div`
   display: flex;
-  width: 90%;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
 `;
 const Container = styled.div`
-display: flex;
-flex-direction: column;
-margin: auto;
-align-items: center;
-box-shadow: 0 3px 6px 0 #555;
-padding: 0;
-border-radius: 4px;
-width: 380px;
-background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  box-shadow: 0 3px 6px 0 #555;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: white;
+  line-height: 16px;
 `;
 export const WeatherInfoIcons = {
   sunset: "/icons/temp.svg",
@@ -106,37 +92,26 @@ function Weather() {
   return (
     <>
       <Container>
-        <WeatherCondition>
-          <Condition>
-            <h3> { weather && `${weather.main.temp}°C` }</h3>
-            <p>{ weather && ` ${weather.weather[0].description}` }</p>
-          </Condition>
-          <WeatherIcon src={ DynamicWeatherIcons[weather?.weather[0].icon] } />
-        </WeatherCondition>
         <Location>
-          { weather && `${weather.name}, ${weather.sys.country}` }
+          {weather && `${weather.name}`}
+          <Condition>
+            <span> {weather && `${Math.ceil(weather.main.temp)}°C`}</span>
+          </Condition>
         </Location>
-        <WeatherInfo>Weather Info</WeatherInfo>
-        <WeatherInfoBlock>
-          <WeatherInfoComponent
-            name={ day ? "sunset" : "sunrise" }
-            value={ `${timeConverter(
+        <WeatherIcon src={DynamicWeatherIcons[weather?.weather[0].icon]} />
+          <Condition>
+            {weather && ` ${weather.weather[0].description}`}
+          </Condition>
+        <WeatherCondition>
+          <WeatherInfoBlock>
+            <WeatherInfoComponent
+            value={`${timeConverter(
               weather?.sys[day ? "sunset" : "sunrise"]
-            )}` }
-          />
-          <WeatherInfoComponent
-            name="humidity"
-            value={ `${weather?.main.humidity} g.m-3` }
-          />
-          <WeatherInfoComponent
-            name="wind"
-            value={ `${weather?.wind.speed} m/s` }
-          />
-          <WeatherInfoComponent
-            name="pressure"
-            value={ `${weather?.main.pressure} psf` }
-          />
-        </WeatherInfoBlock>
+            )}`}
+              name={day ? "sunset" : "sunrise"}
+            />
+          </WeatherInfoBlock>
+        </WeatherCondition>
       </Container>
     </>
   );

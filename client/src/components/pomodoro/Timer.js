@@ -1,13 +1,17 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
+import {
+  CircularProgressbarWithChildren,
+  buildStyles,
+} from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Playbutton from "./Playbutton";
 import Pausebutton from "./Pausebutton";
 import Settingsbutton from "./Settingsbutton";
 import Settingscontext from "./Settingscontext";
+import classes from "../pomodoro/Pomodoro.module.css";
 
-const hotpink = '#FF69B4';
-const green = '#00FF00';
+const hotpink = "#FF69B4";
+const green = "#00FF00";
 
 function Timer() {
   const settingsInfo = useContext(Settingscontext);
@@ -68,27 +72,21 @@ function Timer() {
 
   if (seconds < 10) seconds = "0" + seconds;
 
-
   return (
-    <div >
+    <div>
       <CircularProgressbarWithChildren
         value={ percentage }
         styles={ buildStyles({
           textColor: "#fff",
-          pathColor: mode === 'work' ? hotpink : green,
-          tailColor: "rgb(0,0,255,0.2)"
-        }) }>
-        <div className="progresstext">
-          { mode === 'work' ? `Time to work!` : `Get some fresh air!` }
+          pathColor: mode === "work" ? hotpink : green,
+          tailColor: "rgb(0,0,255,0.2)",
+        })}
+      >
+        <div className={classes.progresstime}>
+          {mode === "work" ? `${minutes}:${seconds}` : `${minutes}:${seconds}`}
         </div>
-
-        <div className="progresstime">
-          { mode === 'work' ? `${minutes}:${seconds}` : `${minutes}:${seconds}` }
-        </div>
-      </CircularProgressbarWithChildren>
-
-      <div>
-        { isPaused ? (
+      <div className={classes.buttonposition}>
+        {isPaused ? (
           <Playbutton
             onClick={ () => {
               setIsPaused(false);
@@ -102,9 +100,11 @@ function Timer() {
               isPausedRef.current = true;
             } }
           />
-        ) }
-        <Settingsbutton onClick={ () => settingsInfo.setShowSettings(true) } />
+        )}
+        <Settingsbutton onClick={() => settingsInfo.setShowSettings(true)} />
       </div>
+      </CircularProgressbarWithChildren>
+
     </div>
   );
 }

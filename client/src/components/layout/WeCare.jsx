@@ -1,7 +1,8 @@
 
+
 const Wecare = () => {
   return(
-    <div>We Care Page</div>
+    <div></div>
   )
 }
 
