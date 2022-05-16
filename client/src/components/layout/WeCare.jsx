@@ -1,7 +1,9 @@
+import Player from "../spotify/Login/Player";
+
 
 const Wecare = () => {
   return(
-    <div>We Care Page</div>
+    <div><Player></Player></div>
   )
 }
 
