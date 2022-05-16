@@ -4,6 +4,8 @@ import Settings from "./Settings";
 import Settingscontext from "./Settingscontext";
 import { useState } from "react"
 
+import classes from "../pomodoro/Pomodoro.module.css";
+
 function Pomodoro() {
 
   const [showSettings, setShowSettings] = useState(false);
@@ -11,7 +13,7 @@ function Pomodoro() {
   const [breakMinutes, setBreakMinutes] = useState(15);
 
   return (
-    <main>
+    <div className={classes.overall}>
       <Settingscontext.Provider value={{
         showSettings,
         workMinutes,
@@ -22,7 +24,7 @@ function Pomodoro() {
       }}>
         {showSettings ? <Settings /> : <Timer />}
       </Settingscontext.Provider>
-    </main>
+    </div>
   );
 }
 export default Pomodoro;
