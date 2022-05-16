@@ -4,11 +4,14 @@ import Settingscontext from "./Settingscontext";
 import "./slider.css";
 import BackButton from "./BackButton"
 
+import classes from "../pomodoro/Pomodoro.module.css";
+import { ClassNames } from "@emotion/react";
+
 function Settings() {
   const settingsInfo = useContext(Settingscontext);
 
   return (
-    <div style={{ textAlign: "left" }}>
+    <div className={classes.overall} style={{ textAlign: "left" }}>
       <label>work: {settingsInfo.workMinutes}:00</label>
       <ReactSlider
         className={"slider"}
