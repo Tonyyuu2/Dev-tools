@@ -42,9 +42,8 @@
 
 
 .widget3{
-  border: 2px solid paleturquoise;
+  border: 0px solid paleturquoise;
   height: 328px;
-  border-radius: 25px;
   width: 25vw;
   margin: 1em;
   overflow: auto;
