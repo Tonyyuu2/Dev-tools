@@ -1,8 +1,11 @@
 import React from "react";
+import classes from "../pomodoro/Pomodoro.module.css";
+
 
 function BackButton(props) {
   return (
-    <button {...props} className={"with-text"}>
+    <div >
+    <button className={classes.backbutton} {...props} >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-5 w-5"
@@ -15,8 +18,8 @@ function BackButton(props) {
           clipRule="evenodd"
         />
       </svg>
-      Back
     </button>
+    </div>
   );
 }
 

@@ -1,0 +1,53 @@
+.overall{
+  padding-top: 50px;
+  width: 200px;
+  text-align: center;
+  padding-left: 10px;
+  margin-bottom: 45px;
+}
+
+.backbutton{
+  background-color: transparent;
+  color: grey;
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  width: 20%;
+  cursor: pointer;
+}
+
+.settingsbutton{
+  background-color: transparent;
+  color: grey;
+  display: flex;
+  width: 50px;
+  cursor: pointer;
+}
+
+.pausebutton{
+  background-color: transparent;
+  color: grey;
+  display: flex;
+  width: 50px;
+  cursor: pointer;
+}
+
+.playbutton{
+  background-color: transparent;
+  color: grey;
+  display: flex;
+  width: 50px;
+  cursor: pointer;
+}
+
+.progresstime {
+  font-family: sans-serif;
+  font-size: 40px;
+}
+
+.buttonposition {
+  display : flex;
+  justify-content: center;
+}
+
+

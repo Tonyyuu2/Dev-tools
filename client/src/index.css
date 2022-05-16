@@ -13,6 +13,10 @@ body {
   background-color: rgb(249, 250, 251);
 }
 
+button {
+  all: unset;
+}
+
 h1,
 h2,
 h3,

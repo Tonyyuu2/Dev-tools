@@ -1,8 +1,11 @@
 import React from "react";
+import classes from "../pomodoro/Pomodoro.module.css";
+
 
 function Settingsbutton(props) {
   return (
-    <button {...props} className={'with-text'}>
+    <div>
+    <button {...props} className={classes.settingsbutton}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-5 w-5"
@@ -15,8 +18,8 @@ function Settingsbutton(props) {
           clipRule="evenodd"
         />
       </svg>
-      Settings
     </button>
+    </div>
   );
 }
 
