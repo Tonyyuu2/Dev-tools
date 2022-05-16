@@ -1,0 +1,35 @@
+.resultContainer {
+  width: 100%;
+  height: 100%;
+
+}
+
+.trackContainer {
+  width: 100%;
+  max-height: 100%;
+
+}
+
+.searchResult {
+  border: 2px solid rgb(20, 20, 20);
+  margin: 0;
+  text-align: left;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+}
+
+.searchResult:hover {
+  box-shadow: 0 8px 6px -6px black;
+  font-size: 16px;
+  transition: ease-in;
+  overflow-y: scroll;
+}
+
+.albumImage {
+  /* border: 2px solid rgb(25, 23, 23); */
+  margin-right: 1em;
+  box-shadow: 0 8px 6px -6px black;
+  padding: 2px;
+}
+

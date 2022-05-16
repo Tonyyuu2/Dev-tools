@@ -1,4 +1,3 @@
-import Login from "../spotify/Login/Login";
 import "./Timer.scss"
 // import Pomodoro from "../pomodoro/Pomodoro"
 // import WeatherComponent from "../weather/WeatherComponent"
@@ -9,7 +8,6 @@ const Timer = () => {
   return(
     <>
     <div id="timer">
-      <Login></Login>
     </div>
 
     </>

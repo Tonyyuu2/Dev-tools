@@ -1,4 +1,4 @@
-import Login from "../spotify/Login/Login";
+import Login from "../spotify/Login";
 import styles from "./Home.module.css"
 const Home = () => {
   return (

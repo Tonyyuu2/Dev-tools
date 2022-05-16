@@ -1,0 +1,60 @@
+.searchForm {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.searchInput {
+  margin: 10px 0px 7px 0px;
+  width: 100%;
+  border-radius: 10px;
+  border: 3px solid rgb(36, 36, 36);
+  box-shadow: 0 8px 6px -6px black;
+  outline: none !important;
+}
+
+.searchInput:focus {
+  appearance: none;
+  text-decoration: none;
+  background-color: #fff !important;
+  outline: none !important;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  box-shadow: 0 8px 6px -6px black;
+  align-items: center;
+  appearance: none;
+  background-color: #1DB954;
+  border: 0px solid #dbdbdb;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1.2rem;
+  height: 2.0em;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+.btn:active {
+  color: #fff;
+  background-color: #4a4a4a;
+  outline: 0;
+}
+
+.btn:focus {
+  border-color: #485fc7;
+  outline: 0;
+}
+
+.btn:hover {
+  background-color: #16863e;
+  color: #fff;
+}
+
+

@@ -1,4 +1,4 @@
-import "./Login.css"
+import styles from "./Login.module.css"
 import React from 'react'
 import axios from "axios"
 import { useEffect,useState  } from "react"
@@ -43,8 +43,8 @@ export default function Login() {
   }, []);
 
   return !token ? (
-    <div className="login-page">
-      <a href={loginEndpoint}><div className="login-btn">LOG IN <FaSpotify style={{color:"#fefefe", fontSize:"24px", marginLeft:"8px"}}/></div></a>
+    <div className={styles.loginPage}>
+      <a href={loginEndpoint}><div className={styles.loginBtn}>LOG IN <FaSpotify style={{color:"#fefefe", fontSize:"24px", marginLeft:"8px"}}/></div></a>
       <p style={{textAlign: "center", marginTop: "12px"}}>Please Login to Use Spotify</p>
     </div> 
   ) : (<Player token={token}/>)
