@@ -11,7 +11,7 @@
 }
 
 .searchResult {
-  border: 2px solid rgb(20, 20, 20);
+  border: 1.5px solid rgb(80, 80, 80);
   margin: 0;
   text-align: left;
   font-size: 0.9em;
@@ -36,5 +36,10 @@
   box-shadow: 0 6px 5px -5px black;
 }
 
+.spotifyLogo {
+  width: 270px;
+  text-align: center;
+  margin: 1em 0em 0em 5em;
+}
 
 

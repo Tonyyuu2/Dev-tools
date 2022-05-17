@@ -5,6 +5,7 @@ import Login from "./Login";
 import styles from './Player.module.css'
 
 
+
 export default function Player({token}) {
 
   const [searchKey, setSearchKey] = useState("")
@@ -69,7 +70,7 @@ export default function Player({token}) {
           )
         })
       )
-      : (<h3 style={{textAlign: 'center', marginTop: "20px", marginBottom: "20px"}}>Play some tunes 🎶</h3>)
+       : (<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/2880px-Spotify_logo_with_text.svg.png?20160123211747' className={styles.spotifyLogo}  alt="spotifylogo" />)
       }
       </div>
       <SearchBar setSearchKey={setSearchKey} token={token} searchKey={searchKey} tracks={tracks} setTracks={setTracks} />
@@ -77,7 +78,7 @@ export default function Player({token}) {
     </div>
   )
 }
-
+{/* <h3 style={{textAlign: 'center', marginTop: "20px", marginBottom: "20px"}}>{spotifyLogo}</h3> */}
 
 
 
