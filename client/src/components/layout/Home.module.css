@@ -2,58 +2,94 @@
   z-index: -1;
 } */
 
-.homePage {
+.main_container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 4em;
+  width: 100%;
+  /* border: 2px dotted red; */
+}
+
+.main_column {
+  /* border: 2px dotted orange; */
+  width: 70vw;
+}
+
+.row_1 {
+  display: flex;
+  /* border: 2px dotted yellow; */
+  justify-content: space-between;
+  height: 350px;
+}
+
+.wt_container {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  /* border: 2px dotted green; */
+  width: 50%;
+  justify-content: space-evenly;
+  padding: 1em 2em 2em 2em;
+  margin: 1em;
+}
+
+.login {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* border: 2px dotted blue; */
+  width: 50%;
+  padding: 1em;
+  overflow: auto;
+  margin: 1em;
+  
+}
+
+.journal {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 1em;
+  height: 100%;
+}
+
+.todo {
+  width: 55vw;
+  display: flex;
+  margin: 1em auto;
+  justify-content: space-evenly;
+  align-items: center;
   flex-direction: column;
 
+}
+
+.weather {
+  display: flex;
+  margin-top: 1em;
+  width: 100%;
+  justify-content: center;
   
 }
 
-.row1 {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  margin: 1em;
+.timer {
+ 
+  margin-top: 2em;
+  margin-left: 1.2em;
 
 }
 
-.row2 {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-.widget1{
-  border: 2px solid paleturquoise;
-  height: 40vh;
-  width: 45vw;
-  border-radius: 25px;
-  margin: 1em 1em 0em 1em;
-}
-
-.widget2{
-  border: 2px solid paleturquoise;
-  height: 40vh;
-  border-radius: 25px;
-  width: 45vw;
-  margin: 1em 1em 0em 1em;
-}
 
 
-.widget3{
-  border: 0px solid paleturquoise;
-  height: 328px;
-  width: 25vw;
-  margin: 1em;
-  overflow: auto;
-  
-}
 
-.widget4{
-  border: 2px solid paleturquoise;
-  height: 328px;
-  width: 65vw;
-  border-radius: 25px;
-  margin: 1em;
-}
+

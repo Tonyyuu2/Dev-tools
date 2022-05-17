@@ -3,6 +3,8 @@ import styled from "styled-components";
 const InfoContainer = styled.div`
   display: flex;
   align-items: center;
+  
+  
 `;
 const InfoLabel = styled.span`
   display: flex;

@@ -2,7 +2,7 @@
   border-radius: 16px;
   padding: 10px;
   /* height: 45vh; */
-  margin: 0 auto;
+  top: 0;
   width: 20rem;
   overflow: auto;
   box-shadow: rgb(145 158 171 / 20%) 0px 3px 1px -2px,
@@ -11,18 +11,29 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+.headerText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  color: #37393c;
+  margin-right: 30px;
 }
 
 .journalbtn {
-  all: unset;
-  background-color: #c197ff;
-  color: white;
-  border-radius: 10px;
-  padding: 5px 16px;
+  /* background-color: #bdaefbdf; */
+
+  margin-top: 12px;
+  color: rgb(103, 103, 103);
   cursor: pointer;
+  font-size: 1.5em;
+  width: fit-content;
+  height: fit-content;
 }
+
+
 
 .journalbtn:hover {
   transition: all 0.2s ease 0s;
@@ -34,19 +45,24 @@
   align-items: center;
   border: 1px solid rgb(229, 233, 255);
   border-radius: 16px;
-  padding: 5px;
+  padding: 8px;
   background-color: #fef6ff;
   margin: 5px auto;
   color: #4d5156;
-  gap: 5px;
+ 
 }
+
+/* .body {
+
+  
+} */
 
 .title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
-  color: #343434;
+  margin-bottom: 10px;
+  color: #262626;
 }
 
 .container:hover {
@@ -55,7 +71,7 @@
 }
 
 .tag {
-  font-size: 12px;
+  font-size: 13px;
   padding: 3px 8px;
   border-radius: 16px;
   margin-bottom: 5px;
@@ -112,20 +128,21 @@
   border-radius: 12px;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  min-width:70px;
+  margin-right: 1em;
 }
 
 .date__month {
-  font-size: 0.75rem;
+  font-size: 15px;
   font-weight: bold;
 }
 
 .date__year {
-  font-size: 0.75rem;
+  font-size: 15px;
 }
 
 .date__day {
-  font-size: 1.5rem;
+  font-size: 25px;
   font-weight: bold;
 }
 

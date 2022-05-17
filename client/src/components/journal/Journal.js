@@ -2,6 +2,7 @@ import JournalItem from "./JournalItem";
 import classes from './JournalItem.module.css';
 
 import React from 'react';
+import { FaRegEdit } from "react-icons/fa";
 
 const data = [{
   title: "Implemented code journal feature",
@@ -32,10 +33,10 @@ const Journal = () => {
 
     <div className={ classes.main }>
       <div className={ classes.header }>
-        <h2>My Journal</h2>
-        <button className={ classes.journalbtn }>
-          <img src="https://img.icons8.com/office/25/000000/pencil--v1.png" alt='pencil' />
-        </button>
+        <h2 className={ classes.headerText }>Code Journal</h2>
+
+        <FaRegEdit className={ classes.journalbtn } />
+
       </div>
 
       { journaEntryList }

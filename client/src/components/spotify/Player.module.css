@@ -23,13 +23,18 @@
   box-shadow: 0 8px 6px -6px black;
   font-size: 16px;
   transition: ease-in;
-  overflow-y: scroll;
 }
 
 .albumImage {
-  /* border: 2px solid rgb(25, 23, 23); */
+ 
   margin-right: 1em;
   box-shadow: 0 8px 6px -6px black;
   padding: 2px;
 }
+
+.spotifyPlayer{
+  box-shadow: 0 6px 5px -5px black;
+}
+
+
 

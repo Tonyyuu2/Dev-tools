@@ -17,17 +17,17 @@ const JournalItem = (props) => {
       <div className={ classes.container }>
         <div className={ classes.date }>
           <div className={ classes.date__month }>{ props.date.toLocaleString('en-US', { month: 'long' }) }</div>
-          <div className={ classes.date__year }>{ props.date.toLocaleString('en-US', { day: '2-digit' }) }</div>
-          <div className={ classes.date__day }>{ props.date.getFullYear() }</div>
+          <div className={ classes.date__day }>{ props.date.toLocaleString('en-US', { day: '2-digit' }) }</div>
+          <div className={ classes.date__yaer }>{ props.date.getFullYear() }</div>
         </div>
-        <div>
+        <div className={ classes.body }>
           <div className={ classes.title }>
             <h3 className={ classes.entry_header }>{ props.title }</h3>
           </div>
           <div className={ classes.tags }>
             { tagList }
           </div>
-          <p className={ classes.description }>{ props.description }</p>
+          {/* <p className={ classes.description }>{ props.description }</p> */}
         </div>
       </div>
     </article>

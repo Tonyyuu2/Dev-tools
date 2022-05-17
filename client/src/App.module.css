@@ -1,0 +1,10 @@
+.global_bg {
+  background-color: #e5e5f7c5;
+  opacity: 0.85;
+  background-image:  linear-gradient(#cdc5e3 4px, transparent 6px), linear-gradient(to right, #cdc5e3 4px, #e5e5f7 4px);
+  background-size: 150px 150px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+}

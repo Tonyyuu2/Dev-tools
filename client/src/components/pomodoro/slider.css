@@ -1,22 +1,35 @@
 .slider {
-  height: 40px;
-  border: 3px solid red;
-  border-radius: 20px;
+  margin-bottom: 40px;
+  height: 5px;
+  border: 3px solid rgb(163, 200, 177);
+  border-radius: 30px;
+  box-shadow: 0 8px 6px -6px black;
+  margin-top: 10px;
 }
 
 .thumb {
-  background-color: hotpink;
+  background-color: rgb(151, 186, 165);
   cursor: pointer;
-  width: 40px;
-  height: 34px;
-  border-radius: 30px;
+  width: 30px;
+  height: 28px;
+  border-radius: 100%;
+  box-shadow: 0 8px 10px -6px black;
+  margin-top: -15px;
 }
 
 .slider.red {
-  border: 3px solid green;
+  border: 3px solid rgb(214, 172, 217);
+  box-shadow: 0 8px 6px -6px black;
 }
 
 .slider.red .thumb {
-  background-color: burlywood;
+  background-color: rgb(214, 172, 217);
+  box-shadow: 0 8px 10px -6px black;
 }
+
+.CircularProgressbar {
+
+}
+
+
 

@@ -31,31 +31,27 @@ export default function Player({token}) {
       <div className= {styles.spotifyPlayer}>
         <SpotifyPlayer
             token={token}
-            showSaveIcon
             autoPlay
             play={isPlaying}
             uris={trackUri}
             magnifySliderOnHover={true}
-            volume= {0.4}
+            volume= {0.6}
             styles={{
               activeColor: "#fff",
-              bgColor: "#333",
+              bgColor: "#b6ded3",
               color: "#fff",
               loaderColor: "#fff",
               sliderColor: "lightblue",
-              trackArtistColor: "#ccc",
+              trackArtistColor: "#fff",
               trackNameColor: "#fff",
               height: "55px",
-              next: "next",
-              pause: "pause",
               sliderTrackBorderRadius: "25px",
-              loaderSize: "10px"
+              loaderSize: "20px"
             }}
             locale={{
               next: "next",
               pause: "pause",
               title: "long"
-
             }}
           />
          </div> 
@@ -72,7 +68,8 @@ export default function Player({token}) {
           </div>
           )
         })
-      ) : (<h3 style={{textAlign: 'center', marginTop: "20px"}}>Search to listen</h3>)
+      )
+      : (<h3 style={{textAlign: 'center', marginTop: "20px", marginBottom: "20px"}}>Play some tunes 🎶</h3>)
       }
       </div>
       <SearchBar setSearchKey={setSearchKey} token={token} searchKey={searchKey} tracks={tracks} setTracks={setTracks} />
