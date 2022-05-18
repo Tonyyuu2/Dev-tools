@@ -25,7 +25,7 @@ import {  faClock, faHome, faLock, faMedkit, faMugHot, faUser } from '@fortaweso
                 exact="true"
                 activeclassname="active"
                 className="wecare-link"
-                to="/wecare"
+                to="/backcare"
               >
                 <FontAwesomeIcon icon={ faMedkit } color="#9fd1bb" />
               </NavLink>
@@ -37,14 +37,6 @@ import {  faClock, faHome, faLock, faMedkit, faMugHot, faUser } from '@fortaweso
               >
                 <FontAwesomeIcon icon={faMugHot} color="#9fd1bb" />
               </NavLink>
-              {/* <NavLink
-                exact="true"
-                activeclassname="active"
-                className="spotify-link"
-                to="/spotify"
-              >
-                <FontAwesomeIcon icon={faLock} color="#9fd1bb" />
-              </NavLink> */}
             </nav>
           </div>
         </div>

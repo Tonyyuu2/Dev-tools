@@ -39,7 +39,7 @@ export default function Player({token}) {
             volume= {0.6}
             styles={{
               activeColor: "#fff",
-              bgColor: "#b6ded3",
+              bgColor: "#1DB954",
               color: "#fff",
               loaderColor: "#fff",
               sliderColor: "lightblue",

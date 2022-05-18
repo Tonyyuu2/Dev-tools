@@ -1,50 +1,204 @@
-.container {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
+.heading {
+  padding: 0.4em;
+  font-size: 40px;
+  color: rgb(113, 165, 196);
+  max-width: fit-content;
+  margin-left: 30%;
+  text-shadow: 3px 3px 3px rgb(249, 249, 249);
 }
 
+.subHeading {
+  text-align: center;
+  padding-bottom: 1em;
+  margin-top: -10px;
+  color:  rgb(146, 167, 179);
+}
+
+.container {
+  
+  display: flex;
+  flex-direction: column; 
+  
+}
+
+.screen {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+  flex-direction: row-reverse;
+
+}
+
+
+.list {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+  color: rgb(54, 54, 54);
+}
+
+.instruction {
+  padding: 0.7em 1em 0.7em 1em;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-right: 1em;
+  color: rgb(54, 54, 54);
+}
+
+
 .camera {
-  border-radius: 25px;
-  width: 500px;
+  padding: 5px;
+  width: 550px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 2;
 }
 
 .btn:hover {
   transition: all 0.2s ease 0s;
-  transform: scale(1.15, 1.15);
+  transform: scale(1.1, 1.1);
 }
 
 .btn {
   all: unset;
   color: white;
-  border-radius: 10px;
-  padding: 5px 16px;
+  padding: 8.8px 10px;
   cursor: pointer;
-  width: 140px;
+  width: fit-content;
+  margin-left: 0.5em;
+  font-size: 1.1em;
 }
 
 .green {
-  background-color: #83bd75;
+  background-color: #9fd1bb;
+  padding-bottom: 2px;
+  border-radius: 50px;
 }
 
 .red {
-  background-color: #ffa1a1;
+  background-color: #e290ade1;
+  padding-bottom: 2px;
+  border-radius: 50px;
 }
 
 .blue {
-  background-color: #1976d2;
-  width: 150px;
+  background-color: #85cee9e5;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-top: 0.3em;
+  z-index: 10;
 }
 
 .btncontainer {
   display: flex;
-  flex-direction: column;
-  gap: 1.5em;
+  gap: 1.2em;
+  padding: 0.7em;
+  z-index: 5;
 }
 
 .graph {
   text-align: center;
-  margin: 10px auto;
+  margin: -40em 24em;
   width: 40%;
+  z-index: 20;
+  position: relative;
+  border: 3px solid #0aa1dd;
+  background: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding: 1.2em;
+  text-align: center;
+  color: rgb(58, 58, 58);
+  box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.1);
+  height: 75vh;
+ 
+
 }
+
+.seperator{
+  display: flex;
+  align-self: flex-end;
+  margin-top: -12.3em;
+  margin-right: 12em;
+  flex-direction: column;
+}
+
+
+.msgContainer {
+  margin-top: 0.5em;
+  z-index: 9;
+  margin-left: 1.2em;
+  border: 3px solid #85cee9e5;
+  width: 280px;
+  border-radius: 10px;
+  color: rgb(62, 62, 62);
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnContainer2 {
+  z-index: 5;
+  align-self: flex-end;
+  margin-top: 1.5em;
+  margin-right: 10em;
+  flex-direction: column;
+}
+
+.backDrop {
+  margin-top: -2em;
+  z-index: 99;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.closeBtn {
+  cursor: pointer;
+  color: pink;
+  font-size: 2em;
+  margin-left: 84px;
+  margin-top: -20px;
+}
+
+.graphHeading {
+  margin-top: 0em;
+  font-size: 30px;
+}
+
+.graphHeader {
+  margin-left: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.resultMsg {
+  padding-right: 24px;
+  font-size: 3.2em;
+  padding-top: 11px;
+  
+}
+
+.postureCountContainer {
+  padding: 1em;
+  justify-content: space-between;
+}
+
+.postureCount {
+  font-size: 0.92em;
+  color:rgb(43, 43, 43);
+  margin-bottom: 0.5em;
+}
+
+
+
+
+
+/* purple green yellow */
