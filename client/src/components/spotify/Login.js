@@ -1,15 +1,16 @@
-import styles from "./Login.module.css"
-import React from 'react'
-import axios from "axios"
-import { useEffect,useState } from "react"
-import Player from "./Player"
-import {FaSpotify} from 'react-icons/fa'
 
+import styles from "./Login.module.css";
+import React from 'react';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Player from "./Player";
+import { FaSpotify } from 'react-icons/fa';
 
 const authEndpoint = "https://accounts.spotify.com/authorize?"
 const clientID = "ca1fd06082824f4ea552edf9ad5f195d"
 const redirectUri = "http://localhost:3000"
 const scopes = ["user-read-private", "user-modify-playback-state", "user-read-playback-state", "user-library-read", "streaming", "user-read-email", "user-library-modify"]
+
 export const loginEndpoint = `${authEndpoint}client_id=${clientID}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
 
 
@@ -19,7 +20,7 @@ const apiClient = axios.create({
 });
 
 const setClientToken = (token) => {
-  apiClient.interceptors.request.use(async function (config) {
+  apiClient.interceptors.request.use(async function(config) {
     config.headers.Authorization = "Bearer " + token;
     return config;
   });
@@ -27,7 +28,7 @@ const setClientToken = (token) => {
 
 export default function Login() {
 
-    const [token, setToken] = useState("");
+  const [token, setToken] = useState("");
 
 
   useEffect(() => {
@@ -46,6 +47,7 @@ export default function Login() {
   }, []);
 
   return !token ? (
+
     <div className={styles.loginPage}>
       <a className={styles.loginBtn}  href={loginEndpoint}>
         <span className={styles.loginTxt}>
@@ -60,6 +62,7 @@ export default function Login() {
     <Player token={token} />
   </div>
   )
+
 }
 
 
