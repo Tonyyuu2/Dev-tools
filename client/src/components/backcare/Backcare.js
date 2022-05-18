@@ -165,6 +165,8 @@ const Backcare = () => {
   };
 
 
+
+
   //Testing the model training
   const classifySample = async () => {
     dispatchBackcare({ type: 'TEST_RESULT', result: false });
@@ -299,7 +301,6 @@ const graphdata = {
             className={ `${classes.btn} ${classes.blue}` }
             onClick={ classifyPosture }>
             Track your posture</button>
-           
           <button
             className={ `${classes.btn} ${classes.blue}` }
             onClick={ stopPostureTracking }>
@@ -311,11 +312,11 @@ const graphdata = {
         <div className={ classes.graphHeader }>
           <h3 className={ classes.graphHeading }>Posture Record</h3>
           <button onClick={()=>{
-             dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false })}
+            dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false })}
         } class={classes.closeBtn}><IoIosCloseCircleOutline/></button>
         </div>
           <Pie data={ graphdata } />
-           <BarChart />
+          <BarChart />
         </div> }
     </>
   )
