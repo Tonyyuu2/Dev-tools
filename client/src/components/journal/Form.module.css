@@ -9,54 +9,137 @@
   align-items: center;
   justify-content: center;
   overflow: auto;
-  z-index: 99999;
+  z-index: 9999;
 }
 
 .layout {
-  background: linear-gradient(135deg, #bfaebf, #c03ac0);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.575);
+  border-radius: 13px;
+  box-shadow: 0 4px 30px rgba(34, 34, 34, 0.362);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.428);
   padding: 10px;
   margin: 0 auto;
-  width: 20rem;
+  width: 24rem;
   overflow: auto;
-  box-shadow: black;
+
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .newentry {
   display: flex;
   justify-content: center;
-  font-weight: bold;
-  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: rgb(55, 54, 57);
+  border-radius: 8px;
+  width: 155px;
+  margin: -0.3em 0em 0.3em 0.5em;
+  /* box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.147); */
+  border-bottom: 2px solid #fbfbfbab;
+  border-right: 2px solid  #fbfbfbab;
+  padding: 0em 0.4em 0.2em 0.3em;
 }
 
 .formlayout{
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-  padding-bottom: 1.5rem;
+  padding: 0.7rem;
+  padding-bottom: 0.4rem;
 }
 
 .radio{
+  margin-left: 3.3em;
   display: flex;
-  font-size: 20px;
-  justify-content: space-evenly;
+  gap: 0.7rem;
   align-items: center;
-  font-family: sans-serif;
-  font-weight: bold;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-weight: 400;
   position: relative;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 17px;
   user-select: none;
+  margin-bottom: 1em;
+  color: rgb(55, 54, 57);
+}
+
+.radioBox {
+  border-radius: 3px;
+  width: 14px;
+  height: 14px;
+  background-color: white !important;
+  accent-color: #ffffff;
+  margin-right: -5px;
+  
 }
 
 .button {
+  all: unset;
   display: flex;
-  justify-content: space-evenly;
-  font-size: 20px;
+  justify-content: flex-end;
+  margin-right: 0.7em;
+  border-radius: 10px;
 }
 
-.xbutton{
+.saveButtonContainer{
+  all: unset;
+  display: flex;
+  justify-content: center;
+  margin-right: 0.7em;
+
+
+}
+
+.saveButton {
+  font-size: 22px;
+  margin-left: 0.6em;
+  padding: 1px 17px;
+  margin: -0.1em 0em 0.4em 0.6em;
+  background-color: #7ab890;
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(149, 149, 149, 0.873)
+}
+
+.saveButton:hover {
+  transition: all 0.2s ease 0s;
+  color: #7ab890;
+  background-color: white;
+  cursor: pointer;
+}
+
+
+.cancelButton{
   align-self: end;
   top: 0;
-  right: 0;
+  all: unset;
+  margin-bottom: -0.8em;
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+  
+}
+
+.cancelButton:hover {
+  cursor: pointer;
+  color: rgb(104, 104, 104);
+}
+
+
+
+.inputField {
+  all: unset;
+  font-style: italic;
+  font-family: sans-serif;
+  padding: 6px 6px 3px 8px;
+  background: rgba(255, 255, 255, 0.704);
+  border-radius: 6px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.147);
+  font-size: 14px;
+  font-weight: 400;
 }

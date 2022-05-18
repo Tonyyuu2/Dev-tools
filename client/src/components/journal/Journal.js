@@ -21,14 +21,10 @@ const Journal = () => {
   ));
 
   return (
-    <div className={classes.main}>
-      <div className={classes.header}>
-        {openModal && <Form closeModal={setOpenModal} data={data} />}
-      </div>
       <div className={classes.main}>
         <div className={classes.header}>
+        {openModal && <Form closeModal={setOpenModal} data={data} />}
           <h2 className={classes.headerText}>Code Journal</h2>
-
           <FaRegEdit
             className={classes.journalbtn}
             onClick={() => {
@@ -38,7 +34,6 @@ const Journal = () => {
         </div>
         {journaEntryList}
       </div>
-    </div>
   );
 };
 

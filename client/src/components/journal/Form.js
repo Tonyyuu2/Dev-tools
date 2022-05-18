@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Form.module.css";
 import ReactDom from 'react-dom';
+import {FaRegSave, FaRegWindowClose} from "react-icons/fa"
 
 function Form({closeModal, data}) {
   const [title, setTitle] = useState("");
@@ -46,16 +47,19 @@ function Form({closeModal, data}) {
     <>
       <div className={styles.background}>
         <div className={styles.layout}>
-          <form>
-          <input className={styles.xbutton} type="button" value="X" onClick={() => {closeModal(false)}}></input>
-            <h2 className={styles.newentry}>New Entry:</h2>
+          <form className={styles.formContainer}>
+          <div className={styles.button}>
+              <button className={styles.cancelButton} type="button"  onClick={() => {closeModal(false)}}><FaRegWindowClose/></button>
+          </div>
+            <h2 className={styles.newentry}>New Journal</h2>
             <div className={styles.formlayout}>
               <input
                 type="text"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
-                placeholder="Title:"
+                placeholder="Journal Title"
                 required
+                className={styles.inputField}
               />
             </div>
             <div className={styles.formlayout}>
@@ -66,9 +70,10 @@ function Form({closeModal, data}) {
                 rows="5"
                 cols="30"
                 wrap="hard"
-                placeholder="A short description of your journal."
+                placeholder="Write a short description of the code you wrote today."
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
+                className={styles.inputField}
               />
             </div>
             <div className={styles.radio}>
@@ -78,6 +83,7 @@ function Form({closeModal, data}) {
                 value="code"
                 checked={code}
                 onChange={(event) => setCode(event.target.checked)}
+                className={styles.radioBox}
               />
               <label>code</label>
 
@@ -87,6 +93,7 @@ function Form({closeModal, data}) {
                 value="danger"
                 checked={danger}
                 onChange={(event) => setDanger(event.target.checked)}
+                className={styles.radioBox}
               />
               <label>danger</label>
 
@@ -96,12 +103,13 @@ function Form({closeModal, data}) {
                 value="normal"
                 checked={normal}
                 onChange={(event) => setNormal(event.target.checked)}
+                className={styles.radioBox}
               />
               <label>normal</label>
             </div>
-            <div className={styles.button}>
-              <button type="button" onClick={handleSubmit}>
-                Done
+              <div className={styles.saveButtonContainer}>
+              <button className={styles.saveButton} type="button" onClick={handleSubmit}>
+              Save
               </button>
             </div>
           </form>
