@@ -27,7 +27,6 @@ const WeatherIcon = styled.img`
 const Location = styled.span`
   font-size: 14px;
 `;
-
 const WeatherInfoBlock = styled.div`
   display: flex;
 `;

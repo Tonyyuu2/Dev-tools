@@ -3,7 +3,7 @@ import styles from "./Home.module.css"
 const Home = () => {
   return (
     <>
-      <div className={styles.homePage}>
+      {/* <div className={styles.homePage}>
       <div className={styles.row1}>
         <div className={styles.widget1}>Journal</div>
         <div className={styles.widget2}>weather & timer</div>
@@ -14,7 +14,7 @@ const Home = () => {
           </div>
           <div className={styles.widget4}>Todo list</div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

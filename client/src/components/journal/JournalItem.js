@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import JournalItemTag from './JournalItemTag';
 import classes from './JournalItem.module.css';
+import Details from './Details';
 
 
 const JournalItem = (props) => {
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const { details } = props;
 
   const tagList = props.tags.map((tag, index) =>
     <JournalItemTag
@@ -12,9 +17,9 @@ const JournalItem = (props) => {
       { tag }
     </JournalItemTag>);
 
-  return (
-    <article>
-      <div className={ classes.container }>
+return (
+  <article>
+      <div onClick={() => {setOpenModal(true)}} className={ classes.container }>
         <div className={ classes.date }>
           <div className={ classes.date__month }>{ props.date.toLocaleString('en-US', { month: 'long' }) }</div>
           <div className={ classes.date__year }>{ props.date.toLocaleString('en-US', { day: '2-digit' }) }</div>
@@ -27,9 +32,9 @@ const JournalItem = (props) => {
           <div className={ classes.tags }>
             { tagList }
           </div>
-          <p className={ classes.description }>{ props.description }</p>
         </div>
       </div>
+      {openModal && <Details closeModal={ setOpenModal} {...props} data={props.data}/>}
     </article>
   );
 };

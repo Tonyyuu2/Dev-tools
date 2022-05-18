@@ -1,26 +1,39 @@
-.main {
-  border-radius: 16px;
-  padding: 10px;
-  /* height: 45vh; */
-  margin: 0 auto;
-  width: 20rem;
+.background{
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: auto;
-  box-shadow: rgb(145 158 171 / 20%) 0px 3px 1px -2px,
-    rgb(145 158 171 / 14%) 0px 2px 2px 0px, rgb(145 158 171 / 12%) 0px 1px 5px;
+  z-index: 9999;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
 }
 
-.journalbtn {
+.xbutton {
   all: unset;
   background-color: #c197ff;
   color: white;
   border-radius: 10px;
-  padding: 5px 16px;
+  padding: 3px 10px;
+  cursor: pointer;
+  display: flex;
+  align-self: end;
+}
+
+.editbutton{
+  all: unset;
+  background-color: #c197ff;
+  color: white;
+  border-radius: 10px;
+  padding: 3px 10px;
   cursor: pointer;
 }
 
@@ -31,15 +44,15 @@
 
 .container {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   border: 1px solid rgb(229, 233, 255);
   border-radius: 16px;
   padding: 5px;
   background-color: #fef6ff;
-  margin: 5px auto;
   color: #4d5156;
-  gap: 5px;
+  gap: 10px;
   cursor: pointer;
+  width: 30%;
 }
 
 .title {
@@ -106,14 +119,14 @@
 .date {
   display: flex;
   flex-direction: column;
-  padding: 2px 5px;
-  border: 1px solid #ececec;
+  padding: 2px 15px;
   background-color: #cd8686;
   color: white;
   border-radius: 12px;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  align-self: stretch;
+  font-weight: bold;
 }
 
 .date__month {
@@ -132,4 +145,32 @@
 
 .description {
   font-size: 12px;
+}
+
+.textformat{
+  width: 70%
+}
+
+.detailscontainer{
+  margin: 0px 0px 0px 20px;
+
+}
+
+.firstbutton{
+  display: flex;
+  align-self: start;
+}
+
+.buttondiv{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.entries{
+  margin-bottom: 10px;
+}
+
+.checkbox{
+  margin-bottom: 10px;
 }
