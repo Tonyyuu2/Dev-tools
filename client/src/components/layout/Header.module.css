@@ -3,13 +3,17 @@
   align-items: center;
   background-color: #f3f2f7;
   justify-content: space-between;
-  box-shadow: 0px 1px 10px #999;
+  z-index: 999 !important;
+  position: fixed;
+  width: 100%;
 }
 
+
 .logo {
-  width: 250px;
-  margin-left: 20px;
+  width: 200px;
+  margin-left: 30px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .linklist {
@@ -25,4 +29,5 @@
 
 .link__list li a {
   color: #9772fb;
+  margin-right: 2em;
 }

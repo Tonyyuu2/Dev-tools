@@ -1,5 +1,6 @@
 import axios from "axios";
 import styles from "./SearchBar.module.css";
+import {FiDelete, FiSearch} from "react-icons/fi"
 
 export default function SearchBar({
   searchKey,
@@ -37,10 +38,10 @@ export default function SearchBar({
         />
         <div className={styles.buttonContainer}>
           <button className={styles.btn} type={"reset"}>
-            Clear
+          <FiDelete/>
           </button>
           <button className={styles.btn} type={"submit"}>
-            Search
+          <FiSearch/>
           </button>
         </div>
       </form>

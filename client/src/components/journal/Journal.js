@@ -1,9 +1,14 @@
 import JournalItem from "./JournalItem";
+
 import classes from './JournalItem.module.css';
 import React, { useEffect, useState } from 'react';
 const axios = require('axios');
+import Form from "./Form"
+import { FaRegEdit } from "react-icons/fa";
+
 
 const Journal = () => {
+  const [openModal, setOpenModal] = useState(false);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -15,18 +20,20 @@ const Journal = () => {
   const journaEntryList = data.map((entry, index) => <JournalItem key={ index } { ...entry } />);
 
   return (
+    <div className={classes.main}>
+      <div className={classes.header}>
+        {openModal && <Form closeModal={setOpenModal} data={data}/>}
 
     <div className={ classes.main }>
       <div className={ classes.header }>
-        <h2>My Journal</h2>
-        <button className={ classes.journalbtn }>
-          <img src="https://img.icons8.com/office/25/000000/pencil--v1.png" alt='pencil' />
-        </button>
+        <h2 className={ classes.headerText }>Code Journal</h2>
+
+        <FaRegEdit className={ classes.journalbtn }  onClick={() => {
+            setOpenModal(true);
+          }}/>
       </div>
-
-      { journaEntryList }
+      {journaEntryList}
     </div>
-
   );
 };
 

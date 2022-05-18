@@ -1,17 +1,32 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+}
+
 .loginBtn {
-  width: 180px;
-  padding: 15px 0px;
+  display: inline;
+  width: 300px;
   text-align: center;
   background-color: #1DB954 ;
-  border-radius: 50px;
+  border-radius: 30px;
   color:  #fefefe;
   font-weight: 600;
-  padding-left: 14px;
   margin: auto;
-  margin-top: 35%;
+  padding: 15px 32px;
+  margin-top: 60px;
 }
 
 a {
   text-decoration: none;
 
 }
+
+.spotify_logo {
+  color:#000000;
+  font-size: 50px; 
+  margin: auto;
+  margin-top: 10px;
+}
+
+
+

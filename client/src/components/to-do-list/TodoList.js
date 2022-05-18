@@ -3,6 +3,7 @@ import classes from './TodoList.module.css';
 import Task from './Task';
 import axios from 'axios';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { FaCheck } from 'react-icons/fa';
 
 const TodoList = () => {
 
@@ -82,7 +83,7 @@ const TodoList = () => {
   return (
 
     <DragDropContext onDragEnd={ onDragEnd }>
-      <h1 className={ classes.container__header }>My to-do-list</h1>
+      {/* <h1 className={ classes.container__header }>To Do</h1> */}
       <div className={ classes.container }>
         <Droppable droppableId='todo'>
           {
@@ -96,12 +97,12 @@ const TodoList = () => {
                   <span className={ classes.todos__header }>
                     To-do
                   </span>
-                  <button className={ classes.todos__add } onClick={ () => setShowModel(true) }>Add</button>
+                  <button className={ classes.todos__add } onClick={ () => setShowModel(true) }>+</button>
                 </div>
                 { showModel && <form className={ classes.add__block }>
-                  <input name='task' style={ { width: '150px' } } value={ taskName } onChange={ (e) => { setTaskName(e.target.value); } }>
+                  <input className={ classes.todos__searchBox } name='task' value={ taskName } onChange={ (e) => { setTaskName(e.target.value); } }>
                   </input>
-                  <button className={ classes.add_btn } onClick={ handleSave }>✔️</button>
+                  <button className={ classes.add_btn } onClick={ handleSave }><FaCheck style={{marginLeft: "5px", marginTop: "15px", color: "rgb(52, 52, 52)"}}/></button>
                 </form> }
 
                 { tasks.filter(task => task.status === 'todo')
@@ -128,7 +129,7 @@ const TodoList = () => {
                 { ...provided.droppableProps }
               >
                 <span className={ classes.todos__header }>
-                  In progress
+                  Doing
                 </span>
                 { tasks.filter(task => task.status === 'inprogress')
                   .map((task, index) =>

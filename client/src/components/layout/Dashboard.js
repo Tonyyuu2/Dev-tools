@@ -9,12 +9,12 @@ import Journal from '../journal/Journal';
 const Dashboard = () => {
   return (
     <>
-      <Layout />
+      
       <div className={ `${classes.main_container}` }>
-        <div className={ classes.weather }><Weather /></div>
+        {/* <div className={ classes.weather }><Weather /></div>
         <div className={ classes.timer }><Pomodoro /></div>
         <div className={ classes.journal }><Journal /></div>
-        <div className={ classes.todo }><TodoList /></div>
+        <div className={ classes.todo }><TodoList /></div> */}
       </div>
     </>
 
