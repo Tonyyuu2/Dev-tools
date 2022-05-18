@@ -31,7 +31,6 @@ const Location = styled.span`
   font-size: 14px;
   padding-bottom: 6px;
 `;
-
 const WeatherInfoBlock = styled.div`
   display: flex;
  

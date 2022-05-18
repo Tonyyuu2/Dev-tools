@@ -4,13 +4,14 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   margin-top: -0.5em;
+
   
 `;
 const InfoLabel = styled.span`
   display: flex;
   flex-direction: column;
   font-size: 15px;
-  padding-left: 1px;
+  padding-left: 2px;
   padding-top: 2px;
   & span {
     font-size: 13px;

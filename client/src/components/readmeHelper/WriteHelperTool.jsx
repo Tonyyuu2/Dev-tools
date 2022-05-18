@@ -15,8 +15,6 @@ export default function WriteHelperTool() {
     const formData = new FormData(e.target),
     formDataObj = Object.fromEntries(formData.entries())
 
-    
-    // Make sure to put API key in .env
     console.log(process.env.REACT_APP_API_KEY)
     const configuration = new Configuration({
       apiKey: process.env.REACT_APP_API_KEY,

@@ -2,6 +2,7 @@ import "./Timer.scss"
 import Pomodoro from "../pomodoro/Pomodoro"
 import styled from "styled-components"
 import Weather from "../weather/Weather"
+import Journal from "../journal/Journal"
 
 const WeatherAndPomodoroDiv = styled.div`
   display: flex;
@@ -13,10 +14,9 @@ const WeatherAndPomodoroDiv = styled.div`
 const Timer = () => {
   return(
     <>
-    <WeatherAndPomodoroDiv>
-    <Weather/>
-    <Pomodoro />
-    </WeatherAndPomodoroDiv>
+    {/* <Weather/>
+    <Pomodoro /> */}
+    <Journal/>
     </>
   )
 }

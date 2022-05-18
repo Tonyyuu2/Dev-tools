@@ -38,6 +38,15 @@
   color: rgb(54, 54, 54);
 }
 
+.list2 {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+  color: rgb(54, 54, 54);
+
+}
+
 .instruction {
   padding: 0.7em 1em 0.7em 1em;
   background: rgba(255, 255, 255, 0.2);
@@ -48,6 +57,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   margin-right: 1em;
   color: rgb(54, 54, 54);
+  width: 520px;
 }
 
 
@@ -65,7 +75,7 @@
 
 .btn:hover {
   transition: all 0.2s ease 0s;
-  transform: scale(1.1, 1.1);
+  transform: scale(1.05, 1.05);
 }
 
 .btn {
@@ -75,19 +85,21 @@
   cursor: pointer;
   width: fit-content;
   margin-left: 0.5em;
-  font-size: 1.1em;
+  font-size: 1.05em;
 }
 
 .green {
   background-color: #9fd1bb;
   padding-bottom: 2px;
   border-radius: 50px;
+  box-shadow: -1px 7px 5px -6px rgb(62, 62, 62);
 }
 
 .red {
   background-color: #e290ade1;
   padding-bottom: 2px;
   border-radius: 50px;
+  box-shadow: -1px 7px 5px -6px rgb(62, 62, 62);
 }
 
 .blue {
@@ -95,8 +107,9 @@
   width: fit-content;
   border-radius: 10px;
   padding: 5px 10px;
-  margin-top: 0.3em;
+  margin-top: 3px;
   z-index: 10;
+  box-shadow: -1px 7px 5px -6px rgb(62, 62, 62);
 }
 
 .btncontainer {
@@ -108,18 +121,17 @@
 
 .graph {
   text-align: center;
-  margin: -40em 24em;
-  width: 40%;
-  z-index: 20;
+  margin: -40em 27.5em;
+  width: 450px;
+  z-index: 777;
   position: relative;
-  border: 3px solid #0aa1dd;
+  border: 3px solid #54b0d4;
   background: rgb(255, 255, 255);
-  border-radius: 15px;
-  padding: 1.2em;
-  text-align: center;
+  border-radius: 20px;
+  padding: 1.5em 0.4em;
   color: rgb(58, 58, 58);
   box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.1);
-  height: 75vh;
+  height: auto;
  
 
 }
@@ -136,7 +148,7 @@
 .msgContainer {
   margin-top: 0.5em;
   z-index: 9;
-  margin-left: 1.2em;
+  margin-left: 0.9em;
   border: 3px solid #85cee9e5;
   width: 280px;
   border-radius: 10px;
@@ -149,7 +161,7 @@
   z-index: 5;
   align-self: flex-end;
   margin-top: 1.5em;
-  margin-right: 10em;
+  margin-right: 11em;
   flex-direction: column;
 }
 
@@ -164,13 +176,16 @@
   cursor: pointer;
   color: pink;
   font-size: 2em;
-  margin-left: 84px;
+  margin-right: 11px;
   margin-top: -20px;
+
 }
 
 .graphHeading {
-  margin-top: 0em;
-  font-size: 30px;
+  display: inline;
+  font-size: 27px;
+  padding: 0;
+  margin-right: 1.5em;
 }
 
 .graphHeader {
@@ -180,21 +195,31 @@
 }
 
 .resultMsg {
-  padding-right: 24px;
+  padding-right: 40px;
   font-size: 3.2em;
   padding-top: 11px;
   
 }
 
 .postureCountContainer {
-  padding: 1em;
+  padding: 0.9em;
   justify-content: space-between;
+  
 }
 
 .postureCount {
   font-size: 0.92em;
   color:rgb(43, 43, 43);
   margin-bottom: 0.5em;
+}
+
+.startTracking {
+  align-self: flex-end;
+  z-index: 19;
+  margin-right: 12.7em;
+  margin-top: 0.7em;
+  margin-bottom: -1em;
+  color: #89b9a4;
 }
 
 
