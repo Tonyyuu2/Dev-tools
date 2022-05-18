@@ -14,9 +14,9 @@ body {
   color: rgb(30, 30, 30);
 }
 
-/* button {
+button {
   all: unset;
-} */
+}
 
 h1,
 h2,
@@ -36,3 +36,5 @@ li {
 a {
   text-decoration: none;
 }
+
+

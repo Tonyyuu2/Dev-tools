@@ -7,8 +7,6 @@ import { FaCheck } from 'react-icons/fa';
 
 const TodoList = () => {
 
-  console.log('Running Todo list');
-
   const [showModel, setShowModel] = useState(false);
   const [taskName, setTaskName] = useState('');
   const [tasks, setTasks] = useState([]);
@@ -83,7 +81,7 @@ const TodoList = () => {
   return (
 
     <DragDropContext onDragEnd={ onDragEnd }>
-      {/* <h1 className={ classes.container__header }>To Do</h1> */}
+      {/* <h1 className={ classes.container__header }>To Do</h1> */ }
       <div className={ classes.container }>
         <Droppable droppableId='todo'>
           {
@@ -102,7 +100,7 @@ const TodoList = () => {
                 { showModel && <form className={ classes.add__block }>
                   <input className={ classes.todos__searchBox } name='task' value={ taskName } onChange={ (e) => { setTaskName(e.target.value); } }>
                   </input>
-                  <button className={ classes.add_btn } onClick={ handleSave }><FaCheck style={{marginLeft: "5px", marginTop: "15px", color: "rgb(52, 52, 52)"}}/></button>
+                  <button className={ classes.add_btn } onClick={ handleSave }><FaCheck style={ { marginLeft: "5px", marginTop: "15px", color: "rgb(52, 52, 52)" } } /></button>
                 </form> }
 
                 { tasks.filter(task => task.status === 'todo')

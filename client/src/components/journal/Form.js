@@ -1,64 +1,68 @@
 import React, { useState } from "react";
 import styles from "./Form.module.css";
 import ReactDom from 'react-dom';
+import axios from 'axios';
+import {FaRegSave, FaRegWindowClose} from "react-icons/fa"
 
-function Form({closeModal, data}) {
+
+const Form = ({ closeModal, onAdd }) => {
   const [title, setTitle] = useState("");
-  console.log("title :", title);
   const [description, setDescription] = useState("");
-  console.log("description :", description);
-  const [details, setDetails] = useState("");
-  console.log("details :", details);
   const [code, setCode] = useState(false);
-  console.log("code :", code);
   const [danger, setDanger] = useState(false);
-  console.log("danger :", danger);
   const [normal, setNormal] = useState(false);
-  console.log("normal :", normal);
 
-  function handleSubmit(event) {
+
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     const tags = [];
 
-    if(code) {
-      tags.push("code")
+    if (code) {
+      tags.push("code");
     }
-    if(danger) {
-      tags.push("danger")
+    if (danger) {
+      tags.push("danger");
     }
-    if(normal) {
-      tags.push("normal")
+    if (normal) {
+      tags.push("normal");
     }
 
     const newObj = {
-      title, 
+      title,
       description,
       tags
-    }
-    data.push(newObj)
-    closeModal(false)
-    console.log('data :', data);
-  }
+    };
+
+    axios.post('/api/journal', newObj)
+      .then(result => onAdd(result.data))
+      .catch(e => console.error(e));
+
+    closeModal(false);
+
+  };
 
 
   return ReactDom.createPortal(
     <>
       <div className={styles.background}>
         <div className={styles.layout}>
-          <form>
-          <input className={styles.xbutton} type="button" value="X" onClick={() => {closeModal(false)}}></input>
-            <h2 className={styles.newentry}>New Entry:</h2>
+          <form className={styles.formContainer}>
+          <div className={styles.button}>
+              <button className={styles.cancelButton} type="button"  onClick={() => {closeModal(false)}}><FaRegWindowClose/></button>
+          </div>
+            <h2 className={styles.newentry}>New Journal</h2>
             <div className={styles.formlayout}>
               <input
                 type="text"
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
-                placeholder="Title:"
+                placeholder="Journal Title"
                 required
+                className={styles.inputField}
               />
             </div>
-            <div className={styles.formlayout}>
+            <div className={ styles.formlayout }>
               <textarea
                 required
                 name="description"
@@ -66,18 +70,20 @@ function Form({closeModal, data}) {
                 rows="5"
                 cols="30"
                 wrap="hard"
-                placeholder="A short description of your journal."
+                placeholder="Write a short description of the code you wrote today."
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
+                className={styles.inputField}
               />
             </div>
-            <div className={styles.radio}>
+            <div className={ styles.radio }>
               <input
                 type="checkbox"
                 name="radio"
                 value="code"
                 checked={code}
                 onChange={(event) => setCode(event.target.checked)}
+                className={styles.radioBox}
               />
               <label>code</label>
 
@@ -87,6 +93,7 @@ function Form({closeModal, data}) {
                 value="danger"
                 checked={danger}
                 onChange={(event) => setDanger(event.target.checked)}
+                className={styles.radioBox}
               />
               <label>danger</label>
 
@@ -96,12 +103,13 @@ function Form({closeModal, data}) {
                 value="normal"
                 checked={normal}
                 onChange={(event) => setNormal(event.target.checked)}
+                className={styles.radioBox}
               />
               <label>normal</label>
             </div>
-            <div className={styles.button}>
-              <button type="button" onClick={handleSubmit}>
-                Done
+              <div className={styles.saveButtonContainer}>
+              <button className={styles.saveButton} type="button" onClick={handleSubmit}>
+              Save
               </button>
             </div>
           </form>
@@ -110,6 +118,6 @@ function Form({closeModal, data}) {
     </>,
     document.getElementById('portal')
   );
-}
+};
 
 export default Form;
