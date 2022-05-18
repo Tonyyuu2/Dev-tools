@@ -1,8 +1,21 @@
+.background{
+  background-color: rgba(0,0,0,0.7);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  z-index: 99999;
+}
 .main {
   border-radius: 16px;
   padding: 10px;
   /* height: 45vh; */
-  top: 0;
+  margin: 0 auto;
   width: 20rem;
   overflow: auto;
   box-shadow: rgb(145 158 171 / 20%) 0px 3px 1px -2px,
@@ -11,29 +24,18 @@
 
 .header {
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 10px;
-}
-
-.headerText {
-  font-weight: 500;
-  font-size: 35px;
-  color: #3f4042;
-  margin-right: 30px;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .journalbtn {
-  /* background-color: #bdaefbdf; */
-
-  margin-top: 12px;
-  color: rgb(103, 103, 103);
+  all: unset;
+  background-color: #c197ff;
+  color: white;
+  border-radius: 10px;
+  padding: 5px 16px;
   cursor: pointer;
-  font-size: 1.5em;
-  width: fit-content;
-  height: fit-content;
 }
-
-
 
 .journalbtn:hover {
   transition: all 0.2s ease 0s;
@@ -43,23 +45,22 @@
 .container {
   display: flex;
   align-items: center;
-  box-shadow: rgb(145 158 171 / 20%) 0px 3px 1px -2px,
-    rgb(145 158 171 / 14%) 0px 2px 2px 0px, rgb(145 158 171 / 12%) 0px 1px 5px;
+  border: 1px solid rgb(229, 233, 255);
   border-radius: 16px;
-  padding: 8px;
+  padding: 5px;
   background-color: #fef6ff;
   margin: 5px auto;
   color: #4d5156;
+  gap: 5px;
+  cursor: pointer;
 }
 
-
 .title {
-  font-weight: 200;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  color: #262626;
+  margin-bottom: 5px;
+  color: #343434;
 }
 
 .container:hover {
@@ -68,7 +69,7 @@
 }
 
 .tag {
-  font-size: 13px;
+  font-size: 12px;
   padding: 3px 8px;
   border-radius: 16px;
   margin-bottom: 5px;
@@ -84,12 +85,12 @@
 
 .danger {
   color: rgb(255, 85, 85);
-  background-color: #fdcfdfce;
+  background-color: rgb(255, 218, 218);
 }
 
 .normal {
   color: rgb(88, 111, 250);
-  background-color: #a6dcefe5;
+  background-color: rgb(229, 233, 255);
 }
 
 .tags {
@@ -112,8 +113,7 @@
 }
 
 .entry_header {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 14px;
 }
 
 .date {
@@ -121,26 +121,25 @@
   flex-direction: column;
   padding: 2px 5px;
   border: 1px solid #ececec;
-  background-color: #beaefb;
+  background-color: #cd8686;
   color: white;
   border-radius: 12px;
   align-items: center;
   justify-content: center;
-  min-width:70px;
-  margin-right: 1em;
+  flex: 1;
 }
 
 .date__month {
-  font-size: 15px;
+  font-size: 0.75rem;
   font-weight: bold;
 }
 
 .date__year {
-  font-size: 15px;
+  font-size: 0.75rem;
 }
 
 .date__day {
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 

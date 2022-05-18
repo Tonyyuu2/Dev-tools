@@ -36,7 +36,7 @@ const Home = () => {
               <Journal />
             </div>      
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
