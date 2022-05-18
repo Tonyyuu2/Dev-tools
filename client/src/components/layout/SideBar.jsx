@@ -8,7 +8,7 @@ import {  faClock, faHome, faLock, faMedkit, faMugHot, faUser } from '@fortaweso
 
       return (
         <div onClick={switch_menu} className={`nav_container ${showMenu ? 'menu_active' : null}`} id="nav-slide">
-          <div className="nav-bar" style={{zIndex: 999}}>
+          <div className="nav-bar">
             <nav>
               <NavLink exact="true" activeclassname="active" to="/">
                 <FontAwesomeIcon icon={faHome} color="#9fd1bb" />
@@ -25,7 +25,7 @@ import {  faClock, faHome, faLock, faMedkit, faMugHot, faUser } from '@fortaweso
                 exact="true"
                 activeclassname="active"
                 className="wecare-link"
-                to="/wecare"
+                to="/backcare"
               >
                 <FontAwesomeIcon icon={ faMedkit } color="#9fd1bb" />
               </NavLink>
@@ -36,14 +36,6 @@ import {  faClock, faHome, faLock, faMedkit, faMugHot, faUser } from '@fortaweso
                 to="/break"
               >
                 <FontAwesomeIcon icon={faMugHot} color="#9fd1bb" />
-              </NavLink>
-              <NavLink
-                exact="true"
-                activeclassname="active"
-                className="spotify-link"
-                to="/spotify"
-              >
-                <FontAwesomeIcon icon={faLock} color="#9fd1bb" />
               </NavLink>
             </nav>
           </div>

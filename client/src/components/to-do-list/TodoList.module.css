@@ -1,29 +1,37 @@
 .container {
-  display: flex;
-  margin: 0 auto;
+  margin-top: 1em;
+  display: flex; 
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 45px;
+  width: auto;
 }
+
 
 .container__header,
 .todos__header {
   text-align: center;
+  margin-left: 40%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .todos__col {
   border-radius: 16px;
-  height: 250px;
-  width: 200px;
-  padding: 10px;
+  height: 290px;
+  width: 290px;
+  padding: 15px;
   overflow: auto;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.todos__col:hover {
+  transition: all 0.2s ease-in-out 0s;
+  transform: scale(1.05, 1.05);
 }
 
 .add__block {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   align-items: center;
   margin-bottom: 5px;
   overflow-x: hidden;
@@ -31,21 +39,46 @@
 
 .todos__add {
   all: unset;
-  color: white;
-  border-radius: 10px;
-  padding: 5px 16px;
+  color: #65a0db;
+  border-radius: 150px;
+  padding: 1px 12px;
   cursor: pointer;
-  background-color: #1976d2;
+  /* background-color: #65a0db; */
+  margin-left: 160px;
+  position: absolute;
+  font-size: 24px;
+}
+
+.todos__add:hover {
+  color: white;
+  font-size: 28px;
+  transition: ease-in-out;
+}
+
+.todos__searchBox {
+  margin-top: 10px;
+  margin-left: 5px;
+  width: 230px;
+  border: 0px solid ;
+  border-radius: 5px;
+  margin-right: 5px;
+  height: 30px;
+  outline: none !important;
 }
 
 .task {
-  margin-top: 10px;
+  margin-top: 12px;
   padding: 10px;
   border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   font-size: 14px;
   background: white;
   position: relative;
+}
+
+.task:hover {
+  transition: all 0.2s ease-in-out 0s;
+  transform: scale(1.05, 1.05);
 }
 
 .todo {
@@ -67,15 +100,18 @@
 }
 
 .todocontainer {
-  background-color: #d9d7f1;
+  background-color: #d9d7f1d9;
+  
 }
 
 .inprogresscontainer {
-  background-color: #fdcfdf;
+  background-color: #fdcfdfe1;
+
 }
 
 .donecontainer {
-  background-color: #a6dcef;
+  background-color: #a6dcefe5;
+
 }
 
 .taskdrag {
@@ -104,6 +140,7 @@
   top: 0;
   padding: 4px;
   cursor: pointer;
+  margin: 6px 5px 5px 0;
 }
 
 .dragtodo {

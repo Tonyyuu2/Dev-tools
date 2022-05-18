@@ -9,7 +9,7 @@ import Journal from '../journal/Journal';
 const Dashboard = () => {
   return (
     <>
-      <Layout />
+      
       <div className={ `${classes.main_container}` }>
         {/* <div className={ classes.weather }><Weather /></div>
         <div className={ classes.timer }><Pomodoro /></div>

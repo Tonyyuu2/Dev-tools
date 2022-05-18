@@ -5,14 +5,22 @@ import "./slider.css";
 import BackButton from "./BackButton"
 
 import classes from "../pomodoro/Pomodoro.module.css";
-import { ClassNames } from "@emotion/react";
+import { FaMugHot, FaBrain, FaArrowLeft } from "react-icons/fa";
+
+
 
 function Settings() {
   const settingsInfo = useContext(Settingscontext);
 
   return (
-    <div className={classes.overall} style={{ textAlign: "left" }}>
-      <label>work: {settingsInfo.workMinutes}:00</label>
+    <div className={classes.overall} style={{ textAlign: "center"}}>
+      <div style={{textAlign:'center',marginTop:'-20px'}}>
+      <button className={classes.btn_back} onClick={() => settingsInfo.setShowSettings(false)} >
+        <FaArrowLeft className={classes.icon} />
+        <BackButton/>
+      </button>
+      </div>
+      <label className={classes.label}><FaBrain/> &nbsp;{settingsInfo.workMinutes}:00</label>
       <ReactSlider
         className={"slider"}
         thumbClassName={"thumb"}
@@ -22,7 +30,7 @@ function Settings() {
         min={1}
         max={120}
       />
-      <label>break: {settingsInfo.breakMinutes}:00</label>
+      <label className={classes.label}><FaMugHot/>&nbsp;{settingsInfo.breakMinutes}:00</label>
       <ReactSlider
         className={"slider red"}
         thumbClassName={"thumb"}
@@ -32,10 +40,6 @@ function Settings() {
         min={1}
         max={120}
       />
-
-      <div style={{textAlign:'center', marginTop:'20px'}}>
-      <BackButton onClick={() => settingsInfo.setShowSettings(false)}/>
-      </div>
     </div>
   );
 }

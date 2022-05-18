@@ -2,10 +2,16 @@ import React from 'react';
 import classes from './Header.module.css';
 import mainLogo from './assets/DEV-TOOL-logos_transparent.png';
 import { NavLink } from 'react-router-dom';
+import './Header.css'
+const Header = ({ switch_menu, boxShadow }) => {
 
-const Header = ({ switch_menu }) => {
+  let boxShadowClass;
+
+  boxShadow ? boxShadowClass = "boxShadow" : boxShadowClass = ""
+
+
   return (
-    <nav className={ classes.navbar } style={ { zIndex: '10' } }>
+    <nav className={ `${classes.navbar} ${boxShadowClass}` }>
       <div>
         <img
           className={ classes.logo }
@@ -18,7 +24,6 @@ const Header = ({ switch_menu }) => {
 
       <ul className={ classes.link__list } >
         <li><NavLink to='about'>About us</NavLink></li>
-        <li><NavLink to='logout'>Logout</NavLink></li>
       </ul>
 
     </nav>

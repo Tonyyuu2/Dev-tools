@@ -2,7 +2,10 @@ import JournalItem from "./JournalItem";
 import classes from "./JournalItem.module.css";
 import Form from "./Form"
 
+
 import React, { useState } from "react";
+import { FaRegEdit } from "react-icons/fa";
+
 
 const data = [
   {
@@ -40,22 +43,27 @@ const journaEntryList = data.map((entry, index) => (
 const Journal = () => {
   const [openModal, setOpenModal] = useState(false);
 
+
   return (
     <div className={classes.main}>
       <div className={classes.header}>
         <h2>My Journal</h2>
-        <button
-          className={classes.journalbtn}
-          onClick={() => {
-            setOpenModal(true);
-          }}
-        >
-          <img
-            src="https://img.icons8.com/office/25/000000/pencil--v1.png"
-            alt="pencil"
-          />
-        </button>
+//         <button
+//           className={classes.journalbtn}
+//           onClick={() => {
+//             setOpenModal(true);
+//           }}
+//         >
+//         </button>
         {openModal && <Form closeModal={setOpenModal} data={data}/>}
+
+    <div className={ classes.main }>
+      <div className={ classes.header }>
+        <h2 className={ classes.headerText }>Code Journal</h2>
+
+        <FaRegEdit className={ classes.journalbtn }  onClick={() => {
+            setOpenModal(true);
+          }}/>
       </div>
       {journaEntryList}
     </div>

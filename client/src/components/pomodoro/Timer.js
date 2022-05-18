@@ -10,8 +10,8 @@ import Settingsbutton from "./Settingsbutton";
 import Settingscontext from "./Settingscontext";
 import classes from "../pomodoro/Pomodoro.module.css";
 
-const hotpink = "#FF69B4";
-const green = "#00FF00";
+const hotpink = "#beaefb";
+const green = "#02C39A";
 
 function Timer() {
   const settingsInfo = useContext(Settingscontext);
@@ -73,13 +73,14 @@ function Timer() {
   if (seconds < 10) seconds = "0" + seconds;
 
   return (
-    <div>
+    <div   style={{boxShadow: "0px 4px 7px -4px black", borderRadius:"100px"}}>
       <CircularProgressbarWithChildren
         value={ percentage }
         styles={ buildStyles({
           textColor: "#fff",
           pathColor: mode === "work" ? hotpink : green,
           tailColor: "rgb(0,0,255,0.2)",
+       
         })}
       >
         <div className={classes.progresstime}>

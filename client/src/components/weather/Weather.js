@@ -13,32 +13,42 @@ const Condition = styled.span`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 16px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 17px;
   & span {
+    margin-top: 8px;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 30px;
   }
 `;
 const WeatherIcon = styled.img`
-  width: 80px;
+  width: 73px;
+  margin-top: 5px;
+  margin-bottom: 6px
 `;
 const Location = styled.span`
   font-size: 14px;
+  padding-bottom: 6px;
 `;
 const WeatherInfoBlock = styled.div`
   display: flex;
+ 
 `;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  box-shadow: 0 3px 6px 0 #555;
-  padding: 20px;
+  padding: 20px 30px 10px 30px;
   border-radius: 4px;
   background-color: white;
-  line-height: 16px;
+  line-height: 13px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0px 5px 7px -4px black;
+  backdrop-filter: blur(5.8px);
+  -webkit-backdrop-filter: blur(5.8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 `;
 export const WeatherInfoIcons = {
   sunset: "/icons/temp.svg",
@@ -99,7 +109,7 @@ function Weather() {
         </Location>
         <WeatherIcon src={DynamicWeatherIcons[weather?.weather[0].icon]} />
           <Condition>
-            {weather && ` ${weather.weather[0].description}`}
+            {/* {weather && ` ${weather.weather[0].description}`} */}
           </Condition>
         <WeatherCondition>
           <WeatherInfoBlock>

@@ -3,21 +3,26 @@ import styled from "styled-components";
 const InfoContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-top: -0.5em;
+
+  
 `;
 const InfoLabel = styled.span`
   display: flex;
   flex-direction: column;
-  font-size: 13px;
-  padding-left: 7px;
+  font-size: 15px;
+  padding-left: 2px;
+  padding-top: 2px;
   & span {
-    font-size: 11px;
+    font-size: 13px;
     text-transform: capitalize;
+    padding-top: 3px;
   }
 `;
 
 const InfoIcon = styled.img`
-  width: 36px;
-  height: 36px;
+  width: 37px;
+  height: 37px;
 `;
 
 export const WeatherInfoIcons = {
