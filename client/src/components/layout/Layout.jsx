@@ -16,7 +16,7 @@ const Layout = () => {
 
   return (
     <>
-      <div className='App'>
+      <div>
         <SideBar switch_menu={switch_menu} showMenu={showMenu} />
       </div>
       <Header switch_menu={switch_menu} boxShadow={boxShadow} />

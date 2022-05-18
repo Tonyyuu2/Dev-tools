@@ -47,7 +47,7 @@ const reducer = (state, action) => {
 const Backcare = () => {
 
   const videoElement = useRef(null);
-
+  const [instruction, setInstruction] = useState(true)
   const [state, dispatchBackcare] = useReducer(reducer, intialState);
 
   useEffect(() => {
@@ -104,6 +104,7 @@ const Backcare = () => {
 
     dispatchBackcare({ type: 'TEST_RESULT', result: false });
 
+
     const intervalId = setInterval(async () => {
       let model = await mobilenet.load();
       const img = tf.browser.fromPixels(videoElement.current.video);
@@ -141,6 +142,12 @@ const Backcare = () => {
     }
   };
 
+  const doneClicked = () => {
+     setInstruction(false);
+     dispatchBackcare({ type: 'IS_TRAINED' })
+
+  }
+
 
   const graphdata = {
     labels: ['Bad posture', 'Good posture'],
@@ -171,6 +178,7 @@ const Backcare = () => {
         <div className={ classes.screen }>
         <div className={ classes.instruction }>
           <h3>Instruction:</h3>
+          {instruction && 
           <ul className={ classes.list }>
             <li>1. Take multiple photos of good postures and bad postures
             </li>
@@ -180,7 +188,21 @@ const Backcare = () => {
             <li>
             3. Once you are satisfied with your result, click 'Done'
             </li>
-          </ul>
+          </ul> }
+          { !instruction && (
+            <ul className={ classes.list2 }>
+              <li>
+                4. Click Track your posture to start tracking
+              </li>
+              <li>
+                5. When are done simply click stop tracking
+              </li>
+              <li>
+                6. You will get a record of your posture
+              </li>
+            </ul>
+          )
+          }
           </div>
           <Webcam
             className={ classes.camera }
@@ -214,7 +236,7 @@ const Backcare = () => {
 
           <button
             className={ classes.btn + ' ' + classes.blue }
-            onClick={ () => dispatchBackcare({ type: 'IS_TRAINED' }) }>
+            onClick={ doneClicked }>
             Done</button>
           </div>
         </div> }
@@ -229,11 +251,16 @@ const Backcare = () => {
           </div>
         </div>
 
+            { 
+              state.intervalId && <div className={classes.startTracking}>Tracking posture in progress...</div>
+            }
+
         { state.isTrained && <div className={ classes.btnContainer2 }>
           <button
             className={ classes.btn + ' ' + classes.blue }
             onClick={ classifyPosture }>
             Track your posture</button>
+           
           <button
             className={ classes.btn + ' ' + classes.blue }
             onClick={ stopPostureTracking }>
@@ -243,7 +270,7 @@ const Backcare = () => {
       </div>
         { state.displayGraph && <div className={ classes.graph }>
         <div className={ classes.graphHeader }>
-          <h3 className={ classes.graphHeading }>Your posture history</h3>
+          <h3 className={ classes.graphHeading }>Posture Record</h3>
           <button onClick={()=>{
              dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false })}
         } class={classes.closeBtn}><IoIosCloseCircleOutline/></button>

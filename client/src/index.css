@@ -11,6 +11,7 @@ body {
   font-size: calc(12px + 0.4vw);
   background-color: rgb(249, 250, 251);
   height: 100%;
+  color: rgb(30, 30, 30);
 }
 
 button {
