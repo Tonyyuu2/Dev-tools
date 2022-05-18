@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS health_data CASCADE;
+
+CREATE TABLE health_data(
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  good_posture INTEGER DEFAULT 0,
+  bad_posture INTEGER DEFAULT 0,
+  date_created DATE NOT NULL DEFAULT CURRENT_DATE
+);

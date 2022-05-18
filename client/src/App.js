@@ -10,11 +10,13 @@ function App() {
   return (
     <>
       <Routes>
+
         <Route path="/" element={ <Layout /> } >
             <Route index element={ <Home /> } />
             <Route path='timer' element={ <Timer /> } />
             <Route path='backcare' element={ <Wecare /> }/>
             <Route path='break' element={ <Break /> } />
+
         </Route>
       </Routes>
     </>
