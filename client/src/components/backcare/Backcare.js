@@ -61,7 +61,7 @@ const Backcare = () => {
   const videoElement = useRef(null);
 
   const [instruction, setInstruction] = useState(true)
-  const [state, dispatchBackcare] = useReducer(reducer, intialState);
+  const [state, dispatchBackcare] = useReducer(reducer, initialState);
 
   useEffect(() => {
 
@@ -162,7 +162,6 @@ const Backcare = () => {
     axios.post(`/api/datalab/backcare/data?good=${data.good}&bad=${data.bad}`)
       .then(result => console.log(result.data))
       .catch(e => console.error(e));
-    stopCam();
   };
 
 
