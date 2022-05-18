@@ -1,20 +1,9 @@
-<<<<<<< HEAD
 import JournalItem from "./JournalItem";
 import Form from "./Form";
 import { FaRegEdit } from "react-icons/fa";
 import classes from './JournalItem.module.css';
 import React, { useEffect, useState } from 'react';
 const axios = require('axios');
-
-
-=======
-import Form from "./Form";
-import { FaRegEdit } from "react-icons/fa";
-import JournalItem from "./JournalItem";
-import classes from "./JournalItem.module.css";
-import React, { useEffect, useState } from "react";
-const axios = require("axios");
->>>>>>> fbe724e869b1e710a12f217d5601ef92ab086746
 
 const Journal = () => {
   const [openModal, setOpenModal] = useState(false);
