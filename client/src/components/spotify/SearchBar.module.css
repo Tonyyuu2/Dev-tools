@@ -34,7 +34,7 @@
 .btn {
   box-shadow: 0 5px 4px -4px black;
   appearance: none;
-  background-color: #66616a;
+  background-color: rgb(58, 58, 58);
   border: 0px solid #dbdbdb;
   color: #ffffff;
   cursor: pointer;
@@ -43,9 +43,9 @@
   height: 1.5em;
   text-align: center;
   width: auto;
-  margin: 25px 6px 10px 6px;
-  padding: 5px 18px 3px 16px;
+  margin: 15px 6px 20px 6px;
   border-radius: 40px;
+  padding: 11px 15px 7px 15px ;
   
 }
 
@@ -61,8 +61,8 @@
 }
 
 .btn:hover {
-  background-color: #fdcfdfe1;
-  color: #7d7d7d;
+  background-color: #1DB954;
+  color: white;
   transition: ease-in-out;
 }
 

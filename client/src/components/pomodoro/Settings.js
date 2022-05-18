@@ -13,8 +13,8 @@ function Settings() {
   const settingsInfo = useContext(Settingscontext);
 
   return (
-    <div className={classes.overall} style={{ textAlign: "center" }}>
-      <div style={{textAlign:'center', marginTop:'20px'}}>
+    <div className={classes.overall} style={{ textAlign: "center"}}>
+      <div style={{textAlign:'center',marginTop:'-20px'}}>
       <button className={classes.btn_back} onClick={() => settingsInfo.setShowSettings(false)} >
         <FaArrowLeft className={classes.icon} />
         <BackButton/>

@@ -73,7 +73,7 @@ function Timer() {
   if (seconds < 10) seconds = "0" + seconds;
 
   return (
-    <div>
+    <div   style={{boxShadow: "0px 4px 7px -4px black", borderRadius:"100px"}}>
       <CircularProgressbarWithChildren
         value={ percentage }
         styles={ buildStyles({

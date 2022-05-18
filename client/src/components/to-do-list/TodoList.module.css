@@ -24,6 +24,11 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
+.todos__col:hover {
+  transition: all 0.2s ease-in-out 0s;
+  transform: scale(1.05, 1.05);
+}
+
 .add__block {
   display: flex;
   /* justify-content: space-around; */
@@ -69,6 +74,11 @@
   font-size: 14px;
   background: white;
   position: relative;
+}
+
+.task:hover {
+  transition: all 0.2s ease-in-out 0s;
+  transform: scale(1.05, 1.05);
 }
 
 .todo {

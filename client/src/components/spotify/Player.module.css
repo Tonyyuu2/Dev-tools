@@ -36,6 +36,12 @@
   box-shadow: 0 6px 5px -5px black;
 }
 
+.spotifyPlayer:hover {
+  transition: all 0.2s ease-in-out 0s;
+  transform: scale(1.02, 1.02);
+
+}
+
 .spotifyLogo {
   width: 270px;
   text-align: center;
