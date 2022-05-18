@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "reset": "psql -U immigrants -d devtool_immigrants < ./src/db/schema/create.sql && psql -U immigrants -d devtool_immigrants < ./src/db/schema/immigrants.sql"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.16",
+    "spotify-web-api-node": "^5.0.2"
+  }
 }

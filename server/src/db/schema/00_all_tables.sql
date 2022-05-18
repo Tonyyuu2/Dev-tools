@@ -1,0 +1,45 @@
+CREATE DATABASE devtool;
+
+DROP TABLE IF EXISTS journal_entries CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS tasks CASCADE;
+-- DROP TABLE IF EXISTS health_reports CASCADE;
+
+
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  avatar VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE tasks(
+  id SERIAL PRIMARY KEY NOT NULL,
+  REFERENCES users(id) ON DELETE CASCADE,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  status VARCHAR(255) NOT NULL,
+  date_created DATE NOT NULL DEFAULT CURRENT_DATE,
+  date_updated DATE NOT NULL DEFAULT CURRENT_DATE
+);
+
+
+CREATE TABLE journal_entries(
+  id SERIAL PRIMARY KEY NOT NULL,
+  REFERENCES users(id) ON DELETE CASCADE,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  tag TEXT [],
+  date_created DATE NOT NULL DEFAULT CURRENT_DATE,
+  rating INT NOT NULL
+);
+
+
+-- CREATE TABLE health_reports(
+--   id SERIAL PRIMARY KEY NOT NULL
+--   REFERENCES users(id) ON DELETE CASCADE,
+--   good_posture INT,
+--   bad_posture INT,
+--   date_created DATE NOT NULL DEFAULT CURRENT_DATE
+-- );
+
