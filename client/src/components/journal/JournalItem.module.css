@@ -1,7 +1,6 @@
 .main {
   border-radius: 16px;
   padding: 10px;
-  /* height: 45vh; */
   top: 0;
   width: 20rem;
   overflow: auto;
@@ -96,10 +95,6 @@
   display: flex;
 }
 
-.main::-webkit-scrollbar {
-  width: 8px;
-}
-
 .main::-webkit-scrollbar-track {
   background: rgba(182, 137, 192, 0.5);
   border-radius: 10px;
@@ -126,7 +121,6 @@
   border-radius: 12px;
   align-items: center;
   justify-content: center;
-  min-width:70px;
   margin-right: 1em;
 }
 
