@@ -23,23 +23,18 @@ const Journal = () => {
   return (
     <div className={classes.main}>
       <div className={classes.header}>
-        {openModal && <Form closeModal={setOpenModal} data={data} />}
+      {openModal && <Form closeModal={setOpenModal} />}
+        <h2 className={classes.headerText}>Code Journal</h2>
+        <FaRegEdit
+          className={classes.journalbtn}
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        />
       </div>
-      <div className={classes.main}>
-        <div className={classes.header}>
-          <h2 className={classes.headerText}>Code Journal</h2>
-
-          <FaRegEdit
-            className={classes.journalbtn}
-            onClick={() => {
-              setOpenModal(true);
-            }}
-          />
-        </div>
-        {journaEntryList}
-      </div>
+      {journaEntryList}
     </div>
-  );
+);
 };
 
 export default Journal;

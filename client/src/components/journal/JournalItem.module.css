@@ -1,7 +1,6 @@
 .main {
   border-radius: 16px;
   padding: 10px;
-  /* height: 45vh; */
   top: 0;
   width: 20rem;
   overflow: auto;
@@ -126,7 +125,6 @@
   border-radius: 12px;
   align-items: center;
   justify-content: center;
-  min-width:70px;
   margin-right: 1em;
 }
 
