@@ -308,18 +308,52 @@ const Backcare = () => {
               Stop tracking</button>
           </div> }
         </div>
+<<<<<<< HEAD
+=======
+
+            { 
+              state.intervalId && <div className={classes.startTracking}>Tracking posture in progress...</div>
+            }
+
+        { state.isTrained && <div className={ classes.btnContainer2 }>
+          <button
+            className={ `${classes.btn} ${classes.blue}` }
+            onClick={ handleResetTraining }>
+            ReTrain</button>
+          <button
+            className={ `${classes.btn} ${classes.blue}` }
+            onClick={ classifyPosture }>
+            Track your posture</button>
+          <button
+            className={ `${classes.btn} ${classes.blue}` }
+            onClick={ stopPostureTracking }>
+            Stop tracking</button>
+        </div> }
       </div>
-      { state.displayGraph && <div className={ classes.graph }>
-        <div className={ classes.graphHeader }>
-          <h3 className={ classes.graphHeading }>Posture Record</h3>
-          <button onClick={ () => {
-            dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false });
-          }
-          } class={ classes.closeBtn }><IoIosCloseCircleOutline /></button>
-        </div>
+>>>>>>> fbe724e869b1e710a12f217d5601ef92ab086746
+      </div >
+{
+  state.displayGraph && <div className={ classes.graph }>
+    <div className={ classes.graphHeader }>
+      <h3 className={ classes.graphHeading }>Posture Record</h3>
+<<<<<<< HEAD
+          < button onClick = { () => {
+  dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false });
+}
+          } class={ classes.closeBtn; }> <IoIosCloseCircleOutline /></button >
+        </div >
         <Pie data={ graphdata } />
         <BarChart />
-      </div> }
+      </div > }
+=======
+          <button onClick={()=>{
+            dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false })}
+        } class={classes.closeBtn}><IoIosCloseCircleOutline/></button>
+        </div>
+          <Pie data={ graphdata } />
+          <BarChart />
+        </div> }
+>>>>>>> fbe724e869b1e710a12f217d5601ef92ab086746
     </>
   );
 };
