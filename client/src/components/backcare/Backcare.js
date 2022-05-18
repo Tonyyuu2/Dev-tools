@@ -185,7 +185,7 @@ const Backcare = () => {
   };
 
 
-  const graphdata = {
+const graphdata = {
     labels: ['Bad posture', 'Good posture'],
     datasets: [
       {
@@ -320,7 +320,7 @@ const Backcare = () => {
         <BarChart />
       </div> }
     </>
-  );
+  )
 };
 
 export default Backcare;

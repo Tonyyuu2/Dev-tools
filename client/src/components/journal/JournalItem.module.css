@@ -1,4 +1,7 @@
 .main {
+  border-radius: 16px;
+  padding: 10px;
+
   top: 0;
   width: 20rem;
   overflow: auto;
@@ -91,10 +94,6 @@
 
 .tags {
   display: flex;
-}
-
-.main::-webkit-scrollbar {
-  width: 8px;
 }
 
 .main::-webkit-scrollbar-track {

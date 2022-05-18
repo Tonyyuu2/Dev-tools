@@ -60,6 +60,7 @@ const Journal = () => {
   ));
 
   return (
+
     <div className={ classes.main }>
       <div className={ classes.header }>
         { openModal && <Form closeModal={ setOpenModal } onAdd={ handleSave } /> }

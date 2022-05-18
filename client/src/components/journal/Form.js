@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./Form.module.css";
 import ReactDom from 'react-dom';
 import axios from 'axios';
+import {FaRegSave, FaRegWindowClose} from "react-icons/fa"
+
 
 const Form = ({ closeModal, onAdd }) => {
   const [title, setTitle] = useState("");
@@ -43,18 +45,21 @@ const Form = ({ closeModal, onAdd }) => {
 
   return ReactDom.createPortal(
     <>
-      <div className={ styles.background }>
-        <div className={ styles.layout }>
-          <form>
-            <input className={ styles.xbutton } type="button" value="X" onClick={ () => { closeModal(false); } }></input>
-            <h2 className={ styles.newentry }>New Entry:</h2>
-            <div className={ styles.formlayout }>
+      <div className={styles.background}>
+        <div className={styles.layout}>
+          <form className={styles.formContainer}>
+          <div className={styles.button}>
+              <button className={styles.cancelButton} type="button"  onClick={() => {closeModal(false)}}><FaRegWindowClose/></button>
+          </div>
+            <h2 className={styles.newentry}>New Journal</h2>
+            <div className={styles.formlayout}>
               <input
                 type="text"
-                value={ title }
-                onChange={ (event) => setTitle(event.target.value) }
-                placeholder="Title:"
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+                placeholder="Journal Title"
                 required
+                className={styles.inputField}
               />
             </div>
             <div className={ styles.formlayout }>
@@ -65,9 +70,10 @@ const Form = ({ closeModal, onAdd }) => {
                 rows="5"
                 cols="30"
                 wrap="hard"
-                placeholder="A short description of your journal."
-                value={ description }
-                onChange={ (event) => setDescription(event.target.value) }
+                placeholder="Write a short description of the code you wrote today."
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+                className={styles.inputField}
               />
             </div>
             <div className={ styles.radio }>
@@ -75,8 +81,9 @@ const Form = ({ closeModal, onAdd }) => {
                 type="checkbox"
                 name="radio"
                 value="code"
-                checked={ code }
-                onChange={ (event) => setCode(event.target.checked) }
+                checked={code}
+                onChange={(event) => setCode(event.target.checked)}
+                className={styles.radioBox}
               />
               <label>code</label>
 
@@ -84,8 +91,9 @@ const Form = ({ closeModal, onAdd }) => {
                 type="checkbox"
                 name="radio"
                 value="danger"
-                checked={ danger }
-                onChange={ (event) => setDanger(event.target.checked) }
+                checked={danger}
+                onChange={(event) => setDanger(event.target.checked)}
+                className={styles.radioBox}
               />
               <label>danger</label>
 
@@ -93,14 +101,15 @@ const Form = ({ closeModal, onAdd }) => {
                 type="checkbox"
                 name="radio"
                 value="normal"
-                checked={ normal }
-                onChange={ (event) => setNormal(event.target.checked) }
+                checked={normal}
+                onChange={(event) => setNormal(event.target.checked)}
+                className={styles.radioBox}
               />
               <label>normal</label>
             </div>
-            <div className={ styles.button }>
-              <button type="button" onClick={ handleSubmit }>
-                Done
+              <div className={styles.saveButtonContainer}>
+              <button className={styles.saveButton} type="button" onClick={handleSubmit}>
+              Save
               </button>
             </div>
           </form>
