@@ -1,46 +1,46 @@
 import React, { useState } from "react";
 import styles from "./Form.module.css";
 import ReactDom from 'react-dom';
+import axios from 'axios';
 import {FaRegSave, FaRegWindowClose} from "react-icons/fa"
 
-function Form({closeModal, data}) {
-  const [title, setTitle] = useState("");
-  console.log("title :", title);
-  const [description, setDescription] = useState("");
-  console.log("description :", description);
-  const [details, setDetails] = useState("");
-  console.log("details :", details);
-  const [code, setCode] = useState(false);
-  console.log("code :", code);
-  const [danger, setDanger] = useState(false);
-  console.log("danger :", danger);
-  const [normal, setNormal] = useState(false);
-  console.log("normal :", normal);
 
-  function handleSubmit(event) {
+const Form = ({ closeModal, onAdd }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [code, setCode] = useState(false);
+  const [danger, setDanger] = useState(false);
+  const [normal, setNormal] = useState(false);
+
+
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     const tags = [];
 
-    if(code) {
-      tags.push("code")
+    if (code) {
+      tags.push("code");
     }
-    if(danger) {
-      tags.push("danger")
+    if (danger) {
+      tags.push("danger");
     }
-    if(normal) {
-      tags.push("normal")
+    if (normal) {
+      tags.push("normal");
     }
 
     const newObj = {
-      title, 
+      title,
       description,
       tags
-    }
-    data.push(newObj)
-    closeModal(false)
-    console.log('data :', data);
-  }
+    };
+
+    axios.post('/api/journal', newObj)
+      .then(result => onAdd(result.data))
+      .catch(e => console.error(e));
+
+    closeModal(false);
+
+  };
 
 
   return ReactDom.createPortal(
@@ -62,7 +62,7 @@ function Form({closeModal, data}) {
                 className={styles.inputField}
               />
             </div>
-            <div className={styles.formlayout}>
+            <div className={ styles.formlayout }>
               <textarea
                 required
                 name="description"
@@ -76,7 +76,7 @@ function Form({closeModal, data}) {
                 className={styles.inputField}
               />
             </div>
-            <div className={styles.radio}>
+            <div className={ styles.radio }>
               <input
                 type="checkbox"
                 name="radio"
@@ -118,6 +118,6 @@ function Form({closeModal, data}) {
     </>,
     document.getElementById('portal')
   );
-}
+};
 
 export default Form;

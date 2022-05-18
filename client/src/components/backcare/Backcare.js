@@ -10,8 +10,8 @@ import classes from './Backcare.module.css';
 import axios from 'axios';
 import BarChart from './BarChart';
 
-import {ImHappy, ImSad} from 'react-icons/im'
-import {IoIosCloseCircleOutline} from 'react-icons/io'
+import { ImHappy, ImSad } from 'react-icons/im';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -60,7 +60,7 @@ const Backcare = () => {
 
   const videoElement = useRef(null);
 
-  const [instruction, setInstruction] = useState(true)
+  const [instruction, setInstruction] = useState(true);
   const [state, dispatchBackcare] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ const Backcare = () => {
   };
 
   const handleEndTraining = () => {
-    
+
     setInstruction(false);
 
     dispatchBackcare({ type: 'IS_TRAINED', value: true });
@@ -177,10 +177,10 @@ const Backcare = () => {
 
     data[result.label] = data[result.label] + 1;
     // dispatchBackcare({ type: 'TEST_RESULT', result: result.label });
-    if(result.label === 'good') {
-      dispatchBackcare({ type: 'TEST_RESULT', result: <ImHappy style={{color: "#9fd1bb"}}/> });
-    }else {
-      dispatchBackcare({ type: 'TEST_RESULT', result: <ImSad style={{color: "#e290ade1"}} />   });
+    if (result.label === 'good') {
+      dispatchBackcare({ type: 'TEST_RESULT', result: <ImHappy style={ { color: "#9fd1bb" } } /> });
+    } else {
+      dispatchBackcare({ type: 'TEST_RESULT', result: <ImSad style={ { color: "#e290ade1" } } /> });
     }
   };
 
@@ -206,118 +206,119 @@ const graphdata = {
 
   return (
     <>
-    <div className={state.displayGraph ? classes.backDrop : classes.bigContainer} >
-      <h2 className={ classes.heading }>Backcare watches your back</h2>
-      <h3 className={ classes.subHeading }>Track your posture in real-time</h3>
+      <div className={ state.displayGraph ? classes.backDrop : classes.bigContainer } >
+        <h2 className={ classes.heading }>Backcare watches your back</h2>
+        <h3 className={ classes.subHeading }>Track your posture in real-time</h3>
 
-      <div className={ classes.container }>
-        <div className={ classes.screen }>
-        <div className={ classes.instruction }>
-          <h3>Instruction:</h3>
-          {instruction && 
-          <ul className={ classes.list }>
-            <li>1. Take multiple photos of good postures and bad postures
-            </li>
-            <li>
-            2. You can test it by clicking 'Test'
-            </li>
-            <li>
-            3. Once you are satisfied with your result, click 'Done'
-            </li>
-          </ul> }
-          { !instruction && (
-            <ul className={ classes.list2 }>
-              <li>
-                4. Click Track your posture to start tracking
-              </li>
-              <li>
-                5. When are done simply click stop tracking
-              </li>
-              <li>
-                6. You will get a record of your posture
-              </li>
-            </ul>
-          )
-          }
+        <div className={ classes.container }>
+          <div className={ classes.screen }>
+            <div className={ classes.instruction }>
+              <h3>Instruction:</h3>
+              { instruction &&
+                <ul className={ classes.list }>
+                  <li>1. Take multiple photos of good postures and bad postures
+                  </li>
+                  <li>
+                    2. You can test it by clicking 'Test'
+                  </li>
+                  <li>
+                    3. Once you are satisfied with your result, click 'Done'
+                  </li>
+                </ul> }
+              { !instruction && (
+                <ul className={ classes.list2 }>
+                  <li>
+                    4. Click Track your posture to start tracking
+                  </li>
+                  <li>
+                    5. When are done simply click stop tracking
+                  </li>
+                  <li>
+                    6. You will get a record of your posture
+                  </li>
+                </ul>
+              )
+              }
+            </div>
+            <Webcam
+              className={ classes.camera }
+              screenshotFormat="image/jpeg"
+              screenshotQuality={ 1 }
+              audio={ false }
+              ref={ videoElement }
+              videoConstraints={ videoConstraints }
+            />
           </div>
-          <Webcam
-            className={ classes.camera }
-            screenshotFormat="image/jpeg"
-            screenshotQuality={ 1 }
-            audio={ false }
-            ref={ videoElement }
-            videoConstraints={ videoConstraints }
-          />
-        </div>
-        <div className={ classes.seperator}>
-        { !state.isTrained && <div className={ classes.btncontainer }>
-          <div className={ classes.btnCol } >
-          <button
-            className={ `${classes.btn} ${classes.green}` }
-            onClick={ () => train('good') }>
-            <ImHappy style={{fontSize: "1.5em"}}/>
-          </button>
-          <button
-            className={ `${classes.btn} ${classes.red}` }
-            onClick={ () => train('bad') }>
-            <ImSad style={{fontSize: "1.5em"}}/>
-      
-          </button>
-          </div>
-          <div className={ classes.btnCol }>
-          <button
-            className={ `${classes.btn} ${classes.blue}` }
-            onClick={ classifySample }>
-            Test </button>
+          <div className={ classes.seperator }>
+            { !state.isTrained && <div className={ classes.btncontainer }>
+              <div className={ classes.btnCol } >
+                <button
+                  className={ `${classes.btn} ${classes.green}` }
+                  onClick={ () => train('good') }>
+                  <ImHappy style={ { fontSize: "1.5em" } } />
+                </button>
+                <button
+                  className={ `${classes.btn} ${classes.red}` }
+                  onClick={ () => train('bad') }>
+                  <ImSad style={ { fontSize: "1.5em" } } />
 
-          <button
+                </button>
+              </div>
+              <div className={ classes.btnCol }>
+                <button
+                  className={ `${classes.btn} ${classes.blue}` }
+                  onClick={ classifySample }>
+                  Test </button>
 
-            className={ `${classes.btn} ${classes.blue}` }
-            onClick={ handleEndTraining }>
-            Done</button>
-          </div>
-        </div> }
-        <div className={ classes.msgContainer }>
-          <div className={classes.postureCountContainer}>
-            <div className={ classes.postureCount }>Good Posture: { state.goodPostureCount }</div>
-            <div className={ classes.postureCount }>Bad Posture: { state.badPostureCount }</div>
-          </div>
-            <div className={ classes.resultMsg }>
-              { state.currentTestResult && (state.currentTestResult) }
+                <button
+
+                  className={ `${classes.btn} ${classes.blue}` }
+                  onClick={ handleEndTraining }>
+                  Done</button>
+              </div>
+            </div> }
+            <div className={ classes.msgContainer }>
+              <div className={ classes.postureCountContainer }>
+                <div className={ classes.postureCount }>Good Posture: { state.goodPostureCount }</div>
+                <div className={ classes.postureCount }>Bad Posture: { state.badPostureCount }</div>
+              </div>
+              <div className={ classes.resultMsg }>
+                { state.currentTestResult && (state.currentTestResult) }
+              </div>
             </div>
           </div>
+
+          {
+            state.intervalId && <div className={ classes.startTracking }>Tracking posture in progress...</div>
+          }
+
+          { state.isTrained && <div className={ classes.btnContainer2 }>
+            <button
+              className={ `${classes.btn} ${classes.blue}` }
+              onClick={ handleResetTraining }>
+              ReTrain</button>
+            <button
+              className={ `${classes.btn} ${classes.blue}` }
+              onClick={ classifyPosture }>
+              Track your posture</button>
+            <button
+              className={ `${classes.btn} ${classes.blue}` }
+              onClick={ stopPostureTracking }>
+              Stop tracking</button>
+          </div> }
         </div>
-
-            { 
-              state.intervalId && <div className={classes.startTracking}>Tracking posture in progress...</div>
-            }
-
-        { state.isTrained && <div className={ classes.btnContainer2 }>
-          <button
-            className={ `${classes.btn} ${classes.blue}` }
-            onClick={ handleResetTraining }>
-            ReTrain</button>
-          <button
-            className={ `${classes.btn} ${classes.blue}` }
-            onClick={ classifyPosture }>
-            Track your posture</button>
-          <button
-            className={ `${classes.btn} ${classes.blue}` }
-            onClick={ stopPostureTracking }>
-            Stop tracking</button>
-        </div> }
       </div>
-      </div>
-        { state.displayGraph && <div className={ classes.graph }>
+      { state.displayGraph && <div className={ classes.graph }>
         <div className={ classes.graphHeader }>
           <h3 className={ classes.graphHeading }>Posture Record</h3>
-          <button onClick={()=>{
-            dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false })}
-        } class={classes.closeBtn}><IoIosCloseCircleOutline/></button>
+          <button onClick={ () => {
+            dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false });
+          }
+          } class={ classes.closeBtn }><IoIosCloseCircleOutline /></button>
         </div>
-          <Pie data={ graphdata } />
-          <BarChart />
-        </div> }
+        <Pie data={ graphdata } />
+        <BarChart />
+      </div> }
     </>
   )
 };

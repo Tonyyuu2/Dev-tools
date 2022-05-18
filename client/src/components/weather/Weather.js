@@ -92,7 +92,6 @@ function Weather() {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=coquitlam&APPID=${API_KEY}&units=metric`
       );
-      console.log("response.data :", response.data);
       setWeather(response.data);
     };
     fetchWeatherData();
@@ -102,22 +101,22 @@ function Weather() {
     <>
       <Container>
         <Location>
-          {weather && `${weather.name}`}
+          { weather && `${weather.name}` }
           <Condition>
-            <span> {weather && `${Math.ceil(weather.main.temp)}°C`}</span>
+            <span> { weather && `${Math.ceil(weather.main.temp)}°C` }</span>
           </Condition>
         </Location>
-        <WeatherIcon src={DynamicWeatherIcons[weather?.weather[0].icon]} />
-          <Condition>
-            {/* {weather && ` ${weather.weather[0].description}`} */}
-          </Condition>
+        <WeatherIcon src={ DynamicWeatherIcons[weather?.weather[0].icon] } />
+        <Condition>
+          {/* {weather && ` ${weather.weather[0].description}`} */ }
+        </Condition>
         <WeatherCondition>
           <WeatherInfoBlock>
             <WeatherInfoComponent
-            value={`${timeConverter(
-              weather?.sys[day ? "sunset" : "sunrise"]
-            )}`}
-              name={day ? "sunset" : "sunrise"}
+              value={ `${timeConverter(
+                weather?.sys[day ? "sunset" : "sunrise"]
+              )}` }
+              name={ day ? "sunset" : "sunrise" }
             />
           </WeatherInfoBlock>
         </WeatherCondition>
