@@ -1,8 +1,5 @@
 const db = require('../db/db.js');
 
-
-
-
 exports.saveBackcareModel = (req, res) => {
 
   db.query('UPDATE users SET backcare_model = $1 WHERE id = $2', [req.body.model, 1])
@@ -26,8 +23,6 @@ exports.updateBackcareModel = (req, res) => {
     .catch(e => console.error(e.stack));
 
 };
-
-
 
 exports.saveBackcareData = (req, res) => {
   db.query('INSERT INTO health_data(user_id, good_posture, bad_posture) VALUES($1, $2, $3)',

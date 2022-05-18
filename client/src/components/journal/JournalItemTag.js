@@ -1,12 +1,16 @@
 import classes from './JournalItem.module.css';
-
 import React from 'react';
 
-const JournalItemTag = ({ variant, children }) => {
+const JournalItemTag = ({ variant, children, onFilter }) => {
   return (
-    <div className={ classes.tag + " " + classes[variant] }>
+    <button
+      className={ `${classes.tag} ${classes[variant]}` }
+      onClick={ (e) => {
+        e.stopPropagation();
+        onFilter(variant);
+      } }>
       { children }
-    </div>
+    </button>
   );
 };
 

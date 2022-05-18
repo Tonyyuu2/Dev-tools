@@ -1,7 +1,7 @@
 const db = require('../db/db.js');
 
 exports.getAllEntries = (req, res) => {
-  db.query('SELECT * FROM journal_entries WHERE user_id= $1', [1])
+  db.query('SELECT * FROM journal_entries WHERE user_id= $1 ORDER BY date_created DESC', [1])
     .then(result => res.json(result.rows))
     .catch(err => console.error(err.stack));
 };
@@ -28,7 +28,9 @@ exports.updateEntry = (req, res) => {
 
 exports.deleteEntry = (req, res) => {
 
-  db.query('DELETE journal_entries WHERE id = $1', [req.params.id])
+  console.log(req.params.id);
+
+  db.query('DELETE FROM journal_entries WHERE id = $1', [req.params.id])
     .then(result => res.status(200).json({ journal_entry: 'deleted' }))
     .catch(err => console.error(err.stack));
 

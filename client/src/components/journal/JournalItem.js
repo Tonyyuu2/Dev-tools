@@ -8,12 +8,11 @@ const JournalItem = (props) => {
 
   const [openModal, setOpenModal] = useState(false);
 
-  const { details } = props;
-
   const tagList = props.tags.map((tag, index) =>
     <JournalItemTag
       key={ index }
-      variant={ tag } >
+      variant={ tag }
+      onFilter={ props.onFilter } >
       { tag }
     </JournalItemTag>);
 
@@ -22,7 +21,7 @@ const JournalItem = (props) => {
 
   return (
     <article>
-      <div className={ classes.container } onClick={() => {setOpenModal(true)}}>
+      <div className={ classes.container } onClick={ () => { setOpenModal(true); } }>
         <div className={ classes.date }>
           <div className={ classes.date__month }>{ date.toLocaleString('en-US', { month: 'long' }) }</div>
           <div className={ classes.date__year }>{ date.toLocaleString('en-US', { day: '2-digit' }) }</div>
@@ -37,7 +36,7 @@ const JournalItem = (props) => {
           </div>
         </div>
       </div>
-      {openModal && <Details closeModal={ setOpenModal} {...props} data={props.data}/>}
+      { openModal && <Details closeModal={ setOpenModal } { ...props } /> }
     </article>
   );
 };
