@@ -1,35 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './TodoList.module.css';
 import Task from './Task';
+import axios from 'axios';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
-const demoData = [
-  {
-    id: 1,
-    description: 'Build specs for the project',
-    status: 'todo'
-  },
-  {
-    id: 2,
-    description: 'Create project skeleton',
-    status: 'inprogress'
-  },
-  {
-    id: 3,
-    description: 'Attend meeting with ceo',
-    status: 'done'
-  },
-  {
-    id: 4,
-    description: 'Talk to client for requirements',
-    status: 'todo'
-  }
-];
 const TodoList = () => {
 
+  console.log('Running Todo list');
+
   const [showModel, setShowModel] = useState(false);
-  const [taskList, setTaskList] = useState(demoData);
   const [taskName, setTaskName] = useState('');
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+
+    axios.get('/api/tasks')
+      .then((result) => setTasks(result.data))
+      .catch(e => console.error(e));
+
+  }, []);
+
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -38,16 +28,28 @@ const TodoList = () => {
       return;
     }
     setShowModel(false);
-    setTaskList(prev => {
-      return [...prev, { id: Math.floor(Math.random() * 100) + 4, status: 'todo', description: taskName }];
-    });
+
+    axios.post(`/api/tasks?desc=${taskName}`)
+      .then(result => setTasks(prev => [...prev, (result.data)]))
+      .catch(e => console.error(e));
+
     setTaskName('');
   };
 
   const handleDelete = (id) => {
+    console.log(typeof id, id);
+    axios.delete(`/api/tasks/${id}`)
+      .then(result => {
+        console.log("tasks", tasks);
+        setTasks(tasks.filter(task => task.id !== id));
+      })
+      .catch(e => console.error(e));
 
-    const updatedTasks = taskList.filter(task => task.id !== id);
-    setTaskList(updatedTasks);
+
+
+    /*  axios.get('/api/tasks')
+       .then((result) => setTasks(result.data))
+       .catch(e => console.error(e)); */
 
   };
 
@@ -62,17 +64,18 @@ const TodoList = () => {
     )
       return;
 
-
-
-    let updatedTask = taskList.map(task => {
-      if (task.id === Number(draggableId)) {
-        task.status = destination.droppableId;
+    const taskId = Number(draggableId);
+    const status = destination.droppableId;
+    const updatedTask = tasks.map(task => {
+      if (task.id === taskId) {
+        task.status = status;
       }
       return task;
     });
 
-    setTaskList(updatedTask);
-
+    axios.put(`/api/tasks?id=${taskId}&status=${status}`)
+      .then(result => setTasks(updatedTask))
+      .catch(e => console.error(e));
 
   };
 
@@ -101,7 +104,7 @@ const TodoList = () => {
                   <button className={ classes.add_btn } onClick={ handleSave }>✔️</button>
                 </form> }
 
-                { taskList.filter(task => task.status === 'todo')
+                { tasks.filter(task => task.status === 'todo')
                   .map((task, index) =>
                     <Task
                       key={ task.id }
@@ -127,7 +130,7 @@ const TodoList = () => {
                 <span className={ classes.todos__header }>
                   In progress
                 </span>
-                { taskList.filter(task => task.status === 'inprogress')
+                { tasks.filter(task => task.status === 'inprogress')
                   .map((task, index) =>
                     <Task
                       key={ task.id }
@@ -153,7 +156,7 @@ const TodoList = () => {
                 <span className={ classes.todos__header }>
                   Done
                 </span>
-                { taskList.filter(task => task.status === 'done')
+                { tasks.filter(task => task.status === 'done')
                   .map((task, index) => <Task
                     key={ task.id }
                     description={ task.description }
