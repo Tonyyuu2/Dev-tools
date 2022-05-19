@@ -8,6 +8,7 @@ const axios = require('axios');
 const Journal = () => {
   const [openModal, setOpenModal] = useState(false);
   const [data, setData] = useState([]);
+  console.log('data :', data);
   const [filter, setFilter] = useState(false);
 
   useEffect(() => {
@@ -60,20 +61,6 @@ const Journal = () => {
   ));
 
   return (
-<<<<<<< HEAD
-    <div className={classes.main}>
-      <div className={classes.header}>
-      {openModal && <Form closeModal={setOpenModal} />}
-        <h2 className={classes.headerText}>Code Journal</h2>
-        <FaRegEdit
-          className={classes.journalbtn}
-          onClick={() => {
-            setOpenModal(true);
-          }}
-        />
-      </div>
-      {journaEntryList}
-=======
 
     <div className={ classes.main }>
       <div className={ classes.header }>
@@ -87,7 +74,6 @@ const Journal = () => {
       </div>
       { filter && <button onClick={ handleReset }>Show All</button> }
       { journaEntryList }
->>>>>>> 2061166ce823716b0cccbac48e464b41a2459885
     </div>
 );
 };
