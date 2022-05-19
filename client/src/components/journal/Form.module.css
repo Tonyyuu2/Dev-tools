@@ -1,5 +1,5 @@
 .background{
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.4);
   position: fixed;
   height: 100%;
   width: 100%;
@@ -13,9 +13,9 @@
 }
 
 .layout {
-  background: rgba(255, 255, 255, 0.575);
+  background: rgba(255, 255, 255, 0.616);
   border-radius: 13px;
-  box-shadow: 0 4px 30px rgba(34, 34, 34, 0.362);
+  box-shadow: 0 4px 35px rgba(94, 94, 94, 0.555);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(0px);
   border: 1px solid rgba(255, 255, 255, 0.428);
@@ -37,11 +37,11 @@
   justify-content: center;
   font-weight: 500;
   font-size: 22px;
-  color: rgb(55, 54, 57);
+  background: rgba(155, 130, 193, 0.5);
   border-radius: 8px;
   width: 155px;
   margin: -0.3em 0em 0.3em 0.5em;
-  /* box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.147); */
+  color:#ffffff;
   border-bottom: 2px solid #fbfbfbab;
   border-right: 2px solid  #fbfbfbab;
   padding: 0em 0.4em 0.2em 0.3em;
@@ -76,7 +76,6 @@
   background-color: white !important;
   accent-color: #ffffff;
   margin-right: -5px;
-  
 }
 
 .button {
@@ -92,27 +91,20 @@
   display: flex;
   justify-content: center;
   margin-right: 0.7em;
-
-
-}
-
-.saveButton {
-  font-size: 22px;
-  margin-left: 0.6em;
-  padding: 1px 17px;
-  margin: -0.1em 0em 0.4em 0.6em;
-  background-color: #7ab890;
-  color: white;
-  border-radius: 20px;
-  box-shadow: 0px 4px 4px rgba(149, 149, 149, 0.873)
-}
-
-.saveButton:hover {
-  transition: all 0.2s ease 0s;
-  color: #7ab890;
-  background-color: white;
+  margin-right: 5px;
   cursor: pointer;
+  font-size: 1.8em;
+  margin-bottom: -2px;
+  color: rgb(59, 59, 59);
 }
+
+
+.saveButtonContainer:hover {
+  transition: all 0.2s ease 0s;
+  color: white;
+}
+
+
 
 
 .cancelButton{
@@ -134,7 +126,6 @@
 
 .inputField {
   all: unset;
-  font-style: italic;
   font-family: sans-serif;
   padding: 6px 6px 3px 8px;
   background: rgba(255, 255, 255, 0.704);
@@ -142,4 +133,17 @@
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.147);
   font-size: 14px;
   font-weight: 400;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+}
+:-moz-placeholder {
+  font-style: italic;  
+}
+::-moz-placeholder {
+  font-style: italic;  
+}
+:-ms-input-placeholder {  
+  font-style: italic; 
 }

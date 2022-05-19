@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import classes from "./Details.module.css";
 import ReactDom from "react-dom";
 import axios from 'axios';
+import {FaRegEdit, FaRegWindowClose, FaRegTrashAlt} from "react-icons/fa"
+import {MdSaveAlt} from "react-icons/md"
 
 const Details = (props) => {
 
@@ -54,40 +56,33 @@ const Details = (props) => {
     <div className={ classes.background }>
       <div className={ classes.container }>
         <div className={ classes.buttondiv }>
-          <input
+          <button
             className={ classes.xbutton }
             type="button"
-            value="X"
+    
             onClick={ () => {
               props.closeModal(false);
             } }
-          ></input>
-          <input
-            className={ classes.editbutton }
-            type="button"
-            value="Edit"
-            onClick={ () => {
-              setShowEdit(true);
-            } }
-          ></input>
+          ><FaRegWindowClose/></button>
         </div>
-        <div className={ classes.date }>
-          <div className={ classes.date_month }>
-            { date.toLocaleString("en-US", { month: "long" }) }
+        <div className={ classes.dateContainer }>
+          <div className={ classes.date }>
+            <div className={ classes.date_month }>
+              { date.toLocaleString("en-US", { month: "long" }) }
+            </div> - 
+            <div className={ classes.date_year }>
+              { date.toLocaleString("en-US", { day: "2-digit" }) }
+            </div> - 
+            <div className={ classes.date_day }>{ date.getFullYear() }</div>
           </div>
-          <div className={ classes.date_year }>
-            { date.toLocaleString("en-US", { day: "2-digit" }) }
-          </div>
-          <div className={ classes.date_day }>{ date.getFullYear() }</div>
         </div>
-        <div className={ classes.header }></div>
         <div className={ classes.detailscontainer }>
-          { showEdit ? <h3>Edit Entry:</h3> : null }
+ 
           { showEdit ? (
             <form className={ classes.entries }>
-              <label>Title:</label>
               <div>
                 <input
+                  className={ classes.inputField }
                   name="title"
                   type="text"
                   value={ title }
@@ -99,12 +94,14 @@ const Details = (props) => {
             <div className={ classes.title }>
               <h3 className={ classes.entry_header }>{ props.title }</h3>
             </div>
-          ) }
-          <div className={ classes.tags }></div>
-          <label>Description:</label>
+          ) } 
+          <div className={ classes.descriptionLabel }>
+          {/* <label>Description:</label> */}
+          </div>
           { showEdit ? (
             <form className={ classes.entries }>
               <textarea
+                className={ classes.inputField }
                 name="description"
                 autoComplete="off"
                 rows="5"
@@ -119,10 +116,10 @@ const Details = (props) => {
               <p className={ classes.description }>{ props.description }</p>
             </div>
           ) }
-
           { showEdit ? (
             <div className={ classes.checkbox }>
               <input
+                className={classes.radioBox}
                 type="checkbox"
                 name="code"
                 value="code"
@@ -132,6 +129,7 @@ const Details = (props) => {
               <label>code</label>
 
               <input
+                className={classes.radioBox}
                 type="checkbox"
                 name="danger"
                 value="danger"
@@ -141,6 +139,7 @@ const Details = (props) => {
               <label>danger</label>
 
               <input
+                className={classes.radioBox}
                 type="checkbox"
                 name="normal"
                 value="normal"
@@ -152,17 +151,32 @@ const Details = (props) => {
               <label>normal</label>
             </div>
           ) : null }
-          { showEdit ? (
-            <div>
-              <button type="button" onClick={ handleSubmit }>
-                Submit
+          {/* { showEdit ? (
+              <button className={classes.submitbutton} type="button" onClick={ handleSubmit }>
+                <MdSaveAlt/>
               </button>
-            </div>
-          ) : null }
-          <div>
-            <button type="button" onClick={ handleDelete }>
-              Delete
+          ) : null } */}
+          <div className={ classes.buttons }>
+             
+            <button type="button" onClick={ handleDelete } className={ classes.deletebutton }
+            >
+              <FaRegTrashAlt/>
             </button>
+            { showEdit ? (
+              <button className={classes.submitbutton} type="button" onClick={ handleSubmit }>
+                <MdSaveAlt/>
+              </button>
+          ) : null }
+            {!showEdit?
+            (
+            <button
+            className={ classes.editbutton }
+            type="button"
+            onClick={ () => {
+              setShowEdit(true);
+            }}>
+            <FaRegEdit/>
+            </button>) : "" }
           </div>
         </div>
       </div>
