@@ -1,9 +1,11 @@
 import { Spinner } from "react-bootstrap"
-
+import styles from "./Loader.module.css"
 const Loader = () => {
 
   return (
-    <Spinner animation="border" />
+    <div class="loader-container">
+        <div class={styles.loader}></div>
+    </div>
   )
 
 }

@@ -1,5 +1,5 @@
 .heading {
-  margin-top: -0.5em;
+  margin-top: -0.2em;
   padding: 0.4em;
   font-size: 40px;
   color: rgb(99, 107, 112);
@@ -19,14 +19,15 @@
   
   display: flex;
   flex-direction: column; 
+
 }
 
 .screen {
   display: flex;
   justify-content: space-around;
-  margin-top: 1em;
+  margin-top: 1.7em;
   flex-direction: row-reverse;
-
+  height: 415.5px;
 }
 
 
@@ -171,20 +172,20 @@
   cursor: pointer;
   color: pink;
   font-size: 2em;
-  margin-right: -45px;
-  margin-top: -10px;
+  margin-right: -70px;
+  margin-top: -35px;
 
 }
 
 .graphHeading {
   display: inline;
-  font-size: 27px;
+  font-size: 30px;
   padding: 0;
-  margin-right: 4.3em;
+  margin-right: 3.4em;
 }
 
 .graphHeader {
-  margin-left: 120px;
+  margin-left: 86px;
   display: flex;
   justify-content: center;
 }
@@ -230,7 +231,7 @@
 .graph {
   z-index:9999;
   text-align: center;
-  margin: -40em 24.5em;
+  margin: -38em 24.5em;
   /* width: 200px; */
   position: relative;
   border: 3px solid #54b0d4;
@@ -241,6 +242,7 @@
   box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.1);
   height: auto;
   right: 356px;
+  top: -2.7em;
 }
 
 .green_btnContainer2 {
@@ -250,14 +252,17 @@
 
 .barChart {
   padding: 1.5em 1.5em 0.5em 1.5em;
-  margin-top: 4em;
+  margin-top: 2em;
+  margin-bottom: -2em;
   height:45vh;
   color: rgb(58, 58, 58);
 }
 
 .barChartHeading {
-  margin-top: 0.5em;
+  margin-bottom: -0.5em;
+  margin-top: 1em;
   font-weight: 600;
+  font-size: 1.2em;
 
 }
 
@@ -275,11 +280,13 @@
   box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.1);
   height: auto;
   right: 356px;
+  top: -18px;
 }
 
 .phbtn {
   background-color: #e290ade1;
 }
+
 
 
 
