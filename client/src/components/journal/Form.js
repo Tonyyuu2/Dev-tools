@@ -3,6 +3,7 @@ import styles from "./Form.module.css";
 import ReactDom from 'react-dom';
 import axios from 'axios';
 import {FaRegSave, FaRegWindowClose} from "react-icons/fa"
+import {MdSaveAlt} from "react-icons/md"
 
 
 const Form = ({ closeModal, onAdd }) => {
@@ -109,7 +110,7 @@ const Form = ({ closeModal, onAdd }) => {
             </div>
               <div className={styles.saveButtonContainer}>
               <button className={styles.saveButton} type="button" onClick={handleSubmit}>
-              Save
+              <MdSaveAlt/>
               </button>
             </div>
           </form>

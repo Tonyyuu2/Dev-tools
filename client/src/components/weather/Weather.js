@@ -11,25 +11,30 @@ const WeatherCondition = styled.div`
 `;
 const Condition = styled.span`
   display: flex;
+  text-align:center;
   justify-content: center;
   flex-direction: column;
   font-size: 16px;
   padding-top: 10px;
   padding-bottom: 17px;
   & span {
+    color: #3f4042;
     margin-top: 8px;
-    font-weight: bold;
-    font-size: 30px;
+    font-weight: 600;
+    font-size: 35px;
   }
 `;
 const WeatherIcon = styled.img`
+  align-self: center;
   width: 73px;
   margin-top: 5px;
-  margin-bottom: 6px
+  margin-bottom: 6px;
+  text-align:center;
 `;
 const Location = styled.span`
   font-size: 14px;
   padding-bottom: 6px;
+  text-align:center;
 `;
 const WeatherInfoBlock = styled.div`
   display: flex;
