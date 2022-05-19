@@ -8,6 +8,7 @@ const axios = require('axios');
 const Journal = () => {
   const [openModal, setOpenModal] = useState(false);
   const [data, setData] = useState([]);
+  console.log('data :', data);
   const [filter, setFilter] = useState(false);
 
   useEffect(() => {
@@ -74,7 +75,7 @@ const Journal = () => {
       { filter && <button onClick={ handleReset }>Show All</button> }
       { journaEntryList }
     </div>
-  );
+);
 };
 
 export default Journal;

@@ -12,6 +12,7 @@ const Form = ({ closeModal, onAdd }) => {
   const [code, setCode] = useState(false);
   const [danger, setDanger] = useState(false);
   const [normal, setNormal] = useState(false);
+  const [error, setError] = useState("");
 
 
   const handleSubmit = (event) => {
@@ -28,6 +29,19 @@ const Form = ({ closeModal, onAdd }) => {
     if (normal) {
       tags.push("normal");
     }
+
+    if (!title) {
+      setError("Please add a title")
+      closeModal(false);
+      return;
+    }
+
+    if (!description) {
+      setError("Please add a description")
+      closeModal(false);
+      return;
+    }
+
 
     const newObj = {
       title,

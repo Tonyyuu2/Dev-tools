@@ -9,6 +9,8 @@ import Pausebutton from "./Pausebutton";
 import Settingsbutton from "./Settingsbutton";
 import Settingscontext from "./Settingscontext";
 import classes from "../pomodoro/Pomodoro.module.css";
+import {Howl, Howler} from 'howler';
+import ding from './sounds/Ding.mp3';
 
 const hotpink = "#beaefb";
 const green = "#02C39A";
@@ -23,6 +25,12 @@ function Timer() {
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
   const modeRef = useRef(mode);
+
+  const sound = new Howl({
+    src: [ding],
+    volume: 0.5
+  })
+
 
   function tick() {
     secondsLeftRef.current--;
@@ -52,7 +60,9 @@ function Timer() {
         return;
       }
       if (secondsLeftRef.current === 0) {
-        return switchMode();
+        sound.play()
+        switchMode()
+        return;
       }
 
       tick();
@@ -80,7 +90,7 @@ function Timer() {
           textColor: "#fff",
           pathColor: mode === "work" ? hotpink : green,
           tailColor: "rgb(0,0,255,0.2)",
-       
+
         })}
       >
         <div className={classes.progresstime}>
