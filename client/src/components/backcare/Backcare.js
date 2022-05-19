@@ -15,6 +15,9 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 
 
+
+
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const videoConstraints = {
@@ -215,6 +218,25 @@ const graphdata = {
       },
     ],
   };
+  // const [isLoading, setLoading] = useState(true)
+
+  // function fakeRequest() {
+  //   return new Promise(resolve => setTimeout(() => resolve(), 2500));
+  // }
+
+  // useEffect(() => {
+  //   fakeRequest().then(() => {
+  //     const el = document.querySelector(".loader-container");
+  //     if (el) {
+  //       el.remove();
+  //       setLoading(!isLoading);
+  //     }
+  //   });
+  // }, []);
+
+  // if (isLoading) {
+  //   return null;
+  // }
 
   return (
     <>
@@ -252,6 +274,7 @@ const graphdata = {
               )
               }
             </div>
+
             <Webcam
               className={ classes.camera }
               screenshotFormat="image/jpeg"
@@ -260,6 +283,7 @@ const graphdata = {
               ref={ videoElement }
               videoConstraints={ videoConstraints }
             />
+
           </div>
           <div className={ classes.seperator }>
             { !state.isTrained && <div className={ classes.btncontainer }>
@@ -359,7 +383,6 @@ const graphdata = {
         <div className={ classes.graphContainer}>
         {!showBarChart?  <Pie data={ graphdata } />  : ""}
           {showBarChart? <><h4 className={classes.barChartHeading}>Here is your monthly posture record</h4>
-         <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_3jmvq04g.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
           <div className={classes.barChart}><BarChart /></div></> : ""}
           </div>
       </div> }

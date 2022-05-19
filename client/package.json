@@ -18,6 +18,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "chart.js": "^3.7.1",
+    "mdb-react-ui-kit": "^3.0.0",
+    "mdbreact": "^5.2.0",
     "openai": "^2.0.5",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
@@ -32,9 +34,6 @@
     "react-slider": "^2.0.0",
     "react-spotify-web-playback": "^0.9.2",
     "react-webcam": "^7.0.1",
-    "reactstrap": "^9.0.2",
-    "mdb-react-ui-kit": "^3.0.0",
-    "mdbreact": "^5.2.0",
     "sass": "^1.51.0",
     "spotify-web-api-node": "^5.0.2",
     "styled-components": "^5.3.5"
