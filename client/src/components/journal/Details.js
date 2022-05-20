@@ -1,34 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import classes from "./Details.module.css";
 import ReactDom from "react-dom";
+import AuthContext from "../store/auth-context";
 import axios from 'axios';
-import {FaRegEdit, FaRegWindowClose, FaRegTrashAlt} from "react-icons/fa"
-import {MdSaveAlt} from "react-icons/md"
+import { FaRegEdit, FaRegWindowClose, FaRegTrashAlt } from "react-icons/fa";
+import { MdSaveAlt } from "react-icons/md";
 
 const Details = (props) => {
-
-  console.log(props);
 
   const [showEdit, setShowEdit] = useState(false);
   const [title, setTitle] = useState(props.title);
   const [description, setDescription] = useState(props.description);
-  const [code, setCode] = useState(props.tags.includes("code"));
-  const [danger, setDanger] = useState(props.tags.includes("danger"));
-  const [normal, setNormal] = useState(props.tags.includes("normal"));
+  const [front, setFront] = useState(props.tags.includes("front"));
+  const [back, setBack] = useState(props.tags.includes("back"));
+  const [data, setData] = useState(props.tags.includes("data"));
+  const authCtx = useContext(AuthContext);
 
   const date = new Date(props.date_created);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const tags = [];
-    if (code) {
-      tags.push("code");
+    if (front) {
+      tags.push("front");
     }
-    if (danger) {
-      tags.push("danger");
+    if (back) {
+      tags.push("back");
     }
-    if (normal) {
-      tags.push("normal");
+    if (data) {
+      tags.push("data");
     }
     const newObj = {
       title,
@@ -38,7 +38,7 @@ const Details = (props) => {
     setShowEdit(false);
     props.closeModal(false);
 
-    axios.put(`/api/journal/${props.id}`, newObj)
+    axios.put(`/api/journal/${props.id}`, newObj, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => props.onUpdate(props.id, result.data))
       .catch(e => console.error(e));
 
@@ -47,7 +47,7 @@ const Details = (props) => {
   const handleDelete = (event) => {
     event.preventDefault();
     props.closeModal(false);
-    axios.delete(`/api/journal/${props.id}`)
+    axios.delete(`/api/journal/${props.id}`, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => props.onDelete(props.id))
       .catch(e => console.error(e));
   };
@@ -59,25 +59,25 @@ const Details = (props) => {
           <button
             className={ classes.xbutton }
             type="button"
-    
+
             onClick={ () => {
               props.closeModal(false);
             } }
-          ><FaRegWindowClose/></button>
+          ><FaRegWindowClose /></button>
         </div>
         <div className={ classes.dateContainer }>
           <div className={ classes.date }>
             <div className={ classes.date_month }>
               { date.toLocaleString("en-US", { month: "long" }) }
-            </div> - 
+            </div> -
             <div className={ classes.date_year }>
               { date.toLocaleString("en-US", { day: "2-digit" }) }
-            </div> - 
+            </div> -
             <div className={ classes.date_day }>{ date.getFullYear() }</div>
           </div>
         </div>
         <div className={ classes.detailscontainer }>
- 
+
           { showEdit ? (
             <form className={ classes.entries }>
               <div>
@@ -94,9 +94,9 @@ const Details = (props) => {
             <div className={ classes.title }>
               <h3 className={ classes.entry_header }>{ props.title }</h3>
             </div>
-          ) } 
+          ) }
           <div className={ classes.descriptionLabel }>
-          {/* <label>Description:</label> */}
+            {/* <label>Description:</label> */ }
           </div>
           { showEdit ? (
             <form className={ classes.entries }>
@@ -119,36 +119,36 @@ const Details = (props) => {
           { showEdit ? (
             <div className={ classes.checkbox }>
               <input
-                className={classes.radioBox}
+                className={ classes.radioBox }
                 type="checkbox"
-                name="code"
-                value="code"
-                checked={ code }
-                onChange={ (event) => setCode(event.target.checked) }
+                name="front"
+                value="front"
+                checked={ front }
+                onChange={ (event) => setFront(event.target.checked) }
               />
-              <label>code</label>
+              <label>front</label>
 
               <input
-                className={classes.radioBox}
+                className={ classes.radioBox }
                 type="checkbox"
-                name="danger"
-                value="danger"
-                checked={ danger }
-                onChange={ (event) => setDanger(event.target.checked) }
+                name="back"
+                value="back"
+                checked={ back }
+                onChange={ (event) => setBack(event.target.checked) }
               />
-              <label>danger</label>
+              <label>back</label>
 
               <input
-                className={classes.radioBox}
+                className={ classes.radioBox }
                 type="checkbox"
-                name="normal"
-                value="normal"
-                checked={ normal }
+                name="data"
+                value="data"
+                checked={ data }
                 onChange={ (event) => {
-                  setNormal(event.target.checked);
+                  setData(event.target.checked);
                 } }
               />
-              <label>normal</label>
+              <label>data</label>
             </div>
           ) : null }
           {/* { showEdit ? (
@@ -157,26 +157,26 @@ const Details = (props) => {
               </button>
           ) : null } */}
           <div className={ classes.buttons }>
-             
+
             <button type="button" onClick={ handleDelete } className={ classes.deletebutton }
             >
-              <FaRegTrashAlt/>
+              <FaRegTrashAlt />
             </button>
             { showEdit ? (
-              <button className={classes.submitbutton} type="button" onClick={ handleSubmit }>
-                <MdSaveAlt/>
+              <button className={ classes.submitbutton } type="button" onClick={ handleSubmit }>
+                <MdSaveAlt />
               </button>
-          ) : null }
-            {!showEdit?
-            (
-            <button
-            className={ classes.editbutton }
-            type="button"
-            onClick={ () => {
-              setShowEdit(true);
-            }}>
-            <FaRegEdit/>
-            </button>) : "" }
+            ) : null }
+            { !showEdit ?
+              (
+                <button
+                  className={ classes.editbutton }
+                  type="button"
+                  onClick={ () => {
+                    setShowEdit(true);
+                  } }>
+                  <FaRegEdit />
+                </button>) : "" }
           </div>
         </div>
       </div>

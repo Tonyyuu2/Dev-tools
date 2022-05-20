@@ -7,7 +7,6 @@ const verifyToken = (req, res, next) => {
     return res.status(400).send({ message: 'Invalid login' });
   }
 
-
   const token = req.headers['authorization'].split(' ')[1];
 
   if (!token) {
@@ -22,7 +21,8 @@ const verifyToken = (req, res, next) => {
         .send({ message: 'Token verified' });
     }
 
-    req.token = decoded;
+
+    req.userid = decoded.id;
     next();
   });
 };
