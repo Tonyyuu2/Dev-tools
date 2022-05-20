@@ -17,7 +17,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('/auth/register', user)
+    axios.post('/api/auth/register', user)
       .then(result => {
         console.log(result.data);
         ctx.onRegister(result.data.username, result.data.token);
