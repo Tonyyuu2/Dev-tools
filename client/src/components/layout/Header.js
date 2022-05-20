@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import classes from './Header.module.css';
-import mainLogo from './assets/DEV-TOOL-logos_transparent.png';
+import mainLogo from './assets/purpleLogo_1.svg';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 import AuthContext from '../store/auth-context';
@@ -28,11 +28,11 @@ const Header = ({ switch_menu, boxShadow }) => {
       </div>
 
       <ul className={ classes.link__list } >
-        { ctx.token && <li>{ ctx.username }</li> }
+        { ctx.token && <li>Hello, { ctx.username } !</li> }
         { !ctx.token && <li><NavLink to='/login'>Login</NavLink></li> }
         { !ctx.token && <li><NavLink to='/register'>Register</NavLink></li> }
         { ctx.token && <li onClick={ ctx.onLogout }><NavLink to='/'>Logout</NavLink></li> }
-        <li><NavLink to='about'>About us</NavLink></li>
+        <li><NavLink to='about'>About</NavLink></li>
 
       </ul>
 

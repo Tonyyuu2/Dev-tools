@@ -1,12 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import './SideBar.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faClock,
-  faHome,
-  faMedkit,
-  faMugHot,
-} from '@fortawesome/free-solid-svg-icons';
+import 
+{
+  FaHome,
+  FaMedkit,
+  FaMugHot,} from 'react-icons/fa'
 
 const SideBar = ({ switch_menu, showMenu }) => {
   return (
@@ -18,15 +16,7 @@ const SideBar = ({ switch_menu, showMenu }) => {
       <div className='nav-bar'>
         <nav>
           <NavLink exact='true' activeclassname='active' to='/'>
-            <FontAwesomeIcon icon={faHome} color='#9fd1bb' />
-          </NavLink>
-          <NavLink
-            exact='true'
-            activeclassname='active'
-            className='timer-link'
-            to='/timer'
-          >
-            <FontAwesomeIcon icon={faClock} color='#9fd1bb' />
+            <FaHome color='#9fd1bb' />
           </NavLink>
           <NavLink
             exact='true'
@@ -34,7 +24,7 @@ const SideBar = ({ switch_menu, showMenu }) => {
             className='wecare-link'
             to='/backcare'
           >
-            <FontAwesomeIcon icon={faMedkit} color='#9fd1bb' />
+            <FaMedkit color='#9fd1bb' />
           </NavLink>
           <NavLink
             exact='true'
@@ -42,7 +32,7 @@ const SideBar = ({ switch_menu, showMenu }) => {
             className='break-link'
             to='/break'
           >
-            <FontAwesomeIcon icon={faMugHot} color='#9fd1bb' />
+            <FaMugHot color='#9fd1bb' />
           </NavLink>
         </nav>
       </div>

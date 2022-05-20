@@ -70,11 +70,13 @@
     width: 100%;
 
     a {
-      font-size: 32px;
+      font-size: 37px;
       color: #beaefb;
       display: block;
       line-height: 51px;
-      height: 51px;
+      height: 75px;
+      margin-left: 2.7em;
+      max-width: 60px;
       position: relative;
       text-decoration: none;
       margin-bottom: 52px;
@@ -95,10 +97,10 @@
       }
       &:after {
         content: '';
-        font-size: 9px;
+        font-size: 10px;
         letter-spacing: 2px;
         position: absolute;
-        bottom: 0;
+        bottom: 23px;
         display: block;
         width: 100%;
         text-align: center;

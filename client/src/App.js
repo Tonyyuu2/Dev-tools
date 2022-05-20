@@ -2,14 +2,12 @@ import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { useContext } from 'react';
 import Layout from './components/layout/Layout';
 import Home from "./components/layout/Home";
-import Timer from "./components/layout/Timer";
 import Wecare from "./components/layout/Wecare";
 import Break from './components/layout/Break';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import About from './components/layout/About';
 import Dashboard from './components/layout/Dashboard';
-import About from './components/layout/About';
 import { AuthContextProvider } from './components/store/auth-context';
 import AuthContext from './components/store/auth-context';
 
@@ -33,7 +31,6 @@ function App() {
         <Route path='/about' element={ <About /> } />
         <Route path='/' element={ <RequireAuth /> }>
           <Route index element={ <Home /> } />
-          <Route path='timer' element={ <Timer /> } />
           <Route path='backcare' element={ <Wecare /> } />
           <Route path='break' element={ <Break /> } />
         </Route>
