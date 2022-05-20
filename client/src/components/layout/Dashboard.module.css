@@ -1,5 +1,72 @@
 .container {
   padding-top: 5em;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.subContainer {
   text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1.3em 2em 1.7em 2em;
+  color:rgb(66, 66, 66);
+  width: 85vw;
+  height: 71vh;
+  margin-top: 3.4em;
+}
+
+.lottieContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap:95px;
+  margin-bottom: -1em;
+}
+
+.tagline{
+  margin: auto 0.7em;
+  padding-bottom: 0.4em;
+  text-align: left;
+  font-size: 55px;
+  color: rgb(177, 163, 253);
+  text-shadow: 3px 4px 3px rgb(255, 255, 255);
+}
+
+.taglineBold {
+  margin-left: 1em;
+  font-weight: 800;
+  font-size: 82px;
+  color: rgb(133, 120, 211);
+}
+
+.taglineProductivity{
+  margin-left: 0.2em;
+}
+
+.taglineBoost {
+  margin-left: 2.1em;
+  font-weight: 800;
+  font-size: 82px;
+  color: rgb(135, 121, 215);
+}
+
+.getStatedBtn{
+  margin:1em 0;
+  color: white;
+  background: rgb(70 213 180);
+  border-radius: 27px;
+  padding: 8px 17px;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 7px rgba(78, 140, 104, 0.841);
+  cursor: pointer;
+}
+
+.getStatedBtn:hover {
+  box-shadow: 0 4px 7px rgba(213, 199, 247, 0.841);
+  color: rgb(177, 163, 253);
+  background: white;
 }
