@@ -1,71 +1,81 @@
-.header{
-  padding-top: 9%;
+.header {
+  padding-top: 6%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.borderforheader{
+.borderforheader {
   border-top: 3px solid black;
   width: 5%;
   margin-top: 1%;
 }
 
-.container{
+.container {
   display: flex;
-flex-direction: column;
-margin-top: 50px;
-margin-left: 20px;
-align-items: center;
-box-shadow: 0 3px 6px 0 #555;
-padding: 20px 10px;
-border-radius: 10px;
-width: 350px;
-height: 500px;
-background-color: white;
-overflow: auto;
-position: relative;
-scrollbar-width: none;
+  flex-direction: column;
+  margin-top: 24px;
+  margin-left: 20px;
+  align-items: center;
+  box-shadow: 0 3px 6px 0 #555;
+  padding: 23px 23px;
+  border-radius: 10px;
+  width: 350px;
+  height: 509px;
+  background-color: white;
+  overflow: auto;
+  position: relative;
 }
 
-.container::-webkit-scrollbar{
+.container::-webkit-scrollbar {
   display: none;
 }
 
 .name {
   display: flex;
-  align-items: flex-start;
   align-self: center;
 }
 
-.img{
+.img {
   width: 100%;
   border-radius: 10px;
-  
+
 }
 
-.description{
+.description {
+  margin-top: 10px;
   display: flex;
   text-align: center;
 }
 
-.atag{
-  display: flex;
-  margin-top: 10px;
-}
-.atag:hover {
-  transition:.3s;
 
-}
-
-.icon{
+.icon {
   position: relative;
-  text-decoration: none;
-  all: unset;
   cursor: pointer;
-  color: rgb(210, 210, 210);
+  margin-left: 10px;
 }
 
-.icon:hover{
-  color: white;
+.atag {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.cards {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.spacer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.missionstatement{
+  width: 70%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 120%;
 }
