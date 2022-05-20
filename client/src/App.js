@@ -8,6 +8,7 @@ import Wecare from "./components/layout/Wecare";
 import Break from './components/layout/Break';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import About from './components/layout/About';
 import Dashboard from './components/layout/Dashboard';
 import { AuthContextProvider } from './components/store/auth-context';
 import AuthContext from './components/store/auth-context';
@@ -36,6 +37,7 @@ function App() {
         <Route path='/login' element={ <Login /> } />
         <Route path='/register' element={ <Register /> } />
         <Route path='/home' element={ <Dashboard /> } />
+        <Route path='/about' element={ <About /> } />
         <Route path='/' element={ <RequireAuth /> }>
           <Route index element={ <Home /> } />
           <Route path='timer' element={ <Timer /> } />

@@ -21,7 +21,7 @@ export default function WriteHelperTool() {
       apiKey: process.env.REACT_APP_API_KEY,
     });
 
-   const openai = new OpenAIApi(configuration);
+  const openai = new OpenAIApi(configuration);
 
 
       setIsLoading(true);
