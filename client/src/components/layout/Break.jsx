@@ -7,11 +7,11 @@ const Break = () => {
   return (
     <>
       <div className={classes.global_bg}>
-        <div className={styles.writeHelperTool}>
-          <WriteHelperTool />
-          <News />
-        </div>
-        <div className={classes.news}>
+        <div className={styles.main_container}>
+          <div className={styles.writeHelperTool}>
+            <WriteHelperTool />
+          </div>
+            <News className={classes.news} />
         </div>
       </div>
     </>

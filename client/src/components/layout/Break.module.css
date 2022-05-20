@@ -1,8 +1,20 @@
+.main_container {
+  padding-top: 5em;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
 .writeHelperTool {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  /* justify-content: center; */
   min-height: 50%;
   top: 50%;
   margin-left: 30px;
+}
+
+.news {
+  padding-left: 20em;
 }
