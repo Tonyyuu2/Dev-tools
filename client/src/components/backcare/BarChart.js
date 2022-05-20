@@ -44,12 +44,12 @@ const BarChart = () => {
           {
             label: 'Good posture',
             data: labels.map(label => Number(result.data.find(data => data.month.trim() === label).good)),
-            backgroundColor: '#B8F1B0',
+            backgroundColor: '#9fd1bb',
           },
           {
             label: 'Bad posture',
             data: labels.map(label => Number(result.data.find(data => data.month.trim() === label).bad)),
-            backgroundColor: '#EB5353',
+            backgroundColor: '#e290ade1',
           },
         ],
       }))

@@ -1,7 +1,8 @@
 .heading {
+  margin-top: -0.2em;
   padding: 0.4em;
   font-size: 40px;
-  color: rgb(113, 165, 196);
+  color: rgb(99, 107, 112);
   max-width: fit-content;
   margin-left: 30%;
   text-shadow: 3px 3px 3px rgb(249, 249, 249);
@@ -11,22 +12,22 @@
   text-align: center;
   padding-bottom: 1em;
   margin-top: -10px;
-  color:  rgb(146, 167, 179);
+  color:  rgb(123 134 141);
 }
 
 .container {
   
   display: flex;
   flex-direction: column; 
-  
+
 }
 
 .screen {
   display: flex;
   justify-content: space-around;
-  margin-top: 1em;
+  margin-top: 1.7em;
   flex-direction: row-reverse;
-
+  height: 415.5px;
 }
 
 
@@ -57,7 +58,8 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   margin-right: 1em;
   color: rgb(54, 54, 54);
-  width: 520px;
+  width: 530px;
+  
 }
 
 
@@ -119,22 +121,6 @@
   z-index: 5;
 }
 
-.graph {
-  text-align: center;
-  margin: -40em 27.5em;
-  width: 450px;
-  z-index: 777;
-  position: relative;
-  border: 3px solid #54b0d4;
-  background: rgb(255, 255, 255);
-  border-radius: 20px;
-  padding: 1.5em 0.4em;
-  color: rgb(58, 58, 58);
-  box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.1);
-  height: auto;
- 
-
-}
 
 .seperator{
   display: flex;
@@ -158,12 +144,22 @@
 }
 
 .btnContainer2 {
+  margin-bottom: 1em;
   z-index: 5;
   align-self: flex-end;
   margin-top: 1.5em;
-  margin-right: 11em;
+  margin-right: 12em;
   flex-direction: column;
 }
+
+.trainbtn {
+  margin-top: 1em;
+  margin-left: 0.5em;
+  text-align: center;
+  width: 270px;
+  background: #a2d5bf;
+}
+
 
 .backDrop {
   margin-top: -2em;
@@ -176,20 +172,20 @@
   cursor: pointer;
   color: pink;
   font-size: 2em;
-  margin-right: 11px;
-  margin-top: -20px;
+  margin-right: -70px;
+  margin-top: -35px;
 
 }
 
 .graphHeading {
   display: inline;
-  font-size: 27px;
+  font-size: 30px;
   padding: 0;
-  margin-right: 1.5em;
+  margin-right: 3.4em;
 }
 
 .graphHeader {
-  margin-left: 120px;
+  margin-left: 86px;
   display: flex;
   justify-content: center;
 }
@@ -216,12 +212,80 @@
 .startTracking {
   align-self: flex-end;
   z-index: 19;
-  margin-right: 12.7em;
-  margin-top: 0.7em;
+  margin-right: 13.3em;
+  margin-top: 0.2em;
   margin-bottom: -1em;
   color: #89b9a4;
 }
 
+.stopTracking {
+  align-self: flex-end;
+  z-index: 19;
+  margin-right: 16em;
+  margin-top: 0.2em;
+  margin-bottom: -1em;
+  color: #89b9a4;
+}
+
+
+.graph {
+  z-index:9999;
+  text-align: center;
+  margin: -38em 24.5em;
+  /* width: 200px; */
+  position: relative;
+  border: 3px solid #54b0d4;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 1em 0.4em;
+  color: rgb(58, 58, 58);
+  box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.1);
+  height: auto;
+  right: 356px;
+  top: -2.7em;
+}
+
+.green_btnContainer2 {
+  flex-direction: column;
+  display: flex;
+}
+
+.barChart {
+  padding: 1.5em 1.5em 0.5em 1.5em;
+  margin-top: 2em;
+  margin-bottom: -2em;
+  height:45vh;
+  color: rgb(58, 58, 58);
+}
+
+.barChartHeading {
+  margin-bottom: -0.5em;
+  margin-top: 1em;
+  font-weight: 600;
+  font-size: 1.2em;
+
+}
+
+.graph2 {
+  z-index:9999;
+  text-align: center;
+  margin: -37em 24.5em !important;
+  /* width: 200px; */
+  position: relative;
+  border: 3px solid #54b0d4;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 1.8em 0.4em;
+  color: rgb(58, 58, 58);
+  box-shadow: -3px 8px 10px rgba(0, 0, 0, 0.1);
+  height: auto;
+  right: 356px;
+  top: -18px;
+}
+
+.phbtn {
+  background-color: #e290ade1;
+}
 
 
 

@@ -16,7 +16,8 @@ const InfoLabel = styled.span`
   & span {
     font-size: 13px;
     text-transform: capitalize;
-    padding-top: 3px;
+    padding-top: 5px;
+    color: #3f4042;
   }
 `;
 

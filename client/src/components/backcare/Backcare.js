@@ -14,6 +14,10 @@ import { ImHappy, ImSad } from 'react-icons/im';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 
+
+
+
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const videoConstraints = {
@@ -54,7 +58,7 @@ const reducer = (state, action) => {
 let data = { good: 0, bad: 0 };
 
 const Backcare = () => {
-
+  const [showBarChart, setShowBarChart] = useState (false)
   const [classifier, setClassifier] = useState(knnClassifier.create());
 
 
@@ -108,6 +112,13 @@ const Backcare = () => {
       dispatchBackcare({ type: 'INCREMENT_BAD_POSTURE_COUNT', value: state.badPostureCount + 1 });
     }
   };
+
+  const closeEveryThing = () => {
+    dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false });
+    setShowBarChart(false);
+    classifyPosture();
+
+  }
 
   const handleEndTraining = () => {
 
@@ -184,6 +195,10 @@ const Backcare = () => {
     }
   };
 
+  const handleBarChart = () => {
+    setShowBarChart(true)
+  }
+
 
 const graphdata = {
     labels: ['Bad posture', 'Good posture'],
@@ -192,21 +207,40 @@ const graphdata = {
         label: '# count',
         data: [data.bad, data.good],
         backgroundColor: [
-          'rgba(220, 38, 38, 0.7)',
-          'rgba(0, 153, 246, 0.7)',
+          '#e290ade1',
+          '#a2d5bf',
         ],
         borderColor: [
-          'rgba(220, 38, 38, 1)',
-          'rgba(0, 153, 246, 1)',
+          '#e290ade1',
+          '#a2d5bf',
         ],
         borderWidth: 1,
       },
     ],
   };
+  // const [isLoading, setLoading] = useState(true)
+
+  // function fakeRequest() {
+  //   return new Promise(resolve => setTimeout(() => resolve(), 2500));
+  // }
+
+  // useEffect(() => {
+  //   fakeRequest().then(() => {
+  //     const el = document.querySelector(".loader-container");
+  //     if (el) {
+  //       el.remove();
+  //       setLoading(!isLoading);
+  //     }
+  //   });
+  // }, []);
+
+  // if (isLoading) {
+  //   return null;
+  // }
 
   return (
     <>
-      <div className={ state.displayGraph ? classes.backDrop : classes.bigContainer } >
+      <div className={ state.displayGraph || showBarChart ? classes.backDrop : classes.bigContainer } >
         <h2 className={ classes.heading }>Backcare watches your back</h2>
         <h3 className={ classes.subHeading }>Track your posture in real-time</h3>
 
@@ -214,32 +248,33 @@ const graphdata = {
           <div className={ classes.screen }>
             <div className={ classes.instruction }>
               <h3>Instruction:</h3>
-              { instruction &&
+              { !state.isTrained &&
                 <ul className={ classes.list }>
-                  <li>1. Take multiple photos of good postures and bad postures
+                  <li>⇢ Take multiple photos of good postures and bad postures
                   </li>
                   <li>
-                    2. You can test it by clicking 'Test'
+                  ⇢ You can test it by clicking 'Test'
                   </li>
                   <li>
-                    3. Once you are satisfied with your result, click 'Done'
+                  ⇢ Once you are satisfied with your result, click 'Done'
                   </li>
                 </ul> }
-              { !instruction && (
+              { state.isTrained && (
                 <ul className={ classes.list2 }>
                   <li>
-                    4. Click Track your posture to start tracking
+                  ⇢  Click Track your posture to start tracking
                   </li>
                   <li>
-                    5. When are done simply click stop tracking
+                  ⇢  When are done simply click stop tracking
                   </li>
                   <li>
-                    6. You will get a record of your posture
+                  ⇢  You will get a record of your posture
                   </li>
                 </ul>
               )
               }
             </div>
+
             <Webcam
               className={ classes.camera }
               screenshotFormat="image/jpeg"
@@ -248,6 +283,7 @@ const graphdata = {
               ref={ videoElement }
               videoConstraints={ videoConstraints }
             />
+
           </div>
           <div className={ classes.seperator }>
             { !state.isTrained && <div className={ classes.btncontainer }>
@@ -277,6 +313,7 @@ const graphdata = {
                   Done</button>
               </div>
             </div> }
+            { !state.isTrained &&
             <div className={ classes.msgContainer }>
               <div className={ classes.postureCountContainer }>
                 <div className={ classes.postureCount }>Good Posture: { state.goodPostureCount }</div>
@@ -286,38 +323,68 @@ const graphdata = {
                 { state.currentTestResult && (state.currentTestResult) }
               </div>
             </div>
+            }
           </div>
 
           {
-            state.intervalId && <div className={ classes.startTracking }>Tracking posture in progress...</div>
+            !state.displayGraph && state.intervalId && <div className={ classes.startTracking }>Tracking posture in progress...</div>
+          }
+          {
+            state.displayGraph && <div className={ classes.stopTracking }>Tracking Stopped</div>
           }
 
           { state.isTrained && <div className={ classes.btnContainer2 }>
-            <button
-              className={ `${classes.btn} ${classes.blue}` }
-              onClick={ handleResetTraining }>
-              ReTrain</button>
+          <div className={ classes.blue_btnContainer2 }>
             <button
               className={ `${classes.btn} ${classes.blue}` }
               onClick={ classifyPosture }>
-              Track your posture</button>
+              Start Tracking</button>
             <button
               className={ `${classes.btn} ${classes.blue}` }
               onClick={ stopPostureTracking }>
-              Stop tracking</button>
-          </div> }
+              Stop Tracking</button>
+          </div>
+          <div className={ classes.green_btnContainer2 }>
+            <button
+            className={ `${classes.btn} ${classes.blue} ${classes.trainbtn}` }
+            onClick={ handleResetTraining }>
+            Re-train</button>
+            <button
+            className={ `${classes.btn} ${classes.blue} ${classes.trainbtn} ${classes.phbtn}` }
+            onClick={handleBarChart}>
+            Posture History</button>
+          </div> 
+          </div> 
+
+          }
         </div>
       </div>
-      { state.displayGraph && <div className={ classes.graph }>
+      { showBarChart && <div className={ classes.graph2 }>
         <div className={ classes.graphHeader }>
-          <h3 className={ classes.graphHeading }>Posture Record</h3>
-          <button onClick={ () => {
-            dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false });
-          }
+          <h3 className={ classes.graphHeading }>Posture History</h3>
+          <button onClick={ 
+            closeEveryThing
           } class={ classes.closeBtn }><IoIosCloseCircleOutline /></button>
         </div>
-        <Pie data={ graphdata } />
-        <BarChart />
+       <><h4 className={classes.barChartHeading}>Here is your monthly posture record</h4><div className={classes.barChart}><BarChart /></div></>
+      </div> }
+
+      { !showBarChart && state.displayGraph && <div className={ classes.graph }>
+        <div className={ classes.graphHeader }>
+          {!showBarChart ?
+          <h3 className={ classes.graphHeading }>Posture Record</h3> :
+          <h3 className={ classes.graphHeading }>Posture History</h3>
+          }
+          <button onClick={ 
+            closeEveryThing
+          } class={ classes.closeBtn }><IoIosCloseCircleOutline /></button>
+        </div>
+
+        <div className={ classes.graphContainer}>
+        {!showBarChart?  <Pie data={ graphdata } />  : ""}
+          {showBarChart? <><h4 className={classes.barChartHeading}>Here is your monthly posture record</h4>
+          <div className={classes.barChart}><BarChart /></div></> : ""}
+          </div>
       </div> }
     </>
   )

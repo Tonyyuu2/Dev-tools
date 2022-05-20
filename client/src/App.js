@@ -1,3 +1,4 @@
+
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { useContext } from 'react';
 import Layout from './components/layout/Layout';
@@ -24,7 +25,6 @@ const RequireAuth = () => {
 
 };
 
-
 function App() {
 
 
@@ -32,6 +32,7 @@ function App() {
     <AuthContextProvider>
       <Layout />
       <Routes>
+
         <Route path='/login' element={ <Login /> } />
         <Route path='/register' element={ <Register /> } />
         <Route path='/home' element={ <Dashboard /> } />
@@ -40,10 +41,11 @@ function App() {
           <Route path='timer' element={ <Timer /> } />
           <Route path='backcare' element={ <Wecare /> } />
           <Route path='break' element={ <Break /> } />
+
         </Route>
       </Routes>
     </AuthContextProvider >
   );
-};
+}
 
 export default App;
