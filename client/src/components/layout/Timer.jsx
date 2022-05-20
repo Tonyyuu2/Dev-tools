@@ -1,5 +1,9 @@
 const Timer = () => {
-  return <></>;
-};
+  return(
+    <>
+
+    </>
+  )
+}
 
 export default Timer;

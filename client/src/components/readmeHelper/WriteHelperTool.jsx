@@ -1,12 +1,13 @@
 import styles from "./WriteHelperTool.module.css"
 import { useState } from "react";
-import { Form, Card, Button } from "react-bootstrap"
 import Loader from "./Loader"
 const { Configuration, OpenAIApi } = require("openai");
 
 export default function WriteHelperTool() {
 
-  const [response, setResponse] = useState('Description will be printed HERE')
+  const initStatement = <div className={styles.initStatement}>Description will be printed HERE</div>
+
+  const [response, setResponse] = useState(initStatement)
   const [isLoading, setIsLoading] = useState(false)
 
   const onFormSubmit = (e) => {
@@ -42,43 +43,45 @@ export default function WriteHelperTool() {
 
   return (
     <>
+    <div className={styles.main_container}>
       <h1 className={styles.heading}>Project Description Generator</h1>
       <p className={styles.subheading}>Generate your project description for <b>README</b></p>
 
-      <Form onSubmit={onFormSubmit}> 
-        <Form.Group className={styles.formGroup} controlId="formBasicEmail">
-          <Form.Control 
+      <form onSubmit={onFormSubmit}> 
+        <div className={styles.formGroup} controlId="formBasicEmail">
+          <input
           type="text" 
           placeholder="Project Title"
           name="projectTitle" className={styles.formInput}  />
-          <Form.Control 
+          <input
           type="text" 
           placeholder="Tech Stack"
           name="techStack" className={styles.formInput} />
-          <Form.Control 
+          <input
           type="text" 
           placeholder="Functionalities"
           name="functionalities" className={styles.formInput} />
-        </Form.Group>
-        <div className={styles.btnGroup}>
-          <Button className={styles.btnGenerate} variant="primary" type="submit" disabled={isLoading} >
-            Generate
-          </Button>
-          <Button className={styles.btnReset} type="reset">
-            Clear
-          </Button>
         </div>
-      </Form> 
+        <div className={styles.btnGroup}>
+          <button className={styles.btnGenerate} variant="primary" type="submit" disabled={isLoading} >
+            Generate
+          </button>
+          <button className={styles.btnReset} type="reset">
+            Clear
+          </button>
+        </div>
+      </form> 
 
       <br />
       <br />
-      <Card className={styles.cardContainer}>
-        <Card.Body>
-          <Card.Text className={styles.description}>
+      <div className={styles.divContainer}>
+        <div>
+          <div className={styles.description}>
               {isLoading ? <Loader /> : response}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+          </div>
+        </div>
+      </div>
+    </div>
     </>
   )
 }
