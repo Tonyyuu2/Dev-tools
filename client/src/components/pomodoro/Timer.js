@@ -26,11 +26,6 @@ function Timer() {
   const isPausedRef = useRef(isPaused);
   const modeRef = useRef(mode);
 
-  const sound = new Howl({
-    src: [ding],
-    volume: 0.5
-  });
-
 
   function tick() {
     secondsLeftRef.current--;
@@ -51,6 +46,11 @@ function Timer() {
       setSecondsLeft(nextSeconds);
       secondsLeftRef.current = nextSeconds;
     }
+
+    const sound = new Howl({
+      src: [ding],
+      volume: 0.5
+    });
 
     secondsLeftRef.current = settingsInfo.workMinutes * 60;
     setSecondsLeft(secondsLeftRef.current);

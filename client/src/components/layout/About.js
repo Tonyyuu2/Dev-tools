@@ -20,7 +20,7 @@ export default function About() {
         <div className={classes.cards}>
           <div className={classes.container}>
             <div>
-              <img src={Tony} className={classes.img}></img>
+              <img src={Tony} className={classes.img} alt="Tony" ></img>
             </div>
             <div className={classes.name}>
               <h2>Tony</h2>
@@ -48,13 +48,13 @@ export default function About() {
           </div>
           <div className={classes.container}>
             <div>
-              <img src={Shubham} className={classes.img}></img>
+              <img src={Shubham} className={classes.img} alt="Shubham" ></img>
             </div>
             <div className={classes.name}>
               <h2>Shubham</h2>
             </div>
             <div className={classes.description}>Full Stack Web Developer</div>
-            <i className={classes.quote}>"I love to solve complex problems through coding."</i>
+            <i className={classes.quote}>"If at first you don’t succeed; call it version 1.0"</i>
             <IconContext.Provider value={{ color: "grey", size: "30px" }}>
               <div className={classes.atag}>
                 <a
@@ -76,7 +76,7 @@ export default function About() {
           </div>
           <div className={classes.container}>
             <div>
-              <img src={Lucky} className={classes.img}></img>
+              <img src={Lucky} className={classes.img} alt="Lucky" ></img>
             </div>
             <div className={classes.name}>
               <h2>Lucky</h2>
