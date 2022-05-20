@@ -78,17 +78,17 @@
   line-height: 1;
 }
 
-.code {
+.front {
   color: rgb(37, 185, 62);
   background-color: rgb(206, 253, 215);
 }
 
-.danger {
+.back {
   color: rgb(255, 85, 85);
   background-color: #fdcfdfce;
 }
 
-.normal {
+.data {
   color: rgb(88, 111, 250);
   background-color: #a6dcefe5;
 }

@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from './Header.module.css';
 import mainLogo from './assets/DEV-TOOL-logos_transparent.png';
 import { NavLink } from 'react-router-dom';
-import './Header.css'
-import about from './assets/about-grey@3x.png'
+import './Header.css';
+import AuthContext from '../store/auth-context';
+
+
 const Header = ({ switch_menu, boxShadow }) => {
+
+  const ctx = useContext(AuthContext);
 
   let boxShadowClass;
 
-  boxShadow ? boxShadowClass = "boxShadow" : boxShadowClass = ""
+  boxShadow ? boxShadowClass = "boxShadow" : boxShadowClass = "";
 
 
   return (
@@ -24,7 +28,12 @@ const Header = ({ switch_menu, boxShadow }) => {
       </div>
 
       <ul className={ classes.link__list } >
-        <li><NavLink to='about'><img src={about} style={{width:"55px", marginTop: "9px"}}></img></NavLink></li>
+        { ctx.token && <li>{ ctx.username }</li> }
+        { !ctx.token && <li><NavLink to='/login'>Login</NavLink></li> }
+        { !ctx.token && <li><NavLink to='/register'>Register</NavLink></li> }
+        { ctx.token && <li onClick={ ctx.onLogout }>Logout</li> }
+        <li><NavLink to='about'>About us</NavLink></li>
+
       </ul>
 
     </nav>
