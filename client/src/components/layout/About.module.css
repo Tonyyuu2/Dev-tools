@@ -44,23 +44,28 @@
 }
 
 .name {
+  font-weight: 500;
   margin-top: 8px;
   display: flex;
   align-self: center;
+  font-size: 16px;
 }
 
 .img {
+  padding-top: 0.7em;
   width: 85%;
   border-radius: 10px;
   margin-left: 22px;
   justify-content: center;
+
 
 }
 
 .description {
   display: flex;
   text-align: center;
-  font-size: 80%
+  font-size: 70%;
+
 }
 
 
@@ -83,17 +88,15 @@
   justify-content: space-evenly;
 }
 
-.spacer {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 
 .missionstatement{
   width: 70%;
   display: flex;
   text-align: center;
   align-items: center;
-  font-size: 120%;
+  font-size: 105%;
+  font-style: helvetica, sans-serif;
+  padding: 0.6em;
 }
 
 .quote{
