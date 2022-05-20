@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 5em;
+  align-items: center;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.btn {
+  background-color: dodgerblue;
+  padding: 12px 16px;
+  border-radius: 16px;
+}

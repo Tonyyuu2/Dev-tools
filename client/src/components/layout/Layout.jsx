@@ -8,10 +8,9 @@ const Layout = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [boxShadow, setBoxShadow] = useState(true);
 
-
   function switch_menu() {
     setShowMenu(!showMenu);
-    setBoxShadow(!boxShadow)
+    setBoxShadow(!boxShadow);
   }
 
   return (

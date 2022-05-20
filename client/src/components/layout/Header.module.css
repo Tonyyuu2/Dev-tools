@@ -8,7 +8,6 @@
   width: 100%;
 }
 
-
 .logo {
   width: 200px;
   margin-left: 30px;
@@ -22,12 +21,11 @@
   align-items: center;
 }
 
-.linklist li {
-  margin-right: 20px;
-  font-weight: 600;
+.link__list li {
+  color: #9772fb;
+  margin-right: 2em;
 }
 
 .link__list li a {
   color: #9772fb;
-  margin-right: 2em;
 }

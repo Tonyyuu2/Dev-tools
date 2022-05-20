@@ -6,13 +6,16 @@ import {FaRegSave, FaRegWindowClose} from "react-icons/fa"
 import {MdSaveAlt} from "react-icons/md"
 
 
+
 const Form = ({ closeModal, onAdd }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [code, setCode] = useState(false);
-  const [danger, setDanger] = useState(false);
-  const [normal, setNormal] = useState(false);
+
+  const [front, setFront] = useState(false);
+  const [back, setBack] = useState(false);
+  const [data, setData] = useState(false);
   const [error, setError] = useState("");
+
 
 
   const handleSubmit = (event) => {
@@ -20,14 +23,14 @@ const Form = ({ closeModal, onAdd }) => {
 
     const tags = [];
 
-    if (code) {
-      tags.push("code");
+    if (front) {
+      tags.push("front");
     }
-    if (danger) {
-      tags.push("danger");
+    if (back) {
+      tags.push("back");
     }
-    if (normal) {
-      tags.push("normal");
+    if (data) {
+      tags.push("data");
     }
 
     if (!title) {
@@ -60,21 +63,21 @@ const Form = ({ closeModal, onAdd }) => {
 
   return ReactDom.createPortal(
     <>
-      <div className={styles.background}>
-        <div className={styles.layout}>
-          <form className={styles.formContainer}>
-          <div className={styles.button}>
-              <button className={styles.cancelButton} type="button"  onClick={() => {closeModal(false)}}><FaRegWindowClose/></button>
-          </div>
-            <h2 className={styles.newentry}>New Journal</h2>
-            <div className={styles.formlayout}>
+      <div className={ styles.background }>
+        <div className={ styles.layout }>
+          <form className={ styles.formContainer }>
+            <div className={ styles.button }>
+              <button className={ styles.cancelButton } type="button" onClick={ () => { closeModal(false); } }><FaRegWindowClose /></button>
+            </div>
+            <h2 className={ styles.newentry }>New Journal</h2>
+            <div className={ styles.formlayout }>
               <input
                 type="text"
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
+                value={ title }
+                onChange={ (event) => setTitle(event.target.value) }
                 placeholder="Journal Title"
                 required
-                className={styles.inputField}
+                className={ styles.inputField }
               />
             </div>
             <div className={ styles.formlayout }>
@@ -86,42 +89,43 @@ const Form = ({ closeModal, onAdd }) => {
                 cols="30"
                 wrap="hard"
                 placeholder="Write a short description of the code you wrote today."
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-                className={styles.inputField}
+                value={ description }
+                onChange={ (event) => setDescription(event.target.value) }
+                className={ styles.inputField }
               />
             </div>
             <div className={ styles.radio }>
               <input
                 type="checkbox"
                 name="radio"
-                value="code"
-                checked={code}
-                onChange={(event) => setCode(event.target.checked)}
-                className={styles.radioBox}
+                value="front"
+                checked={ front }
+                onChange={ (event) => setFront(event.target.checked) }
+                className={ styles.radioBox }
               />
-              <label>code</label>
+              <label>front</label>
 
               <input
                 type="checkbox"
                 name="radio"
-                value="danger"
-                checked={danger}
-                onChange={(event) => setDanger(event.target.checked)}
-                className={styles.radioBox}
+                value="back"
+                checked={ back }
+                onChange={ (event) => setBack(event.target.checked) }
+                className={ styles.radioBox }
               />
-              <label>danger</label>
+              <label>back</label>
 
               <input
                 type="checkbox"
                 name="radio"
-                value="normal"
-                checked={normal}
-                onChange={(event) => setNormal(event.target.checked)}
-                className={styles.radioBox}
+                value="data"
+                checked={ data }
+                onChange={ (event) => setData(event.target.checked) }
+                className={ styles.radioBox }
               />
-              <label>normal</label>
+              <label>data</label>
             </div>
+
               <div className={styles.saveButtonContainer}>
               <button className={styles.saveButton} type="button" onClick={handleSubmit}>
               <MdSaveAlt/>

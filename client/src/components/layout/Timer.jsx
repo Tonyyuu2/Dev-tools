@@ -1,6 +1,3 @@
-import "./Timer.scss"
-
-
 const Timer = () => {
   return(
     <>

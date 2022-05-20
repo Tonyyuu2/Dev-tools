@@ -3,6 +3,7 @@ import styles from "./Break.module.css";
 import classes from "../../App.module.css";
 import News from "../news/News";
 
+
 const Break = () => {
   return (
     <>
@@ -13,6 +14,10 @@ const Break = () => {
           </div>
             <News className={classes.news} />
         </div>
+        <img
+          src='https://github-readme-stats.vercel.app/api?username=gaearon&show_icons=true&theme=buefy'
+          alt='git-stats'
+        ></img>
       </div>
     </>
   );
