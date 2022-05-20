@@ -3,44 +3,39 @@ import axios from 'axios';
 
 const AuthContext = React.createContext({
   username: null,
-  token: null,
   onLogout: () => { },
-  onLogin: (email, password) => { },
+  onLogin: (email, password) => { }
 });
 
 export const AuthContextProvider = (props) => {
-
-  const [token, setToken] = useState(null);
-  const [username, setUsername] = useState(null);
-
-  /*  useEffect(() => {
-     const userInfo = localStorage.getItem('isLoggedIn');
-     if (userInfo === '1') {
-       setIsLoggedIn(true);
-     }
- 
-   }, []); */
+  const initialToken = localStorage.getItem('token');
+  const initialName = localStorage.getItem('name');
+  const [token, setToken] = useState(initialToken);
+  const [username, setUsername] = useState(initialName);
 
   const loginHandler = async ({ email, password }) => {
     const data = { email, password };
     return axios.post('/api/auth/login', data)
       .then(result => {
-        console.log(result.data);
         if (result.data) {
-          console.log('result', result.data.token);
+          localStorage.setItem('token', result.data.token);
+          localStorage.setItem('name', result.data.username);
           setToken(result.data.token);
           setUsername(result.data.username);
         }
-
       })
       .catch(e => e.response.data.msg);
   };
 
   const logoutHandler = () => {
+    localStorage.clear();
     setToken(null);
+    setUsername(null);
   };
 
   const registerHandler = (username, token) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('name', username);
     setToken(token);
     setUsername(username);
   };
