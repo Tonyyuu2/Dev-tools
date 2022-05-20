@@ -36,6 +36,7 @@ function App() {
         <Route path='/login' element={ <Login /> } />
         <Route path='/register' element={ <Register /> } />
         <Route path='/home' element={ <Dashboard /> } />
+        <Route path='/about' element={ <About /> } />
         <Route path='/' element={ <RequireAuth /> }>
           <Route index element={ <Home /> } />
           <Route path='timer' element={ <Timer /> } />
