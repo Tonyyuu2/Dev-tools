@@ -7,7 +7,6 @@ import Wecare from "./components/layout/Wecare";
 import Break from './components/layout/Break';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
-import About from './components/layout/About';
 import Dashboard from './components/layout/Dashboard';
 import About from './components/layout/About';
 import { AuthContextProvider } from './components/store/auth-context';
