@@ -29,15 +29,24 @@ const Login = () => {
 
 
     <div className={ style.global_bg }>
-
-      <form onSubmit={ handleSubmit } className={ classes.container }>
-        <label htmlFor='email'> Email</label>
-        <input type='email' name='email' onChange={ handleChange }></input>
-        <label htmlFor='password'>Password</label>
-        <input type='password' name='password' onChange={ handleChange }></input>
-        { error && <p>{ error }</p> }
-        <button type='submit' className={ classes.btn }>Login</button>
-      </form>
+      <div className={ classes.main_body }>
+      <h1 className={ classes.welcome_container }>Welcome <br/> Back!</h1>
+      <div className={ classes.container } >
+        <form onSubmit={ handleSubmit } className={ classes.form_container }>
+        <h3 className={ classes.login }>Login</h3>
+          <label htmlFor='email'></label>
+          <input className={ classes.inputField } type='email' name='email' onChange={ handleChange } placeholder="email address"></input>
+          <label htmlFor='password'></label>
+          <input className={ classes.inputField } type='password' placeholder='password' name='password' onChange={ handleChange }></input>
+          { error && <p>{ error }</p> }
+          <button type='submit' className={ classes.btn }>Login</button>
+          <div className={ classes.newUser}>
+          <p >New User? </p>
+          <p>Forgot Your Password?</p>
+          </div>
+        </form>
+    </div>
+    </div>
     </div>
   );
 };

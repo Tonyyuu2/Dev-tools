@@ -22,10 +22,10 @@
 }
 
 .link__list li {
-  color: #9772fb;
+  color: rgb(135, 121, 215);
   margin-right: 2em;
 }
 
 .link__list li a {
-  color: #9772fb;
+  color: rgb(135, 121, 215);
 }
