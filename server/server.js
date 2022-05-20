@@ -1,10 +1,5 @@
 require("dotenv").config();
 
-<<<<<<< HEAD
-
-const PORT = process.env.PORT || 9001;
-=======
->>>>>>> 0f4b6328cdf71441fe10a1deb8b3adc8811e39c1
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
