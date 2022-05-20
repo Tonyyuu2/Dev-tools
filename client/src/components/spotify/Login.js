@@ -8,7 +8,7 @@ import { FaSpotify } from 'react-icons/fa';
 
 const authEndpoint = "https://accounts.spotify.com/authorize?"
 const clientID = "ca1fd06082824f4ea552edf9ad5f195d"
-const redirectUri = "http://localhost:3002"
+const redirectUri = "http://localhost:3000"
 const scopes = ["user-read-private", "user-modify-playback-state", "user-read-playback-state", "user-library-read", "streaming", "user-read-email", "user-library-modify"]
 
 export const loginEndpoint = `${authEndpoint}client_id=${clientID}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
@@ -19,34 +19,34 @@ const apiClient = axios.create({
   baseURL: "https://api.spotify.com/v1/search",
 });
 
-const setClientToken = (token) => {
+const setClientToken = (spotify_token) => {
   apiClient.interceptors.request.use(async function(config) {
-    config.headers.Authorization = "Bearer " + token;
+    config.headers.Authorization = "Bearer " + spotify_token;
     return config;
   });
 };
 
 export default function Login() {
 
-  const [token, setToken] = useState("");
+  const [spotify_token, setSpotify_token] = useState("");
 
 
   useEffect(() => {
-    const token = window.localStorage.getItem("token");
+    const spotify_token = window.localStorage.getItem("spotify_token");
     const hash = window.location.hash;
     window.location.hash = "";
-    if (!token && hash) {
-      const _token = hash.split("&")[0].split("=")[1];
-      window.localStorage.setItem("token", _token);
-      setToken(_token);
-      setClientToken(_token);
+    if (!spotify_token && hash) {
+      const _spotify_token = hash.split("&")[0].split("=")[1];
+      window.localStorage.setItem("spotify_token", _spotify_token);
+      setSpotify_token(_spotify_token);
+      setClientToken(_spotify_token);
     } else {
-      setToken(token);
-      setClientToken(token);
+      setSpotify_token(spotify_token);
+      setClientToken(spotify_token);
     }
   }, []);
 
-  return !token ? (
+  return !spotify_token ? (
 
     <div className={styles.loginPage}>
       <a className={styles.loginBtn}  href={loginEndpoint}>
@@ -59,7 +59,7 @@ export default function Login() {
     </div> 
   ) : (
    <div >
-    <Player token={token} />
+    <Player token={spotify_token} />
   </div>
   )
 
