@@ -1,22 +1,23 @@
+import React, { useEffect, useState, useContext } from 'react';
 import JournalItem from "./JournalItem";
+import AuthContext from '../store/auth-context';
 import Form from "./Form";
 import { FaRegEdit } from "react-icons/fa";
 import classes from './JournalItem.module.css';
-import React, { useEffect, useState } from 'react';
-const axios = require('axios');
+import axios from 'axios';
 
 const Journal = () => {
   const [openModal, setOpenModal] = useState(false);
   const [data, setData] = useState([]);
-  console.log('data :', data);
   const [filter, setFilter] = useState(false);
+  const authCtx = useContext(AuthContext);
 
   useEffect(() => {
     axios
-      .get("/api/journal")
+      .get("/api/journal", { headers: { authorization: "Bearer " + authCtx.token } })
       .then((result) => setData(result.data))
       .catch((e) => console.error(e));
-  }, []);
+  }, [authCtx.token]);
 
 
 
@@ -36,7 +37,7 @@ const Journal = () => {
 
   const handleFilter = (filterTag) => {
     setFilter(true);
-    axios.get("/api/journal")
+    axios.get("/api/journal", { headers: { authorization: "Bearer " + authCtx.token } })
       .then((result) => {
         const entryList = result.data.filter(entry => entry.tags.includes(filterTag));
         setData([...entryList]);
@@ -47,7 +48,7 @@ const Journal = () => {
   const handleReset = () => {
     setFilter(false);
     axios
-      .get("/api/journal")
+      .get("/api/journal", { headers: { authorization: "Bearer " + authCtx.token } })
       .then((result) => setData(result.data))
       .catch((e) => console.error(e));
   };
@@ -75,7 +76,7 @@ const Journal = () => {
       { filter && <button onClick={ handleReset }>Show All</button> }
       { journaEntryList }
     </div>
-);
+  );
 };
 
 export default Journal;

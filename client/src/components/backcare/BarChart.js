@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,6 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import AuthContext from '../store/auth-context';
 import axios from 'axios';
 
 ChartJS.register(
@@ -34,10 +35,11 @@ const labels = ['January', 'February', 'March', 'April', 'May'];
 const BarChart = () => {
 
   const [data, setData] = useState({ datasets: [] });
+  const authCtx = useContext(AuthContext);
 
   useEffect(() => {
 
-    axios.get('/api/datalab/backcare/data')
+    axios.get('/api/datalab/backcare/data', { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => setData({
         labels,
         datasets: [
@@ -55,7 +57,7 @@ const BarChart = () => {
       }))
       .catch(e => console.error(e));
 
-  }, []);
+  }, [authCtx.token]);
 
   return (
     <Bar options={ options } data={ data } />

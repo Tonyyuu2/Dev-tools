@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import classes from './TodoList.module.css';
+import AuthContext from '../store/auth-context';
 import Task from './Task';
 import axios from 'axios';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
@@ -10,14 +11,15 @@ const TodoList = () => {
   const [showModel, setShowModel] = useState(false);
   const [taskName, setTaskName] = useState('');
   const [tasks, setTasks] = useState([]);
+  const authCtx = useContext(AuthContext);
 
   useEffect(() => {
 
-    axios.get('/api/tasks')
+    axios.get('/api/tasks', { headers: { authorization: "Bearer " + authCtx.token } })
       .then((result) => setTasks(result.data))
       .catch(e => console.error(e));
 
-  }, []);
+  }, [authCtx.token]);
 
 
   const handleSave = (e) => {
@@ -28,7 +30,7 @@ const TodoList = () => {
     }
     setShowModel(false);
 
-    axios.post(`/api/tasks?desc=${taskName}`)
+    axios.post('/api/tasks', { desc: taskName }, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => setTasks(prev => [...prev, (result.data)]))
       .catch(e => console.error(e));
 
@@ -36,19 +38,12 @@ const TodoList = () => {
   };
 
   const handleDelete = (id) => {
-    console.log(typeof id, id);
-    axios.delete(`/api/tasks/${id}`)
+
+    axios.delete(`/api/tasks/${id}`, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => {
-        console.log("tasks", tasks);
         setTasks(tasks.filter(task => task.id !== id));
       })
       .catch(e => console.error(e));
-
-
-
-    /*  axios.get('/api/tasks')
-       .then((result) => setTasks(result.data))
-       .catch(e => console.error(e)); */
 
   };
 
@@ -72,7 +67,7 @@ const TodoList = () => {
       return task;
     });
 
-    axios.put(`/api/tasks?id=${taskId}&status=${status}`)
+    axios.put('/api/tasks', { id: taskId, status: status }, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => setTasks(updatedTask))
       .catch(e => console.error(e));
 
