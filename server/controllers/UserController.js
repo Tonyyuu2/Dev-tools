@@ -35,7 +35,7 @@ exports.registerUser = (req, res) => {
     .then(result => {
       const user = result.rows[0];
       const accessToken = generateToken(user.id, secretKey);
-      res.status(200).json({ username: user.firstname, id: user.id, token: accessToken });
+      res.status(200).json({ username: user.firstname, token: accessToken });
     })
     .catch(e => console.error(e.stack));
 
@@ -54,7 +54,7 @@ exports.authenticateUser = async (req, res) => {
 
     if (bcrypt.compareSync(password, user.password)) {
       const accessToken = generateToken(user.id, secretKey);
-      res.status(200).json({ username: user.firstname, id: user.id, token: accessToken });
+      res.status(200).json({ username: user.firstname, token: accessToken });
     } else {
       res.status(200).json({ msg: "Please enter correct email and password" });
     }

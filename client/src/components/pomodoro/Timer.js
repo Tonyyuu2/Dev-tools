@@ -9,7 +9,7 @@ import Pausebutton from "./Pausebutton";
 import Settingsbutton from "./Settingsbutton";
 import Settingscontext from "./Settingscontext";
 import classes from "../pomodoro/Pomodoro.module.css";
-import {Howl, Howler} from 'howler';
+import { Howl } from 'howler';
 import ding from './sounds/Ding.mp3';
 
 const hotpink = "#beaefb";
@@ -29,7 +29,7 @@ function Timer() {
   const sound = new Howl({
     src: [ding],
     volume: 0.5
-  })
+  });
 
 
   function tick() {
@@ -60,8 +60,8 @@ function Timer() {
         return;
       }
       if (secondsLeftRef.current === 0) {
-        sound.play()
-        switchMode()
+        sound.play();
+        switchMode();
         return;
       }
 
@@ -83,7 +83,7 @@ function Timer() {
   if (seconds < 10) seconds = "0" + seconds;
 
   return (
-    <div   style={{boxShadow: "0px 4px 7px -4px black", borderRadius:"100px"}}>
+    <div style={ { boxShadow: "0px 4px 7px -4px black", borderRadius: "100px" } }>
       <CircularProgressbarWithChildren
         value={ percentage }
         styles={ buildStyles({
@@ -91,29 +91,29 @@ function Timer() {
           pathColor: mode === "work" ? hotpink : green,
           tailColor: "rgb(0,0,255,0.2)",
 
-        })}
+        }) }
       >
-        <div className={classes.progresstime}>
-          {mode === "work" ? `${minutes}:${seconds}` : `${minutes}:${seconds}`}
+        <div className={ classes.progresstime }>
+          { mode === "work" ? `${minutes}:${seconds}` : `${minutes}:${seconds}` }
         </div>
-      <div className={classes.buttonposition}>
-        {isPaused ? (
-          <Playbutton
-            onClick={ () => {
-              setIsPaused(false);
-              isPausedRef.current = false;
-            } }
-          />
-        ) : (
-          <Pausebutton
-            onClick={ () => {
-              setIsPaused(true);
-              isPausedRef.current = true;
-            } }
-          />
-        )}
-        <Settingsbutton onClick={() => settingsInfo.setShowSettings(true)} />
-      </div>
+        <div className={ classes.buttonposition }>
+          { isPaused ? (
+            <Playbutton
+              onClick={ () => {
+                setIsPaused(false);
+                isPausedRef.current = false;
+              } }
+            />
+          ) : (
+            <Pausebutton
+              onClick={ () => {
+                setIsPaused(true);
+                isPausedRef.current = true;
+              } }
+            />
+          ) }
+          <Settingsbutton onClick={ () => settingsInfo.setShowSettings(true) } />
+        </div>
       </CircularProgressbarWithChildren>
 
     </div>

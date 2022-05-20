@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useReducer, useState } from 'react';
+import React, { useRef, useEffect, useReducer, useState, useContext } from 'react';
 import Webcam from 'react-webcam';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -6,16 +6,11 @@ import * as mobilenet from "@tensorflow-models/mobilenet";
 import * as knnClassifier from "@tensorflow-models/knn-classifier";
 import * as tf from '@tensorflow/tfjs';
 import classes from './Backcare.module.css';
-
 import axios from 'axios';
 import BarChart from './BarChart';
-
+import AuthContext from '../store/auth-context';
 import { ImHappy, ImSad } from 'react-icons/im';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
-
-
-
-
 
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -58,24 +53,18 @@ const reducer = (state, action) => {
 let data = { good: 0, bad: 0 };
 
 const Backcare = () => {
-  const [showBarChart, setShowBarChart] = useState (false)
-  const [classifier, setClassifier] = useState(knnClassifier.create());
-
-
   const videoElement = useRef(null);
-
-  const [instruction, setInstruction] = useState(true);
+  const authCtx = useContext(AuthContext);
+  const [showBarChart, setShowBarChart] = useState(false);
+  const [classifier, setClassifier] = useState(knnClassifier.create());
   const [state, dispatchBackcare] = useReducer(reducer, initialState);
 
   useEffect(() => {
 
-    //get the modal from backend if uesr has already trained it
-    //set the classifier dataset from the backend data
-    //set is_trained to true
 
     let modelData = '';
 
-    axios.get('api/datalab/backcare/model')
+    axios.get('api/datalab/backcare/model', { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => {
         modelData = result.data.backcare_model;
         if (modelData) {
@@ -89,7 +78,7 @@ const Backcare = () => {
         }
       })
       .catch(e => console.error(e));
-  }, [classifier]);
+  }, [classifier, authCtx.token]);
 
 
   /* const stopCam = () => {
@@ -103,11 +92,9 @@ const Backcare = () => {
     const model = await mobilenet.load();
     const activation = model.infer(img, true);
     classifier.addExample(activation, classId);
-
     if (classId === "good") {
       dispatchBackcare({ type: 'INCREMENT_GOOD_POSTURE_COUNT', value: state.goodPostureCount + 1 });
     }
-
     if (classId === "bad") {
       dispatchBackcare({ type: 'INCREMENT_BAD_POSTURE_COUNT', value: state.badPostureCount + 1 });
     }
@@ -116,13 +103,9 @@ const Backcare = () => {
   const closeEveryThing = () => {
     dispatchBackcare({ type: 'DISPLAY_GRAPH', value: false });
     setShowBarChart(false);
-    classifyPosture();
-
-  }
+  };
 
   const handleEndTraining = () => {
-
-    setInstruction(false);
 
     dispatchBackcare({ type: 'IS_TRAINED', value: true });
     data = { good: 0, bad: 0 };
@@ -130,7 +113,7 @@ const Backcare = () => {
     const modelData = JSON.stringify(Object.entries(classifier.getClassifierDataset())
       .map(([label, dataM]) => [label, Array.from(dataM.dataSync()), dataM.shape]));
 
-    axios.put(`/api/datalab/backcare/model`, { model: modelData })
+    axios.put('/api/datalab/backcare/model', { model: modelData }, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => console.log(result.data))
       .catch(e => console.error(e));
 
@@ -139,10 +122,12 @@ const Backcare = () => {
 
   //Delets the model data from backend
   const handleResetTraining = () => {
-    dispatchBackcare({ type: 'RESET', value: false });
-    setClassifier(knnClassifier.create());
-    axios.patch(`/api/datalab/backcare/model`)
-      .then(result => console.log(result.data))
+    axios.patch('/api/datalab/backcare/model', {}, { headers: { authorization: "Bearer " + authCtx.token } })
+      .then(result => {
+        console.log(result.data);
+        dispatchBackcare({ type: 'RESET', value: false });
+        setClassifier(knnClassifier.create());
+      })
       .catch(e => console.error(e));
   };
 
@@ -169,14 +154,18 @@ const Backcare = () => {
 
     clearInterval(state.intervalId);
     dispatchBackcare({ type: 'DISPLAY_GRAPH', value: true });
+    dispatchBackcare({ type: 'SET_INTERVAL', intervalId: null });
 
-    axios.post(`/api/datalab/backcare/data?good=${data.good}&bad=${data.bad}`)
-      .then(result => console.log(result.data))
-      .catch(e => console.error(e));
+
+    if (data.good > 0 || data.bad > 0) {
+      axios.post('/api/datalab/backcare/data', { good: data.good, bad: data.bad }, { headers: { authorization: "Bearer " + authCtx.token } })
+        .then(result => {
+          data = { good: 0, bad: 0 };
+          console.log(result.data);
+        })
+        .catch(e => console.error(e));
+    }
   };
-
-
-
 
   //Testing the model training
   const classifySample = async () => {
@@ -185,9 +174,7 @@ const Backcare = () => {
     const img = tf.browser.fromPixels(videoElement.current.video);
     const activation = model.infer(img, true);
     const result = await classifier.predictClass(activation);
-
     data[result.label] = data[result.label] + 1;
-    // dispatchBackcare({ type: 'TEST_RESULT', result: result.label });
     if (result.label === 'good') {
       dispatchBackcare({ type: 'TEST_RESULT', result: <ImHappy style={ { color: "#9fd1bb" } } /> });
     } else {
@@ -196,11 +183,11 @@ const Backcare = () => {
   };
 
   const handleBarChart = () => {
-    setShowBarChart(true)
-  }
+    setShowBarChart(true);
+  };
 
 
-const graphdata = {
+  const graphdata = {
     labels: ['Bad posture', 'Good posture'],
     datasets: [
       {
@@ -218,25 +205,6 @@ const graphdata = {
       },
     ],
   };
-  // const [isLoading, setLoading] = useState(true)
-
-  // function fakeRequest() {
-  //   return new Promise(resolve => setTimeout(() => resolve(), 2500));
-  // }
-
-  // useEffect(() => {
-  //   fakeRequest().then(() => {
-  //     const el = document.querySelector(".loader-container");
-  //     if (el) {
-  //       el.remove();
-  //       setLoading(!isLoading);
-  //     }
-  //   });
-  // }, []);
-
-  // if (isLoading) {
-  //   return null;
-  // }
 
   return (
     <>
@@ -253,22 +221,22 @@ const graphdata = {
                   <li>⇢ Take multiple photos of good postures and bad postures
                   </li>
                   <li>
-                  ⇢ You can test it by clicking 'Test'
+                    ⇢ You can test it by clicking 'Test'
                   </li>
                   <li>
-                  ⇢ Once you are satisfied with your result, click 'Done'
+                    ⇢ Once you are satisfied with your result, click 'Done'
                   </li>
                 </ul> }
               { state.isTrained && (
                 <ul className={ classes.list2 }>
                   <li>
-                  ⇢  Click Track your posture to start tracking
+                    ⇢  Click Track your posture to start tracking
                   </li>
                   <li>
-                  ⇢  When are done simply click stop tracking
+                    ⇢  When are done simply click stop tracking
                   </li>
                   <li>
-                  ⇢  You will get a record of your posture
+                    ⇢  You will get a record of your posture
                   </li>
                 </ul>
               )
@@ -314,47 +282,47 @@ const graphdata = {
               </div>
             </div> }
             { !state.isTrained &&
-            <div className={ classes.msgContainer }>
-              <div className={ classes.postureCountContainer }>
-                <div className={ classes.postureCount }>Good Posture: { state.goodPostureCount }</div>
-                <div className={ classes.postureCount }>Bad Posture: { state.badPostureCount }</div>
+              <div className={ classes.msgContainer }>
+                <div className={ classes.postureCountContainer }>
+                  <div className={ classes.postureCount }>Good Posture: { state.goodPostureCount }</div>
+                  <div className={ classes.postureCount }>Bad Posture: { state.badPostureCount }</div>
+                </div>
+                <div className={ classes.resultMsg }>
+                  { state.currentTestResult && (state.currentTestResult) }
+                </div>
               </div>
-              <div className={ classes.resultMsg }>
-                { state.currentTestResult && (state.currentTestResult) }
-              </div>
-            </div>
             }
           </div>
 
           {
-            !state.displayGraph && state.intervalId && <div className={ classes.startTracking }>Tracking posture in progress...</div>
+            state.intervalId && <div className={ classes.startTracking }>Tracking posture in progress...</div>
           }
-          {
-            state.displayGraph && <div className={ classes.stopTracking }>Tracking Stopped</div>
-          }
+          {/*   {
+            !state.intervalId && <div className={ classes.stopTracking }>Tracking Stopped</div>
+          } */}
 
           { state.isTrained && <div className={ classes.btnContainer2 }>
-          <div className={ classes.blue_btnContainer2 }>
-            <button
-              className={ `${classes.btn} ${classes.blue}` }
-              onClick={ classifyPosture }>
-              Start Tracking</button>
-            <button
-              className={ `${classes.btn} ${classes.blue}` }
-              onClick={ stopPostureTracking }>
-              Stop Tracking</button>
+            <div className={ classes.blue_btnContainer2 }>
+              <button
+                className={ `${classes.btn} ${classes.blue}` }
+                onClick={ classifyPosture }>
+                Start Tracking</button>
+              <button
+                className={ `${classes.btn} ${classes.blue}` }
+                onClick={ stopPostureTracking }>
+                Stop Tracking</button>
+            </div>
+            <div className={ classes.green_btnContainer2 }>
+              <button
+                className={ `${classes.btn} ${classes.blue} ${classes.trainbtn}` }
+                onClick={ handleResetTraining }>
+                Re-train</button>
+              <button
+                className={ `${classes.btn} ${classes.blue} ${classes.trainbtn} ${classes.phbtn}` }
+                onClick={ handleBarChart }>
+                Posture History</button>
+            </div>
           </div>
-          <div className={ classes.green_btnContainer2 }>
-            <button
-            className={ `${classes.btn} ${classes.blue} ${classes.trainbtn}` }
-            onClick={ handleResetTraining }>
-            Re-train</button>
-            <button
-            className={ `${classes.btn} ${classes.blue} ${classes.trainbtn} ${classes.phbtn}` }
-            onClick={handleBarChart}>
-            Posture History</button>
-          </div> 
-          </div> 
 
           }
         </div>
@@ -362,32 +330,28 @@ const graphdata = {
       { showBarChart && <div className={ classes.graph2 }>
         <div className={ classes.graphHeader }>
           <h3 className={ classes.graphHeading }>Posture History</h3>
-          <button onClick={ 
-            closeEveryThing
-          } class={ classes.closeBtn }><IoIosCloseCircleOutline /></button>
+          <button onClick={ closeEveryThing } className={ classes.closeBtn }><IoIosCloseCircleOutline /></button>
         </div>
-       <><h4 className={classes.barChartHeading}>Here is your monthly posture record</h4><div className={classes.barChart}><BarChart /></div></>
+        <><h4 className={ classes.barChartHeading }>Here is your monthly posture record</h4><div className={ classes.barChart }><BarChart /></div></>
       </div> }
 
       { !showBarChart && state.displayGraph && <div className={ classes.graph }>
         <div className={ classes.graphHeader }>
-          {!showBarChart ?
-          <h3 className={ classes.graphHeading }>Posture Record</h3> :
-          <h3 className={ classes.graphHeading }>Posture History</h3>
+          { !showBarChart ?
+            <h3 className={ classes.graphHeading }>Posture Record</h3> :
+            <h3 className={ classes.graphHeading }>Posture History</h3>
           }
-          <button onClick={ 
-            closeEveryThing
-          } class={ classes.closeBtn }><IoIosCloseCircleOutline /></button>
+          <button onClick={ closeEveryThing } className={ classes.closeBtn }><IoIosCloseCircleOutline /></button>
         </div>
 
-        <div className={ classes.graphContainer}>
-        {!showBarChart?  <Pie data={ graphdata } />  : ""}
-          {showBarChart? <><h4 className={classes.barChartHeading}>Here is your monthly posture record</h4>
-          <div className={classes.barChart}><BarChart /></div></> : ""}
-          </div>
+        <div className={ classes.graphContainer }>
+          { !showBarChart ? <Pie data={ graphdata } /> : "" }
+          { showBarChart ? <><h4 className={ classes.barChartHeading }>Here is your monthly posture record</h4>
+            <div className={ classes.barChart }><BarChart /></div></> : "" }
+        </div>
       </div> }
     </>
-  )
+  );
 };
 
 export default Backcare;

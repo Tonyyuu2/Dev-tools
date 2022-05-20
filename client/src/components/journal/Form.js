@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./Form.module.css";
 import ReactDom from 'react-dom';
 import axios from 'axios';
-import {FaRegSave, FaRegWindowClose} from "react-icons/fa"
-import {MdSaveAlt} from "react-icons/md"
+import AuthContext from "../store/auth-context";
+import { FaRegWindowClose } from "react-icons/fa";
+import { MdSaveAlt } from "react-icons/md";
 
 
 
 const Form = ({ closeModal, onAdd }) => {
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const authCtx = useContext(AuthContext);
 
   const [front, setFront] = useState(false);
   const [back, setBack] = useState(false);
   const [data, setData] = useState(false);
-  const [error, setError] = useState("");
-
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,17 +34,14 @@ const Form = ({ closeModal, onAdd }) => {
     }
 
     if (!title) {
-      setError("Please add a title")
       closeModal(false);
       return;
     }
 
     if (!description) {
-      setError("Please add a description")
       closeModal(false);
       return;
     }
-
 
     const newObj = {
       title,
@@ -52,14 +49,13 @@ const Form = ({ closeModal, onAdd }) => {
       tags
     };
 
-    axios.post('/api/journal', newObj)
+    axios.post('/api/journal', newObj, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => onAdd(result.data))
       .catch(e => console.error(e));
 
     closeModal(false);
 
   };
-
 
   return ReactDom.createPortal(
     <>
@@ -126,9 +122,9 @@ const Form = ({ closeModal, onAdd }) => {
               <label>data</label>
             </div>
 
-              <div className={styles.saveButtonContainer}>
-              <button className={styles.saveButton} type="button" onClick={handleSubmit}>
-              <MdSaveAlt/>
+            <div className={ styles.saveButtonContainer }>
+              <button className={ styles.saveButton } type="button" onClick={ handleSubmit }>
+                <MdSaveAlt />
               </button>
             </div>
           </form>
