@@ -14,17 +14,29 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 24px;
+  margin-top: 15px;
   margin-left: 20px;
   align-items: center;
-  box-shadow: 0 3px 6px 0 #555;
-  padding: 23px 23px;
-  border-radius: 10px;
+  padding: 23px;
+  padding-left: 30px;
   width: 350px;
-  height: 509px;
-  background-color: white;
-  overflow: auto;
+  height: 500px;
+  overflow: hidden;
   position: relative;
+  
+  border-radius: 13px;
+  box-shadow: 0 4px 35px rgba(94, 94, 94, 0.555);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.428);
+  padding: 10px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease
+}
+
+.container:hover{
+  -webkit-transform:translateY(-10px);
+  transform: translateY(-10px)
 }
 
 .container::-webkit-scrollbar {
@@ -32,20 +44,23 @@
 }
 
 .name {
+  margin-top: 8px;
   display: flex;
   align-self: center;
 }
 
 .img {
-  width: 100%;
+  width: 85%;
   border-radius: 10px;
+  margin-left: 22px;
+  justify-content: center;
 
 }
 
 .description {
-  margin-top: 10px;
   display: flex;
   text-align: center;
+  font-size: 80%
 }
 
 
@@ -56,9 +71,10 @@
 }
 
 .atag {
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
+  padding-right: 7px;
 
 }
 
@@ -78,4 +94,10 @@
   text-align: center;
   align-items: center;
   font-size: 120%;
+}
+
+.quote{
+  margin-top: 5px;
+  display: flex;
+  text-align: center;
 }
