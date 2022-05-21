@@ -14,7 +14,7 @@ const Dashboard = () => {
           <h1 className={ classes.tagline}>" The <br/>  <bold className= {classes.taglineBold}> ultimate </bold> <br/><bold className= {classes.taglineProductivity}> productivity </bold> <br/> <bold className= {classes.taglineBoost}> boost </bold>" </h1>
             <HomeLottie/>
           </div>
-          <li><NavLink to='/register'><button className={ classes.getStatedBtn}>Get Started</button></NavLink></li>
+          <li><NavLink to='/login'><button className={ classes.getStatedBtn}>Get Started</button></NavLink></li>
         </div>
       </div>
     </div>

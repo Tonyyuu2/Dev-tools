@@ -4,7 +4,9 @@ import
 {
   FaHome,
   FaMedkit,
-  FaMugHot,} from 'react-icons/fa'
+  } from 'react-icons/fa'
+  import {IoNewspaper} from 'react-icons/io5'
+
 
 const SideBar = ({ switch_menu, showMenu }) => {
   return (
@@ -32,9 +34,10 @@ const SideBar = ({ switch_menu, showMenu }) => {
             className='break-link'
             to='/break'
           >
-            <FaMugHot color='#9fd1bb' />
+            <IoNewspaper color='#9fd1bb'/>
           </NavLink>
         </nav>
+        <p className='copy-right'>Copyright © 2022 DevTools, Inc. <br/>All rights reserved.</p>
       </div>
     </div>
   );
