@@ -1,31 +1,32 @@
-import styles from "./WriteHelperTool.module.css"
-import { useState } from "react";
-import Loader from "./Loader"
-const { Configuration, OpenAIApi } = require("openai");
+import styles from './WriteHelperTool.module.css';
+import { useState } from 'react';
+import Loader from './Loader';
+const { Configuration, OpenAIApi } = require('openai');
 
 export default function WriteHelperTool() {
+  const initStatement = (
+    <div className={styles.initStatement}>Description will be printed HERE</div>
+  );
 
-  const initStatement = <div className={styles.initStatement}>Description will be printed HERE</div>
-
-  const [response, setResponse] = useState(initStatement)
-  const [isLoading, setIsLoading] = useState(false)
+  const [response, setResponse] = useState(initStatement);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onFormSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const formData = new FormData(e.target),
-    formDataObj = Object.fromEntries(formData.entries())
+      formDataObj = Object.fromEntries(formData.entries());
 
-    console.log(process.env.REACT_APP_API_KEY)
+    console.log(process.env.REACT_APP_API_KEY);
     const configuration = new Configuration({
       apiKey: process.env.REACT_APP_API_KEY,
     });
 
-  const openai = new OpenAIApi(configuration);
+    const openai = new OpenAIApi(configuration);
 
-
-      setIsLoading(true);
-      openai.createCompletion("text-davinci-002", {
+    setIsLoading(true);
+    openai
+      .createCompletion('text-davinci-002', {
         prompt: `Write me a detailed and professional description of my project that has a name of ${formDataObj.projectTitle}, uses ${formDataObj.techStack} as tech stacks and has functionalities of ${formDataObj.functionalities}.\n`,
         temperature: 0.7,
         max_tokens: 230,
@@ -35,11 +36,9 @@ export default function WriteHelperTool() {
       })
       .then((result) => {
         setIsLoading(false);
-        setResponse(`${result.data.choices[0].text}`)
-      })
-  }
-
-
+        setResponse(`${result.data.choices[0].text}`);
+      });
+  };
 
   return (
     <>
@@ -71,21 +70,16 @@ export default function WriteHelperTool() {
           </button>
         </div>
       </form> 
-
-      <br />
-      <br />
-      <div className={styles.divContainer}>
-        <div>
-          <div className={styles.description}>
+        <br />
+        <br />
+        <div className={styles.divContainer}>
+          <div>
+            <div className={styles.description}>
               {isLoading ? <Loader /> : response}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
-  )
+  );
 }
-
-
-
-

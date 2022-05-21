@@ -45,24 +45,27 @@ const Register = () => {
 
   return (
     <div className={ style.global_bg }>
-      <form className={ classes.container } onSubmit={ handleSubmit }>
-        <label htmlFor='firstname'>Firstname</label>
-        <input type='text' name='firstname' onChange={ handleChange }></input>
-        <label htmlFor='lastname'>Lastame</label>
-        <input type='text' name='lastname' onChange={ handleChange }></input>
-        <label htmlFor='git'>Github username</label>
-        <input type='text' name='git' onChange={ handleChange }></input>
-        <label htmlFor='email'>Email</label>
-        <input type='email' id='email' name='email'
-          className={ `${!user.isValid && classes.error}` }
-          onChange={ handleChange }
-          onBlur={ validateEmail }
-        ></input>
-        { !user.isValid && <p>User with this email already exists.</p> }
-        <label htmlFor='password'>Password</label>
-        <input type='password' name='password' onChange={ handleChange }></input>
-        <button className={ classes.btn } type='submit'>Register</button>
-      </form>
+      <h1 className={ classes.heading }> Sign Up </h1>
+      <div className={ classes.container }>
+        <form className={ classes.flex_container } onSubmit={ handleSubmit }>
+          <label htmlFor='firstname'>Firstname</label>
+          <input type='text' name='firstname' onChange={ handleChange }></input>
+          <label htmlFor='lastname'>Lastname</label>
+          <input type='text' name='lastname' onChange={ handleChange }></input>
+          <label htmlFor='git'>Github username</label>
+          <input type='text' name='git' onChange={ handleChange }></input>
+          <label htmlFor='email'>Email</label>
+          <input type='email' id='email' name='email'
+            className={ `${!user.isValid && classes.error}` }
+            onChange={ handleChange }
+            onBlur={ validateEmail }
+          ></input>
+          { !user.isValid && <p>⚠️ User with this email already exists.</p> }
+          <label htmlFor='password'>Password</label>
+          <input type='password' name='password' onChange={ handleChange }></input>
+          <button className={ classes.btn } type='submit'>Sign Up</button>
+        </form>
+      </div>
     </div >
   );
 };

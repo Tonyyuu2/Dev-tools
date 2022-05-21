@@ -1,9 +1,25 @@
 .container {
+  margin: 0 auto;
+  padding: 2em;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 40%;
+}
+
+.heading {
+  padding-top: 1.9em;
+  text-align: center;
+  color: rgb(192, 169, 255);
+}
+
+.flex_container {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  padding-top: 5em;
-  align-items: center;
+  gap: 0.5em;
 }
 
 .error {
@@ -11,7 +27,10 @@
 }
 
 .btn {
+  width: fit-content;
   background-color: dodgerblue;
   padding: 12px 16px;
   border-radius: 16px;
+  align-self: center;
+  margin-top: 10px;
 }
