@@ -37,7 +37,7 @@ const SideBar = ({ switch_menu, showMenu }) => {
             <IoNewspaper color='#9fd1bb'/>
           </NavLink>
         </nav>
-        <p className='copy-right'>Copyright © 2022 DevTools, Inc. <br/>All rights reserved.</p>
+        <p className='copy-right'>Made with 💜<br/>Copyright © 2022 DevTools, Inc. <br/>All rights not reserved.</p>
       </div>
     </div>
   );

@@ -7,8 +7,8 @@ import Player from "./Player";
 import { FaSpotify } from 'react-icons/fa';
 
 const authEndpoint = "https://accounts.spotify.com/authorize?"
-const clientID = "ca1fd06082824f4ea552edf9ad5f195d"
-const redirectUri = "http://localhost:3000"
+const clientID = process.env.REACT_APP_SPOTIFY
+const redirectUri = "http://localhost:3002"
 const scopes = ["user-read-private", "user-modify-playback-state", "user-read-playback-state", "user-library-read", "streaming", "user-read-email", "user-library-modify"]
 
 export const loginEndpoint = `${authEndpoint}client_id=${clientID}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
@@ -58,7 +58,7 @@ export default function Login() {
       <FaSpotify className={styles.spotify_logo} />
     </div> 
   ) : (
-   <div >
+  <div >
     <Player token={spotify_token} />
   </div>
   )

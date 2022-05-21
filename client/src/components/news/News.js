@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import NewsEntryList from "./NewsEntryList";
 import classes from "./NewsEntryList.module.css";
 
-const API_KEY = "fbc678a164f34df6a9fe965447bb8e00";
+
 
 function News() {
   const [news, setNews] = useState();
@@ -11,7 +11,7 @@ function News() {
   useEffect(() => {
     const fetchNewsData = async () => {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${API_KEY}`
+        `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${process.env.REACT_APP_NEWS}`
       );
       setNews(response.data.articles)
     };

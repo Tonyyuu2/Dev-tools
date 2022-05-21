@@ -17,15 +17,19 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('/api/auth/register', user)
-      .then(result => {
-        console.log(result.data);
-        ctx.onRegister(result.data.username, result.data.token);
-        navigate('/');
-      })
-      .catch(e => console.log(e));
+    if (user.firstname && user.lastname && user.git && user.email && user.password && user.isValid) {
 
-    setUser({});
+      axios.post('/api/auth/register', user)
+        .then(result => {
+          console.log(result.data);
+          ctx.onRegister(result.data.username, result.data.token);
+          navigate('/');
+        })
+        .catch(e => console.log(e));
+  
+      setUser({});
+    }
+
   };
 
   const handleChange = (e) => {

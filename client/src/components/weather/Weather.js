@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import WeatherInfoComponent from "./WeatherInfoComponent";
 
+
 const WeatherCondition = styled.div`
   display: flex;
   flex-direction: row;
@@ -79,7 +80,6 @@ export const DynamicWeatherIcons = {
   "11n": "/icons/storm.svg",
 };
 
-const API_KEY = "59f279ff6b522c6deef69f2062276988";
 
 function Weather() {
   const [weather, setWeather] = useState();
@@ -95,7 +95,7 @@ function Weather() {
   useEffect(() => {
     const fetchWeatherData = async () => {
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=coquitlam&APPID=${API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=coquitlam&APPID=${process.env.REACT_APP_WEATHER}&units=metric`
       );
       setWeather(response.data);
     };
