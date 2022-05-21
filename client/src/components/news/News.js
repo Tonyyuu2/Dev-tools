@@ -27,7 +27,7 @@ function News() {
   return (
     <div className={classes.newscontainer}>
       <div className={classes.sticky}>
-      <label className={classes.topStories}>Top Stories</label>
+      <label className={classes.topStories}>Tech Buzz</label>
       </div>
       <div className={classes.newsEntries}>
       {newsEntryList}
