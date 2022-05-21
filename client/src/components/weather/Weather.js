@@ -19,9 +19,9 @@ const Condition = styled.span`
   padding-bottom: 17px;
   & span {
     color: #3f4042;
-    margin-top: 8px;
+    margin-top: 7px;
     font-weight: 600;
-    font-size: 35px;
+    font-size: 27px;
   }
 `;
 const WeatherIcon = styled.img`
@@ -38,7 +38,7 @@ const Location = styled.span`
 `;
 const WeatherInfoBlock = styled.div`
   display: flex;
- 
+
 `;
 const Container = styled.div`
   display: flex;
@@ -63,7 +63,7 @@ export const WeatherInfoIcons = {
   pressure: "/icons/pressure.svg",
 };
 export const DynamicWeatherIcons = {
-  "01d": "/icons/sunny.svg",
+  "01d": "/icons/sunny.png",
   "01n": "/icons/night.svg",
   "02d": "/icons/day.svg",
   "02n": "/icons/cloudy-night.svg",
