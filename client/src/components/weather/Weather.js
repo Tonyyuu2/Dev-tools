@@ -19,9 +19,9 @@ const Condition = styled.span`
   padding-bottom: 17px;
   & span {
     color: #3f4042;
-    margin-top: 8px;
+    margin-top: 7px;
     font-weight: 600;
-    font-size: 35px;
+    font-size: 27px;
   }
 `;
 const WeatherIcon = styled.img`
