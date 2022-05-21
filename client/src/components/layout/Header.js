@@ -34,10 +34,7 @@ const Header = ({ switch_menu, boxShadow }) => {
         { !ctx.token && <li><NavLink to='/login'>Login</NavLink></li> }
         { !ctx.token && <li><NavLink to='/register'>Register</NavLink></li> }
         { ctx.token && <li onClick={ ctx.onLogout }><NavLink to='/'>Logout</NavLink></li> }
-        { ctx.token && <li onClick={ ctx.onLogout }>
-        <NavLink to='about'>About</NavLink>
-        </li> }
-
+        <li><NavLink to='about'>About</NavLink></li> 
       </ul>
 
     </nav>

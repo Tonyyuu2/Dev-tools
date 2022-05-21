@@ -8,7 +8,7 @@ import { MdSaveAlt } from "react-icons/md";
 
 
 
-const Form = ({ closeModal, onAdd }) => {
+const Form = ({  closeModal, onAdd }) => {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

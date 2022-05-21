@@ -48,7 +48,7 @@ export default function WriteHelperTool() {
       <p className={styles.subheading}>Generate your project description for <b>README</b></p>
 
       <form onSubmit={onFormSubmit}> 
-        <div className={styles.formGroup} controlId="formBasicEmail">
+        <div className={styles.formGroup}>
           <input
           type="text" 
           placeholder="Project Title"
