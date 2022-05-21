@@ -6,8 +6,6 @@ function NewsEntryList(props) {
     <>
     <div className={classes.body}>
     <a className={classes.atag} href={props?.url} target="_blank" rel="noreferrer">
-
-
       <div className={classes.section}>
       <div className={classes.source}>{props?.source.name}</div>
       <div className={classes.subSection}>

@@ -6,6 +6,7 @@
   z-index: 999 !important;
   position: fixed;
   width: 100%;
+  padding: 0.5em 0;
 }
 
 .logo {
@@ -15,6 +16,7 @@
   cursor: pointer;
 }
 
+
 .linklist {
   display: flex;
   justify-content: space-between;
@@ -22,10 +24,12 @@
 }
 
 .link__list li {
-  color: rgb(88, 184, 128);
+  color: #9fd1bb;
   margin-right: 2em;
 }
 
 .link__list li a {
   color: rgb(135, 121, 215);
+  margin-left: -1em;
+
 }

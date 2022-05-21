@@ -14,10 +14,10 @@ const Break = () => {
           </div>
             <News className={classes.news} />
         </div>
-        <img
+        {/* <img
           src='https://github-readme-stats.vercel.app/api?username=gaearon&show_icons=true&theme=buefy'
           alt='git-stats'
-        ></img>
+        ></img> */}
       </div>
     </>
   );
