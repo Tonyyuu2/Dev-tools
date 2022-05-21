@@ -27,9 +27,11 @@ function News() {
   return (
     <div className={classes.newscontainer}>
       <div className={classes.sticky}>
-      <label className={classes.topstories}>Top Stories</label>
+      <label className={classes.topStories}>Top Stories</label>
       </div>
+      <div className={classes.newsEntries}>
       {newsEntryList}
+      </div>
     </div>
   );
 }

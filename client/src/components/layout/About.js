@@ -81,10 +81,10 @@ export default function About() {
             <div className={ classes.name }>
               <h2>Lucky</h2>
             </div>
-            <div className={ classes.description }>Full Stack Web Developer</div>
-            <i className={ classes.quote }>"I am passionate about turning an idea into reality."</i>
-            <IconContext.Provider value={ { color: "grey", size: "30px" } }>
-              <div className={ classes.atag }>
+            <div className={classes.description}>Full Stack Web Developer</div>
+            <i className={classes.quote}>"Real programmers count from 0"</i>
+            <IconContext.Provider value={{ color: "grey", size: "30px" }}>
+              <div className={classes.atag}>
                 <a
                   href="https://github.com/lucky-hw-kim"
                   target="_blank"
