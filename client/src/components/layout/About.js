@@ -15,7 +15,6 @@ export default function About() {
           <div className={ classes.missionstatement }>
             <i>DevTools is an app designed to help developers be productive and stay productive. We wanted to provide a space where devs have access to a suite of tools ready-to-go without the nuisance of tabbing from window to window. Our tools are tailor-made to make a dev’s life easier so they can focus on what’s important: writing code, and building great software.</i>
           </div>
-          <div className={ classes.borderforheader }></div>
         </header>
         <div className={ classes.cards }>
           <div className={ classes.container }>
