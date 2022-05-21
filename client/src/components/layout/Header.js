@@ -37,7 +37,6 @@ const Header = ({ switch_menu, boxShadow }) => {
         <li>
         <NavLink to='about'>About</NavLink>
         </li>
-
       </ul>
 
     </nav>
