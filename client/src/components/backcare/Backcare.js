@@ -124,7 +124,6 @@ const Backcare = () => {
   const handleResetTraining = () => {
     axios.patch('/api/datalab/backcare/model', {}, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => {
-        console.log(result.data);
         dispatchBackcare({ type: 'RESET', value: false });
         setClassifier(knnClassifier.create());
       })
@@ -161,7 +160,7 @@ const Backcare = () => {
       axios.post('/api/datalab/backcare/data', { good: data.good, bad: data.bad }, { headers: { authorization: "Bearer " + authCtx.token } })
         .then(result => {
           data = { good: 0, bad: 0 };
-          console.log(result.data);
+
         })
         .catch(e => console.error(e));
     }
