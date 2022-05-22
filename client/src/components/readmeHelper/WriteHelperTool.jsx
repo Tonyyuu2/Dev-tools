@@ -17,7 +17,6 @@ export default function WriteHelperTool() {
     const formData = new FormData(e.target),
       formDataObj = Object.fromEntries(formData.entries());
 
-    console.log(process.env.REACT_APP_OPENAI);
     const configuration = new Configuration({
       apiKey: process.env.REACT_APP_OPENAI,
     });
