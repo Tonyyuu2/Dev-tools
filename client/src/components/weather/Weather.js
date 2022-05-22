@@ -93,13 +93,15 @@ function Weather() {
   }
 
   useEffect(() => {
-    const fetchWeatherData = async () => {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=coquitlam&APPID=${process.env.REACT_APP_WEATHER}&units=metric`
-      );
-      setWeather(response.data);
-    };
-    fetchWeatherData();
+    axios.get(`https://geolocation-db.com/json/4bdf2390-d062-11ec-81c2-0baa51ec38e1`).then((result) => {
+      const fetchWeatherData = async () => {
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${result.data.city}&APPID=${process.env.REACT_APP_WEATHER}&units=metric`
+        );
+        setWeather(response.data);
+      };
+      fetchWeatherData();
+    })
   }, []);
 
   return (
