@@ -2,20 +2,19 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import NewsEntryList from "./NewsEntryList";
 import classes from "./NewsEntryList.module.css";
+import options from "./Newshelper"
 
 
 
 function News() {
   const [news, setNews] = useState();
-
+  
   useEffect(() => {
-    const fetchNewsData = async () => {
-      const response = await axios.get(
-        `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=${process.env.REACT_APP_NEWS}`
-      );
+
+    axios.request(options).then((response) => {
+      console.log(response.data.articles);
       setNews(response.data.articles)
-    };
-    fetchNewsData();
+    })
   }, []);
 
   const newsEntryList = news?.map((article, index) => (
