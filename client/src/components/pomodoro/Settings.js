@@ -10,6 +10,7 @@ import { FaMugHot, FaBrain, FaArrowLeft } from "react-icons/fa";
 
 
 function Settings() {
+  //importing the context from Pomodoro.js
   const settingsInfo = useContext(Settingscontext);
 
   return (

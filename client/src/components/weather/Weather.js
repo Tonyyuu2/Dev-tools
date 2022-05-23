@@ -3,7 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import WeatherInfoComponent from "./WeatherInfoComponent";
 
-
+// styled.____ represents the styled components that are rendered below
 const WeatherCondition = styled.div`
   display: flex;
   flex-direction: row;
@@ -56,6 +56,8 @@ const Container = styled.div`
   -webkit-backdrop-filter: blur(5.8px);
   border: 1px solid rgba(255, 255, 255, 0.22);
 `;
+
+//icons that will be rendered depenending on the weather 
 export const WeatherInfoIcons = {
   sunset: "/icons/temp.svg",
   sunrise: "/icons/temp.svg",
@@ -84,16 +86,17 @@ export const DynamicWeatherIcons = {
 function Weather() {
   const [weather, setWeather] = useState();
 
+  //check to see if the time is either day or not from the API data
   const day = weather?.weather[0].icon.includes("d");
-
+  //fn that converts the timestamp from the data to 00:00
   function timeConverter(timestamp) {
     return `${new Date(timestamp * 1000).getHours()}:${new Date(
       timestamp * 1000
     ).getMinutes()}`;
   }
-
+  //on render, the geolocation API fetches user's current location then passes that data to the weather api for up-to-date weather of the user's current location
   useEffect(() => {
-    axios.get(`https://geolocation-db.com/json/4bdf2390-d062-11ec-81c2-0baa51ec38e1`).then((result) => {
+    axios.get(`https://geolocation-db.com/json/${process.env.REACT_APP_GEOLOCATION}`).then((result) => {
       const fetchWeatherData = async () => {
         const response = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${result.data.city}&APPID=${process.env.REACT_APP_WEATHER}&units=metric`
