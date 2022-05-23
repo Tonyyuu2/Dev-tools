@@ -1,0 +1,28 @@
+.title {
+  padding-top: 6em;
+  align-self: center;
+}
+.response {
+  margin-top: 3em;
+  align-self: center;
+}
+.btn {
+  padding: 1em 2em 1em 2em;
+  margin-top: 2em;
+  cursor: pointer;
+  background-color: rgb(149, 98, 198);
+  color: white;
+  border-radius: 10px;
+  align-self: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.img{
+  align-self: center;
+  width: 30vw;
+}

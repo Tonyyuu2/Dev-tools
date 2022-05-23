@@ -5,7 +5,7 @@ import
   FaHome,
   FaMedkit,
   } from 'react-icons/fa'
-  import {IoNewspaper} from 'react-icons/io5'
+  import {IoNewspaper, IoWarning} from 'react-icons/io5'
 
 
 const SideBar = ({ switch_menu, showMenu }) => {
@@ -35,6 +35,14 @@ const SideBar = ({ switch_menu, showMenu }) => {
             to='/break'
           >
             <IoNewspaper color='#9fd1bb'/>
+          </NavLink>
+          <NavLink
+            exact='true'
+            activeclassname='active'
+            className='random-link'
+            to='/random'
+          >
+            <IoWarning color='#9fd1bb'/>
           </NavLink>
         </nav>
         <p className='copy-right'>Made with 💜<br/>Copyright © 2022 DevTools, Inc. <br/>All rights not reserved.</p>

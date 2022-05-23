@@ -10,6 +10,7 @@ import About from './components/layout/About';
 import Dashboard from './components/layout/Dashboard';
 import { AuthContextProvider } from './components/store/auth-context';
 import AuthContext from './components/store/auth-context';
+import Random from './components/randomAPI/Random';
 
 const RequireAuth = () => {
   const authCtx = useContext(AuthContext);
@@ -33,6 +34,7 @@ function App() {
           <Route index element={ <Home /> } />
           <Route path='backcare' element={ <Wecare /> } />
           <Route path='break' element={ <Break /> } />
+          <Route path='random' element={ <Random /> } />
         </Route>
       </Routes>
     </AuthContextProvider >
