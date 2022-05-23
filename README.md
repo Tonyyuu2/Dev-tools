@@ -16,7 +16,7 @@ To start the application, run `npm start` on both terminal windows and enjoy~!ðŸ
 
 ## Overview of the Application
 
-insert gif
+![overview](https://github.com/Tonyyuu2/Dev-tools/blob/main/docs/overview.gif?raw=true)
 
 # Main Features
 
