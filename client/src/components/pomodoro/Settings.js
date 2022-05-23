@@ -27,7 +27,7 @@ function Settings() {
         trackClassName={"track"}
         value={settingsInfo.workMinutes}
         onChange={(newValue) => settingsInfo.setWorkMinutes(newValue)}
-        min={1}
+        min={0.1}
         max={120}
       />
       <label className={classes.label}><FaMugHot/>&nbsp;{settingsInfo.breakMinutes}:00</label>
@@ -37,7 +37,7 @@ function Settings() {
         trackClassName={"track"}
         value={settingsInfo.breakMinutes}
         onChange={(newValue) => settingsInfo.setBreakMinutes(newValue)}
-        min={1}
+        min={0.1}
         max={120}
       />
     </div>

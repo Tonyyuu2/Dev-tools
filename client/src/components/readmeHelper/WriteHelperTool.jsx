@@ -17,9 +17,8 @@ export default function WriteHelperTool() {
     const formData = new FormData(e.target),
       formDataObj = Object.fromEntries(formData.entries());
 
-    console.log(process.env.REACT_APP_API_KEY);
     const configuration = new Configuration({
-      apiKey: process.env.REACT_APP_API_KEY,
+      apiKey: process.env.REACT_APP_OPENAI,
     });
 
     const openai = new OpenAIApi(configuration);
@@ -42,47 +41,34 @@ export default function WriteHelperTool() {
 
   return (
     <>
-      <div className={styles.main_container}>
-        <h1 className={styles.heading}>Project Description Generator</h1>
-        <p className={styles.subheading}>
-          Generate your project description for <b>README</b>
-        </p>
-        <form onSubmit={onFormSubmit}>
-          <div className={styles.formGroup}>
-            <input
-              type='text'
-              placeholder='Project Title'
-              name='projectTitle'
-              className={styles.formInput}
-            />
-            <input
-              type='text'
-              placeholder='Tech Stack'
-              name='techStack'
-              className={styles.formInput}
-            />
-            <input
-              type='text'
-              placeholder='Functionalities'
-              name='functionalities'
-              className={styles.formInput}
-            />
-          </div>
-          <div className={styles.btnGroup}>
-            <button
-              className={styles.btnGenerate}
-              variant='primary'
-              type='submit'
-              disabled={isLoading}
-            >
-              Generate
-            </button>
-            <button className={styles.btnReset} type='reset'>
-              Clear
-            </button>
-          </div>
-        </form>
+    <div className={styles.main_container}>
+      <h1 className={styles.heading}>Project Description Generator</h1>
+      <p className={styles.subheading}>Generate your project description for <b>README</b></p>
 
+      <form onSubmit={onFormSubmit}> 
+        <div className={styles.formGroup}>
+          <input
+          type="text" 
+          placeholder="Project Title"
+          name="projectTitle" className={styles.formInput}  />
+          <input
+          type="text" 
+          placeholder="Tech Stack"
+          name="techStack" className={styles.formInput} />
+          <input
+          type="text" 
+          placeholder="Functionalities"
+          name="functionalities" className={styles.formInput} />
+        </div>
+        <div className={styles.btnGroup}>
+          <button className={styles.btnGenerate} variant="primary" type="submit" disabled={isLoading} >
+            Generate
+          </button>
+          <button className={styles.btnReset} type="reset">
+            Clear
+          </button>
+        </div>
+      </form> 
         <br />
         <br />
         <div className={styles.divContainer}>

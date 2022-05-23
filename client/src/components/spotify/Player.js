@@ -36,7 +36,7 @@ export default function Player({ token }) {
           play={ isPlaying }
           uris={ trackUri }
           magnifySliderOnHover={ true }
-          volume={ 0.6 }
+          volume={ 0.4 }
           styles={ {
             activeColor: "#fff",
             bgColor: "#1DB954",

@@ -54,12 +54,6 @@
   position: fixed;
   height: 100vh;
 
-
-  .logo {
-    display: block;
-    padding: 8px 0;
-  }
-
   nav {
     display: block;
     text-align: center;
@@ -79,7 +73,7 @@
       max-width: 60px;
       position: relative;
       text-decoration: none;
-      margin-bottom: 52px;
+      margin-bottom: 60px;
 
       i {
         transition: all 0.2s ease-out;
@@ -100,7 +94,7 @@
         font-size: 10px;
         letter-spacing: 2px;
         position: absolute;
-        bottom: 23px;
+        bottom: 30px;
         display: block;
         width: 100%;
         text-align: center;
@@ -125,7 +119,7 @@
     }
     a.break-link {
       &:after {
-        content: 'BREAK';
+        content: 'MISC';
       }
     }
     a.active {
@@ -134,4 +128,13 @@
       }
     }
   }
+}
+
+.copy-right {
+  text-align: center;
+  margin-top: 61.3em;
+  bottom:200px;
+  font-size: 12px;
+  color: rgb(150, 150, 150);
+  overflow-wrap: break-word;
 }

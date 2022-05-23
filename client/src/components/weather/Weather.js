@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import WeatherInfoComponent from "./WeatherInfoComponent";
 
+
 const WeatherCondition = styled.div`
   display: flex;
   flex-direction: row;
@@ -19,9 +20,9 @@ const Condition = styled.span`
   padding-bottom: 17px;
   & span {
     color: #3f4042;
-    margin-top: 8px;
+    margin-top: 7px;
     font-weight: 600;
-    font-size: 35px;
+    font-size: 27px;
   }
 `;
 const WeatherIcon = styled.img`
@@ -38,7 +39,7 @@ const Location = styled.span`
 `;
 const WeatherInfoBlock = styled.div`
   display: flex;
- 
+
 `;
 const Container = styled.div`
   display: flex;
@@ -63,7 +64,7 @@ export const WeatherInfoIcons = {
   pressure: "/icons/pressure.svg",
 };
 export const DynamicWeatherIcons = {
-  "01d": "/icons/sunny.svg",
+  "01d": "/icons/sunny.png",
   "01n": "/icons/night.svg",
   "02d": "/icons/day.svg",
   "02n": "/icons/cloudy-night.svg",
@@ -79,7 +80,6 @@ export const DynamicWeatherIcons = {
   "11n": "/icons/storm.svg",
 };
 
-const API_KEY = "59f279ff6b522c6deef69f2062276988";
 
 function Weather() {
   const [weather, setWeather] = useState();
@@ -93,13 +93,15 @@ function Weather() {
   }
 
   useEffect(() => {
-    const fetchWeatherData = async () => {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=coquitlam&APPID=${API_KEY}&units=metric`
-      );
-      setWeather(response.data);
-    };
-    fetchWeatherData();
+    axios.get(`https://geolocation-db.com/json/4bdf2390-d062-11ec-81c2-0baa51ec38e1`).then((result) => {
+      const fetchWeatherData = async () => {
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${result.data.city}&APPID=${process.env.REACT_APP_WEATHER}&units=metric`
+        );
+        setWeather(response.data);
+      };
+      fetchWeatherData();
+    })
   }, []);
 
   return (

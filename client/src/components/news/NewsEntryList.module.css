@@ -42,6 +42,7 @@
 .subSection {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-between;
   padding: 0.17em 0.23em 0.20em 0.18em;
 }
 
@@ -59,15 +60,16 @@
 .thumbnail {
   height: fit-content;
   border-radius: 7px;
-  max-width: 125px;
+  max-width: 230px;
   align-self: center;
+  flex: 1;
 }
 
 
 .topStories{
   padding-bottom: 1em;
   font-weight: 500;
-  color: rgb(255, 142, 198);
+  color:rgb(66, 66, 66);
   font-size: 28px;
   position: sticky;
 }

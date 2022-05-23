@@ -15,7 +15,6 @@ export default function About() {
           <div className={ classes.missionstatement }>
             <i>DevTools is an app designed to help developers be productive and stay productive. We wanted to provide a space where devs have access to a suite of tools ready-to-go without the nuisance of tabbing from window to window. Our tools are tailor-made to make a dev’s life easier so they can focus on what’s important: writing code, and building great software.</i>
           </div>
-          <div className={ classes.borderforheader }></div>
         </header>
         <div className={ classes.cards }>
           <div className={ classes.container }>
@@ -25,10 +24,10 @@ export default function About() {
             <div className={ classes.name }>
               <h2>Tony</h2>
             </div>
-            <div className={ classes.description }>Full Stack Web Developer</div>
-            <i className={ classes.quote }>"What is a programmer's favourite hangout place? Foo Bar"</i>
-            <IconContext.Provider value={ { color: "grey", size: "30px" } }>
-              <div className={ classes.atag }>
+            <div className={classes.description}>Full Stack Web Developer</div>
+            <i className={classes.quote}>"Things aren’t always #000000 and #FFFFFF"</i>
+            <IconContext.Provider value={{ color: "grey", size: "30px" }}>
+              <div className={classes.atag}>
                 <a
                   href="https://github.com/Tonyyuu2"
                   target="_blank"
@@ -53,10 +52,10 @@ export default function About() {
             <div className={ classes.name }>
               <h2>Shubham</h2>
             </div>
-            <div className={ classes.description }>Full Stack Web Developer</div>
-            <i className={ classes.quote }>"I love to solve complex problems through coding."</i>
-            <IconContext.Provider value={ { color: "grey", size: "30px" } }>
-              <div className={ classes.atag }>
+            <div className={classes.description}>Full Stack Web Developer</div>
+            <i className={classes.quote}>"If at first you don’t succeed; call it version 1.0"</i>
+            <IconContext.Provider value={{ color: "grey", size: "30px" }}>
+              <div className={classes.atag}>
                 <a
                   href="https://github.com/shubham2295"
                   target="_blank"
@@ -82,7 +81,7 @@ export default function About() {
               <h2>Lucky</h2>
             </div>
             <div className={classes.description}>Full Stack Web Developer</div>
-            <i className={classes.quote}>"Real programmers count from 0"</i>
+            <i className={classes.quote}>"Nine people can't make a baby in a month"</i>
             <IconContext.Provider value={{ color: "grey", size: "30px" }}>
               <div className={classes.atag}>
                 <a
