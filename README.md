@@ -56,7 +56,9 @@ insert gif
 Developers can use the Pomodoro style timer to remind themselves to take breaks between coding sessions, and use the weather widget to check the weather in their current location. 
 
 
+## Credits
 
+We would like to thank our instructors, mentors, and staff at Lighthouse Labs for all of their unwavering support. We would also like to give a shoutout to all the online resources that we referred to in the development of this project. We are thoroughly excited to embark on this programming journey and cannot wait to see wha the future holds. 
 
 
 
