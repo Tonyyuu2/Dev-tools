@@ -24,37 +24,38 @@ insert gif
 
 Developers can write, edit, and delete to summarize their daily activities. 
 
-insert gif
+![code journal](https://github.com/Tonyyuu2/Dev-tools/blob/main/docs/code%20journal.gif?raw=true)
 
 
 ## Listen to music!
 
 Developers have access to their Spotify music streaming service directly on the application.
 
-insert gif 
+![spotify](https://github.com/Tonyyuu2/Dev-tools/blob/main/docs/spotify.gif?raw=true)
 
 ## Organize daily tasks!
 
 Developers can organize their daily tasks onto the kanban-style board to keep track of their work. 
 
-insert gif
+![todo](https://github.com/Tonyyuu2/Dev-tools/blob/main/docs/todo.gif?raw=true)
 
 ## Keep track of physical health!
 
 Developers can keep track of their posture and log their data so that they can improve their posture during long coding sessions. 
 
-insert gif
+![backcare](https://github.com/Tonyyuu2/Dev-tools/blob/main/docs/backcare.gif?raw=true)
 
 ## It's all about the little things! 
 
 Developers can use the random README generator to help them with their project descriptions and check out the latest tech news. 
 
-insert gif
+![readme+news](https://github.com/Tonyyuu2/Dev-tools/blob/main/docs/readme+news.gif?raw=true)
 
 ## Take breaks!
 
 Developers can use the Pomodoro style timer to remind themselves to take breaks between coding sessions, and use the weather widget to check the weather in their current location. 
 
+![pomodoro and weather](https://github.com/Tonyyuu2/Dev-tools/blob/main/docs/pomodoro.gif?raw=true)
 
 ## Credits
 
