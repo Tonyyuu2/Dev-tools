@@ -6,7 +6,7 @@ const JournalItemTag = ({ variant, children, onFilter }) => {
     <button
       className={ `${classes.tag} ${classes[variant]}` }
       onClick={ (e) => {
-        e.stopPropagation();
+        e.stopPropagation(); //prevents the parent component from rendering when clicked
         onFilter(variant);
       } }>
       { children }
