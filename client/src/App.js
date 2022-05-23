@@ -11,6 +11,7 @@ import Dashboard from './components/layout/Dashboard';
 import { AuthContextProvider } from './components/store/auth-context';
 import AuthContext from './components/store/auth-context';
 
+//Auth component for acccessing private routes
 const RequireAuth = () => {
   const authCtx = useContext(AuthContext);
   if (!authCtx.token) {
@@ -25,10 +26,12 @@ function App() {
     <AuthContextProvider>
       <Layout />
       <Routes>
+        {/* public routes*/ }
         <Route path='/login' element={ <Login /> } />
         <Route path='/register' element={ <Register /> } />
         <Route path='/home' element={ <Dashboard /> } />
         <Route path='/about' element={ <About /> } />
+        {/* private routes*/ }
         <Route path='/' element={ <RequireAuth /> }>
           <Route index element={ <Home /> } />
           <Route path='backcare' element={ <Wecare /> } />

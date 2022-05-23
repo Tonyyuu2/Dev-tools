@@ -3,12 +3,13 @@ const db = require('../db/db.js');
 const jwt = require("jsonwebtoken");
 const secretKey = process.env.SECRET;
 
-const salt = bcrypt.genSaltSync(10);
-
+//encrypting the user password with bcrypt
 const hashpwd = (userPW) => {
+  const salt = bcrypt.genSaltSync(10);
   return bcrypt.hashSync(userPW, salt);
 };
 
+//generating jwt for user
 const generateToken = (id, secretKey) => {
   return jwt.sign({ id }, secretKey, { expiresIn: '2h' });
 };
@@ -65,6 +66,7 @@ exports.authenticateUser = async (req, res) => {
   }
 };
 
+//Checks if email already exists in the database while user sign ups
 exports.validateEmailAvailibility = async (req, res) => {
 
   const user = await getUserWithEmail(req.query.email);

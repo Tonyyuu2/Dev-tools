@@ -13,6 +13,7 @@ const TodoList = () => {
   const [tasks, setTasks] = useState([]);
   const authCtx = useContext(AuthContext);
 
+  //loading all the tasks on component mount
   useEffect(() => {
 
     axios.get('/api/tasks', { headers: { authorization: "Bearer " + authCtx.token } })
@@ -21,22 +22,25 @@ const TodoList = () => {
 
   }, [authCtx.token]);
 
-
+  //saving the task on the server with 'todo' status
   const handleSave = (e) => {
     e.preventDefault();
     if (!taskName) {
       setShowModel(false);
       return;
     }
+    //hides the form to add new task
     setShowModel(false);
 
     axios.post('/api/tasks', { desc: taskName }, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => setTasks(prev => [...prev, (result.data)]))
       .catch(e => console.error(e));
 
+    //clear the input after submitting the task
     setTaskName('');
   };
 
+  //removing the current task from server and client
   const handleDelete = (id) => {
 
     axios.delete(`/api/tasks/${id}`, { headers: { authorization: "Bearer " + authCtx.token } })
@@ -47,6 +51,8 @@ const TodoList = () => {
 
   };
 
+  //updating status of the task that's being dragged
+  //reactBeautifulDnD function
   const onDragEnd = (result) => {
 
     const { source, destination, draggableId } = result;
@@ -67,6 +73,7 @@ const TodoList = () => {
       return task;
     });
 
+    //updating status of the task on the server
     axios.put('/api/tasks', { id: taskId, status: status }, { headers: { authorization: "Bearer " + authCtx.token } })
       .then(result => setTasks(updatedTask))
       .catch(e => console.error(e));
@@ -76,7 +83,6 @@ const TodoList = () => {
   return (
 
     <DragDropContext onDragEnd={ onDragEnd }>
-      {/* <h1 className={ classes.container__header }>To Do</h1> */ }
       <div className={ classes.container }>
         <Droppable droppableId='todo'>
           {

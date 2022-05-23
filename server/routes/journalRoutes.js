@@ -1,8 +1,5 @@
 const router = require('express').Router();
-
-
 const JournalController = require('../controllers/JournalController');
-
 
 router.get('/', JournalController.getAllEntries);
 
