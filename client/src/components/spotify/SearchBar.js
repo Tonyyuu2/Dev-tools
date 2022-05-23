@@ -8,12 +8,17 @@ export default function SearchBar({
   token,
   setTracks,
 }) {
+  // Setting a selected 
   const searchTracks = async (e) => {
     setTracks([]);
     e.preventDefault();
+
+    // Fetch track music library from spotify 
     const { data } = await axios.get("https://api.spotify.com/v1/search", {
       headers: {
-        Authorization: `Bearer ${token}`,
+
+    // send token for authorization request
+        Authorization: `Bearer ${token}`, 
       },
       params: {
         q: searchKey,
@@ -26,6 +31,7 @@ export default function SearchBar({
 
   return (
     <div className={styles.searchForm}>
+      {/* Serach bar */}
       <form onSubmit={searchTracks}>
         <input
           className={styles.searchInput}
@@ -37,9 +43,11 @@ export default function SearchBar({
           }}
         />
         <div className={styles.buttonContainer}>
+          {/* Clear search bar */}
           <button className={styles.btn} type={"reset"}>
           <FiDelete/>
           </button>
+          {/* submit the search input */}
           <button className={styles.btn} type={"submit"}>
           <FiSearch/>
           </button>
