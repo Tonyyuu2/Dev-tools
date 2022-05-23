@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 
+// middlewear to verify the token send by the user for private route access
+
 const verifyToken = (req, res, next) => {
 
   if (!req.headers['authorization']) {

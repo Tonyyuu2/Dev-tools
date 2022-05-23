@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+//authCtx to manage global data
 const AuthContext = React.createContext({
   username: null,
   onLogout: () => { },
   onLogin: (email, password) => { }
 });
 
+
 export const AuthContextProvider = (props) => {
+
   const initialToken = localStorage.getItem('token');
   const initialName = localStorage.getItem('name');
   const [token, setToken] = useState(initialToken);

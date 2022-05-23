@@ -30,13 +30,15 @@ const options = {
   },
 };
 
+//months that you want to display on barchart
 const labels = ['January', 'February', 'March', 'April', 'May'];
 
 const BarChart = () => {
-
   const [data, setData] = useState({ datasets: [] });
   const authCtx = useContext(AuthContext);
 
+  // loading data from server 
+  // seeding it into the graph data
   useEffect(() => {
 
     axios.get('/api/datalab/backcare/data', { headers: { authorization: "Bearer " + authCtx.token } })

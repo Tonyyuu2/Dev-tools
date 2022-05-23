@@ -1,7 +1,5 @@
 const router = require('express').Router();
-
 const DatalabController = require('../controllers/DatalabController');
-
 
 router.get('/backcare/data', DatalabController.getBackcareData);
 

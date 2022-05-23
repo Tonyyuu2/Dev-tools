@@ -7,24 +7,24 @@ import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
+  const ctx = useContext(AuthContext);
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     firstname: "", lastname: "", git: "", email: "", password: "", isValid: true
   });
-  const ctx = useContext(AuthContext);
-  const navigate = useNavigate();
-
 
   const handleSubmit = (e) => {
-    e.preventDefault();
 
+    e.preventDefault();
+    //Sending user data to server for registratrion
     axios.post('/api/auth/register', user)
       .then(result => {
-        console.log(result.data);
         ctx.onRegister(result.data.username, result.data.token);
         navigate('/');
       })
-      .catch(e => console.log(e));
+      .catch(e => console.error(e));
 
+    //Cleaning up the form after submission
     setUser({});
   };
 
@@ -32,6 +32,7 @@ const Register = () => {
     setUser({ ...user, [e.target.name]: e.target.value, isValid: true });
   };
 
+  //Validating that user entered email is not already in use
   const validateEmail = () => {
     axios.get(`/api/auth/checkEmail?email=${user.email}`)
       .then(result => {

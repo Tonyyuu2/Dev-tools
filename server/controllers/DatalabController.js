@@ -17,8 +17,7 @@ exports.getBackcareModel = (req, res) => {
 };
 
 exports.updateBackcareModel = (req, res) => {
-  console.log(req);
-  console.log('inside update model', req.userid);
+
   db.query('UPDATE users SET backcare_model = NULL WHERE id = $1', [req.userid])
     .then(result => res.status(200).json({ model_data: 'deleted' }))
     .catch(e => console.error(e.stack));

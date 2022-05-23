@@ -15,9 +15,10 @@ const Login = () => {
     setError(false);
   };
 
-  const handleSubmit = async (e) => {
+  //Form submit handler displays error if invalid email/password or navigates to homepage on succeesful login
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const error = await ctx.onLogin(data);
+    const error = ctx.onLogin(data);
     if (error) {
       setError(error);
     } else {
@@ -26,7 +27,6 @@ const Login = () => {
   };
 
   return (
-
 
     <div className={ style.global_bg }>
       <div className={ classes.main_body }>
@@ -48,6 +48,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+
   );
 };
 
