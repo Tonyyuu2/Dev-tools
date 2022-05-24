@@ -95,8 +95,7 @@ export default function WriteHelperTool() {
         <div className={styles.divContainer}>
           <div>
             <div className={styles.description}>
-
-              // When waiting for the response, loader will appear
+              {/* // When waiting for the response, loader will appear */}
               {isLoading ? <Loader /> : response} 
             </div>
           </div>

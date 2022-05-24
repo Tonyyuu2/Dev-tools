@@ -23,6 +23,7 @@
     "react-scripts": "5.0.1",
     "react-scroll-to-bottom": "^4.2.0",
     "react-slider": "^2.0.0",
+    "react-spotify-web-playback": "^0.9.2",
     "react-webcam": "^7.0.1",
     "sass": "^1.51.0",
     "styled-components": "^5.3.5"
