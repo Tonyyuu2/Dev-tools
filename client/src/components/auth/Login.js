@@ -16,9 +16,9 @@ const Login = () => {
   };
 
   //Form submit handler displays error if invalid email/password or navigates to homepage on succeesful login
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const error = ctx.onLogin(data);
+    const error = await ctx.onLogin(data);
     if (error) {
       setError(error);
     } else {

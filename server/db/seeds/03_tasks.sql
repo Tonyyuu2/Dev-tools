@@ -1,5 +1,7 @@
 INSERT INTO tasks(user_id, description, status) VALUES
-(1, 'Build specs for the project', 'todo'),
-(1, 'Create project skeleton', 'inprogress'),
-(1, 'Attend meeting with the boss', 'done'),
-(1, 'Talk to client for requirements', 'todo');
+(2, 'Demo Spotify', 'todo'),
+(2, 'Demo Pomodoro', 'todo'),
+(2, 'Demo Code Journal', 'todo'),
+(2, 'Demo Todo list', 'todo'),
+(2, 'Demo Readme and News', 'todo'),
+(2, 'Demo Back Care', 'todo');

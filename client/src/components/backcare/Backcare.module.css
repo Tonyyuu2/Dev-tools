@@ -162,7 +162,7 @@
 
 
 .backDrop {
-  margin-top: -2em;
+  margin-top: -6em;
   z-index: 99;
   height: 100vh;
   background-color: rgba(0,0,0,0.5);
@@ -231,7 +231,7 @@
 .graph {
   z-index:9999;
   text-align: center;
-  margin: -38em 24.5em;
+  margin: -41.5em 24.5em;
   /* width: 200px; */
   position: relative;
   border: 3px solid #54b0d4;
@@ -269,7 +269,7 @@
 .graph2 {
   z-index:9999;
   text-align: center;
-  margin: -37em 24.5em !important;
+  margin: -41.5em 24.5em !important;
   /* width: 200px; */
   position: relative;
   border: 3px solid #54b0d4;

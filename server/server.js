@@ -1,3 +1,4 @@
+require("dotenv").config();
 const verifyToken = require('./middlewears/verifyToken');
 const express = require("express");
 const app = express();
