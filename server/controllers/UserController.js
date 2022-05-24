@@ -3,9 +3,9 @@ const db = require('../db/db.js');
 const jwt = require("jsonwebtoken");
 const secretKey = process.env.SECRET;
 
+const salt = bcrypt.genSaltSync(10);
 //encrypting the user password with bcrypt
 const hashpwd = (userPW) => {
-  const salt = bcrypt.genSaltSync(10);
   return bcrypt.hashSync(userPW, salt);
 };
 
@@ -30,9 +30,9 @@ const getUserWithEmail = (email) => {
 
 exports.registerUser = (req, res) => {
 
-  const { firstname, lastname, email, password, git } = req.body;
+  const { firstname, lastname, email, password} = req.body;
 
-  db.query('INSERT INTO users(firstname, lastname, email, password, github_id ) VALUES($1, $2, $3, $4, $5) RETURNING *', [firstname, lastname, email, hashpwd(password), git])
+  db.query('INSERT INTO users(firstname, lastname, email, password) VALUES($1, $2, $3, $4) RETURNING *', [firstname, lastname, email, hashpwd(password)])
     .then(result => {
       const user = result.rows[0];
       const accessToken = generateToken(user.id, secretKey);
